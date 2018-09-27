@@ -1,0 +1,22 @@
+PODS:
+  - SQLite.swift (0.11.5):
+    - SQLite.swift/standard (= 0.11.5)
+  - SQLite.swift/standard (0.11.5)
+  - SwiftLint (0.26.0)
+
+DEPENDENCIES:
+  - SQLite.swift (= 0.11.5)
+  - SwiftLint (= 0.26.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SQLite.swift
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  SQLite.swift: 6e5356850bb1791459f8c16d6ee9195b28714a2e
+  SwiftLint: f6b83e8d95ee1e91e11932d843af4fdcbf3fc764
+
+PODFILE CHECKSUM: 58bdc9709bbb501490ad9d22b3842d371b6e65a5
+
+COCOAPODS: 1.5.3
