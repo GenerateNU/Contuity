@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		35E183B1215C63D30055BB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E183B0215C63D30055BB01 /* AppDelegate.swift */; };
-		35E183B3215C63D30055BB01 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E183B2215C63D30055BB01 /* RootViewController.swift */; };
-		35E183B5215C63D30055BB01 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E183B4215C63D30055BB01 /* DataViewController.swift */; };
-		35E183B7215C63D30055BB01 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E183B6215C63D30055BB01 /* ModelController.swift */; };
 		35E183BA215C63D30055BB01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35E183B8215C63D30055BB01 /* Main.storyboard */; };
 		35E183BC215C63D40055BB01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E183BB215C63D40055BB01 /* Assets.xcassets */; };
 		35E183BF215C63D40055BB01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35E183BD215C63D40055BB01 /* LaunchScreen.storyboard */; };
@@ -33,9 +30,6 @@
 		3214E7D73B974F6FB1AA59E5 /* Pods-ContuityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContuityTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ContuityTests/Pods-ContuityTests.debug.xcconfig"; sourceTree = "<group>"; };
 		35E183AD215C63D30055BB01 /* Contuity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contuity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E183B0215C63D30055BB01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		35E183B2215C63D30055BB01 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		35E183B4215C63D30055BB01 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
-		35E183B6215C63D30055BB01 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 		35E183B9215C63D30055BB01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35E183BB215C63D40055BB01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35E183BE215C63D40055BB01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -103,9 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				35E183B0215C63D30055BB01 /* AppDelegate.swift */,
-				35E183B2215C63D30055BB01 /* RootViewController.swift */,
-				35E183B4215C63D30055BB01 /* DataViewController.swift */,
-				35E183B6215C63D30055BB01 /* ModelController.swift */,
 				35E183B8215C63D30055BB01 /* Main.storyboard */,
 				35E183BB215C63D40055BB01 /* Assets.xcassets */,
 				35E183BD215C63D40055BB01 /* LaunchScreen.storyboard */,
@@ -146,6 +137,7 @@
 				35E183AA215C63D30055BB01 /* Frameworks */,
 				35E183AB215C63D30055BB01 /* Resources */,
 				A622B0F88B3BD8D53B0689EC /* [CP] Embed Pods Frameworks */,
+				35A66D15215C78DC00593D20 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -165,6 +157,7 @@
 				35E183C2215C63D40055BB01 /* Frameworks */,
 				35E183C3215C63D40055BB01 /* Resources */,
 				05CBFCDCCEFB7986B92B4B9F /* [CP] Embed Pods Frameworks */,
+				35A66D16215C78ED00593D20 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -271,6 +264,42 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		35A66D15215C78DC00593D20 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			showEnvVarsInLog = 0;
+		};
+		35A66D16215C78ED00593D20 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3B2078A09F3EEAADFD97F0AA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -314,9 +343,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35E183B3215C63D30055BB01 /* RootViewController.swift in Sources */,
-				35E183B7215C63D30055BB01 /* ModelController.swift in Sources */,
-				35E183B5215C63D30055BB01 /* DataViewController.swift in Sources */,
 				35E183B1215C63D30055BB01 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
