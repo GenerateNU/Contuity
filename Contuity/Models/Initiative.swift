@@ -11,13 +11,13 @@ import Foundation
 class Initiative {
     
     var id: Int
-    var jot_id: Int
-    var name: String?
-    var parent: Int
+    var jotid: Int
+    var name: String
+    var parent: Int // if parentid == id, top level initiative
     
-    init(id: Int, jot_id: Int, name: String?, parent: Int){
+    init(id: Int, jotid: Int, name: String, parent: Int){
         self.id = id
-        self.jot_id = jot_id
+        self.jotid = jotid
         self.name = name
         self.parent = parent
     }

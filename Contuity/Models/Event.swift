@@ -12,17 +12,17 @@ class Event {
     
     var id: Int
     var name: String?
-    var latitude: Float
-    var longitude: Float
-    var created_at: NSDate?
-    var event_time: NSDate?
+    var latitude: Double?
+    var longitude: Double?
+    var createdat: Date
+    var eventtime: Date?
     
-    init(id: Int, name: String?, latitude: Float, longitude: Float, created_at: NSDate?, event_time: NSDate?){
+    init(id: Int, name: String?, latitude: Double?, longitude: Double?, createdat: Date, eventtime: Date?){
         self.id = id
         self.name = name
         self.latitude = latitude
         self.longitude = longitude
-        self.created_at = created_at
-        self.event_time = event_time
+        self.createdat = createdat
+        self.eventtime = eventtime
     }
 }

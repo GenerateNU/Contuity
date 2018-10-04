@@ -14,13 +14,13 @@ class People {
     var name: String?
     var number: String?
     var email: String?
-    var created_at: NSDate?
+    var createdat: Date
     
-    init(id: Int, name: String?, number: String?, email: String?, created_at: NSDate?){
+    init(id: Int, name: String?, number: String?, email: String?, createdat: Date){
         self.id = id
         self.name = name
         self.number = number
         self.email = email
-        self.created_at = created_at
+        self.createdat = createdat
     }
 }

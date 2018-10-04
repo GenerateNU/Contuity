@@ -10,11 +10,11 @@ import Foundation
 
 class JotPeople {
     
-    var jot_id: Int
-    var people_id: Int
+    var jotid: Int
+    var peopleid: Int
     
-    init(jot_id: Int, people_id: Int){
-        self.jot_id = jot_id
-        self.people_id = people_id
+    init(jotid: Int, peopleid: Int){
+        self.jotid = jotid
+        self.peopleid = peopleid
     }
 }

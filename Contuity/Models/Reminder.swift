@@ -11,12 +11,12 @@ import Foundation
 class Reminder {
     
     var id: Int
-    var jot_id: Int
+    var jotid: Int
     var type: String?
     
-    init(id: Int, jot_id: Int, type: String?){
+    init(id: Int, jotid: Int, type: String?){
         self.id = id
-        self.jot_id = jot_id
+        self.jotid = jotid
         self.type = type
     }
 }

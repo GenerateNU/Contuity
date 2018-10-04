@@ -13,17 +13,17 @@ class Jot {
     var id: Int
     var data: String?
     var queue: Bool
-    var created_at: NSDate?
-    var modified_at: NSDate?
-    var longitude: Float
-    var latitude: Float
+    var createdat: Date
+    var modifiedat: Date?
+    var longitude: Double?
+    var latitude: Double?
     
-    init(id: Int, data: String?, queue: Bool, created_at: NSDate?, modified_at: NSDate?, longitude: Float, latitude: Float){
+    init(id: Int, data: String?, queue: Bool, createdat: Date, modifiedat: Date?, longitude: Double?, latitude: Double?){
         self.id = id
         self.data = data
         self.queue = queue
-        self.created_at = created_at
-        self.modified_at = modified_at
+        self.createdat = createdat
+        self.modifiedat = modifiedat
         self.longitude = longitude
         self.latitude = latitude
     }

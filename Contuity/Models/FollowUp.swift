@@ -11,13 +11,13 @@ import Foundation
 class FollowUp {
     
     var id: Int
-    var jot_id: Int
+    var jotid: Int
     var text: String?
-    var datetime: NSDate?
+    var datetime: Date
     
-    init(id: Int, jot_id: Int, text: String?, datetime: NSDate?){
+    init(id: Int, jotid: Int, text: String?, datetime: Date){
         self.id = id
-        self.jot_id = jot_id
+        self.jotid = jotid
         self.text = text
         self.datetime = datetime
     }
