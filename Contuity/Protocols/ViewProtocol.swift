@@ -9,5 +9,7 @@
 import Foundation
 
 protocol ViewProtocol {
-    var presenter: PresenterProtocol {get set}
+    associatedtype PresenterType: PresenterProtocol
+
+    var presenter: PresenterType {get set}
 }

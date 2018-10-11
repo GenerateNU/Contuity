@@ -11,10 +11,10 @@
 		35D8FBE42166ED2100D3EF19 /* PresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FBE32166ED2100D3EF19 /* PresenterProtocol.swift */; };
 		35D8FBE82166ED6300D3EF19 /* WriteJotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FBE62166ED6300D3EF19 /* WriteJotViewController.swift */; };
 		35D8FBE92166ED6300D3EF19 /* WriteJotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35D8FBE72166ED6300D3EF19 /* WriteJotViewController.xib */; };
+		35D8FBED216ED04C00D3EF19 /* WriteJotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FBEC216ED04C00D3EF19 /* WriteJotPresenter.swift */; };
+		35D8FBFF216EDBEA00D3EF19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D8FBFE216EDBEA00D3EF19 /* LaunchScreen.storyboard */; };
 		35E183B1215C63D30055BB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E183B0215C63D30055BB01 /* AppDelegate.swift */; };
-		35E183BA215C63D30055BB01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35E183B8215C63D30055BB01 /* Main.storyboard */; };
 		35E183BC215C63D40055BB01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E183BB215C63D40055BB01 /* Assets.xcassets */; };
-		35E183BF215C63D40055BB01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35E183BD215C63D40055BB01 /* LaunchScreen.storyboard */; };
 		35E183CA215C63D40055BB01 /* ContuityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E183C9215C63D40055BB01 /* ContuityTests.swift */; };
 		B72C80E7B338A5D2C58BF7A8 /* Pods_ContuityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 627B4B3AD67A38D07635376F /* Pods_ContuityTests.framework */; };
 		DDFC66D50989239275EB26E8 /* Pods_Contuity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C5B146592AA402EC202DA2 /* Pods_Contuity.framework */; };
@@ -36,11 +36,11 @@
 		35D8FBE32166ED2100D3EF19 /* PresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterProtocol.swift; sourceTree = "<group>"; };
 		35D8FBE62166ED6300D3EF19 /* WriteJotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteJotViewController.swift; sourceTree = "<group>"; };
 		35D8FBE72166ED6300D3EF19 /* WriteJotViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WriteJotViewController.xib; sourceTree = "<group>"; };
+		35D8FBEC216ED04C00D3EF19 /* WriteJotPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteJotPresenter.swift; sourceTree = "<group>"; };
+		35D8FBFE216EDBEA00D3EF19 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../../../../../../.Trash/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35E183AD215C63D30055BB01 /* Contuity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contuity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E183B0215C63D30055BB01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		35E183B9215C63D30055BB01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35E183BB215C63D40055BB01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		35E183BE215C63D40055BB01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35E183C0215C63D40055BB01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35E183C5215C63D40055BB01 /* ContuityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContuityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E183C9215C63D40055BB01 /* ContuityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContuityTests.swift; sourceTree = "<group>"; };
@@ -93,10 +93,27 @@
 		35D8FBE52166ED4E00D3EF19 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				35D8FBE62166ED6300D3EF19 /* WriteJotViewController.swift */,
-				35D8FBE72166ED6300D3EF19 /* WriteJotViewController.xib */,
+				35D8FBEA216ED02500D3EF19 /* Jot */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		35D8FBEA216ED02500D3EF19 /* Jot */ = {
+			isa = PBXGroup;
+			children = (
+				35D8FBEB216ED03900D3EF19 /* Write */,
+			);
+			path = Jot;
+			sourceTree = "<group>";
+		};
+		35D8FBEB216ED03900D3EF19 /* Write */ = {
+			isa = PBXGroup;
+			children = (
+				35D8FBE62166ED6300D3EF19 /* WriteJotViewController.swift */,
+				35D8FBE72166ED6300D3EF19 /* WriteJotViewController.xib */,
+				35D8FBEC216ED04C00D3EF19 /* WriteJotPresenter.swift */,
+			);
+			path = Write;
 			sourceTree = "<group>";
 		};
 		35E183A4215C63D30055BB01 = {
@@ -125,10 +142,9 @@
 				35D8FBE52166ED4E00D3EF19 /* Views */,
 				35D8FBE02166ECEF00D3EF19 /* Protocols */,
 				35E183B0215C63D30055BB01 /* AppDelegate.swift */,
-				35E183B8215C63D30055BB01 /* Main.storyboard */,
 				35E183BB215C63D40055BB01 /* Assets.xcassets */,
-				35E183BD215C63D40055BB01 /* LaunchScreen.storyboard */,
 				35E183C0215C63D40055BB01 /* Info.plist */,
+				35D8FBFE216EDBEA00D3EF19 /* LaunchScreen.storyboard */,
 			);
 			path = Contuity;
 			sourceTree = "<group>";
@@ -240,10 +256,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35E183BF215C63D40055BB01 /* LaunchScreen.storyboard in Resources */,
+				35D8FBFF216EDBEA00D3EF19 /* LaunchScreen.storyboard in Resources */,
 				35E183BC215C63D40055BB01 /* Assets.xcassets in Resources */,
 				35D8FBE92166ED6300D3EF19 /* WriteJotViewController.xib in Resources */,
-				35E183BA215C63D30055BB01 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35D8FBE22166ED0100D3EF19 /* ViewProtocol.swift in Sources */,
+				35D8FBED216ED04C00D3EF19 /* WriteJotPresenter.swift in Sources */,
 				35E183B1215C63D30055BB01 /* AppDelegate.swift in Sources */,
 				35D8FBE82166ED6300D3EF19 /* WriteJotViewController.swift in Sources */,
 				35D8FBE42166ED2100D3EF19 /* PresenterProtocol.swift in Sources */,
@@ -396,25 +412,6 @@
 			targetProxy = 35E183C6215C63D40055BB01 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		35E183B8215C63D30055BB01 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				35E183B9215C63D30055BB01 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		35E183BD215C63D40055BB01 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				35E183BE215C63D40055BB01 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		35E183CC215C63D40055BB01 /* Debug */ = {
@@ -539,6 +536,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Contuity/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -557,6 +555,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Contuity/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

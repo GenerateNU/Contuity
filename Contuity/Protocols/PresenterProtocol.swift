@@ -10,13 +10,15 @@ import Foundation
 
 protocol PresenterProtocol {
 
-    var view: ViewProtocol? { get set }
+    associatedtype ViewProtocolType
 
-    mutating func attachView(_ view: ViewProtocol?)
+    var view: ViewProtocolType? { get set }
+
+    mutating func attachView(_ view: ViewProtocolType?)
 }
 
 extension PresenterProtocol {
-    mutating func attachView(_ view: ViewProtocol?) {
+    mutating func attachView(_ view: ViewProtocolType?) {
         self.view = view
     }
 }
