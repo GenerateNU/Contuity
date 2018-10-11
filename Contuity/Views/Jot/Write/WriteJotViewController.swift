@@ -16,7 +16,7 @@ protocol WriteJotViewProtocol: class {
 /// View controller for writing new Jots
 class WriteJotViewController: UIViewController {
 
-    private var presenter = WriteJotPresenter()
+    private (set) var presenter = WriteJotPresenter()
 
     @IBOutlet private (set) var textView: UITextView!
 
@@ -25,6 +25,8 @@ class WriteJotViewController: UIViewController {
 
         presenter.attachView(self)
         prettify()
+
+        navigationItem.title = "Write Jot"
     }
 }
 
