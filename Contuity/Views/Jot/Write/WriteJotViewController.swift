@@ -8,10 +8,12 @@
 
 import UIKit
 
+/// View Protocol for Writing Jots
 protocol WriteJotViewProtocol: class {
 
 }
 
+/// View controller for writing new Jots
 class WriteJotViewController: UIViewController {
 
     private var presenter = WriteJotPresenter()
@@ -22,13 +24,21 @@ class WriteJotViewController: UIViewController {
         super.viewDidLoad()
 
         presenter.attachView(self)
-
-        textView.text = "Reza is the best"
-        textView.isHidden = false
-        textView.isEditable = true
+        prettify()
     }
 }
 
+// MARK: - WriteJotViewProtocol
 extension WriteJotViewController: WriteJotViewProtocol {
 
+}
+
+// MARK: - Prettify
+extension WriteJotViewController: Prettify {
+    func prettify() {
+        textView.text = "Reza is the best"
+        textView.isHidden = false
+        textView.isEditable = true
+        textView.font = UIFont.systemFont(ofSize: 22)
+    }
 }

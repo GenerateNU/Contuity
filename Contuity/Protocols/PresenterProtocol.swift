@@ -6,8 +6,6 @@
 //  Copyright © 2018 Generate. All rights reserved.
 //
 
-import Foundation
-
 protocol PresenterProtocol {
 
     associatedtype ViewProtocolType

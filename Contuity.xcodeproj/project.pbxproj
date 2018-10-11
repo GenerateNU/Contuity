@@ -13,6 +13,8 @@
 		35D8FBE92166ED6300D3EF19 /* WriteJotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35D8FBE72166ED6300D3EF19 /* WriteJotViewController.xib */; };
 		35D8FBED216ED04C00D3EF19 /* WriteJotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FBEC216ED04C00D3EF19 /* WriteJotPresenter.swift */; };
 		35D8FBFF216EDBEA00D3EF19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D8FBFE216EDBEA00D3EF19 /* LaunchScreen.storyboard */; };
+		35D8FC01216F8C4E00D3EF19 /* Prettify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC00216F8C4E00D3EF19 /* Prettify.swift */; };
+		35D8FC03216F8D4600D3EF19 /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC02216F8D4600D3EF19 /* TestHelper.swift */; };
 		35E183B1215C63D30055BB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E183B0215C63D30055BB01 /* AppDelegate.swift */; };
 		35E183BC215C63D40055BB01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E183BB215C63D40055BB01 /* Assets.xcassets */; };
 		35E183CA215C63D40055BB01 /* ContuityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E183C9215C63D40055BB01 /* ContuityTests.swift */; };
@@ -38,6 +40,8 @@
 		35D8FBE72166ED6300D3EF19 /* WriteJotViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WriteJotViewController.xib; sourceTree = "<group>"; };
 		35D8FBEC216ED04C00D3EF19 /* WriteJotPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteJotPresenter.swift; sourceTree = "<group>"; };
 		35D8FBFE216EDBEA00D3EF19 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../../../../../../.Trash/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		35D8FC00216F8C4E00D3EF19 /* Prettify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prettify.swift; sourceTree = "<group>"; };
+		35D8FC02216F8D4600D3EF19 /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
 		35E183AD215C63D30055BB01 /* Contuity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contuity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E183B0215C63D30055BB01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35E183BB215C63D40055BB01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,8 +88,9 @@
 		35D8FBE02166ECEF00D3EF19 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				35D8FBE12166ED0100D3EF19 /* ViewProtocol.swift */,
 				35D8FBE32166ED2100D3EF19 /* PresenterProtocol.swift */,
+				35D8FC00216F8C4E00D3EF19 /* Prettify.swift */,
+				35D8FBE12166ED0100D3EF19 /* ViewProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -109,11 +114,41 @@
 		35D8FBEB216ED03900D3EF19 /* Write */ = {
 			isa = PBXGroup;
 			children = (
+				35D8FBEC216ED04C00D3EF19 /* WriteJotPresenter.swift */,
 				35D8FBE62166ED6300D3EF19 /* WriteJotViewController.swift */,
 				35D8FBE72166ED6300D3EF19 /* WriteJotViewController.xib */,
-				35D8FBEC216ED04C00D3EF19 /* WriteJotPresenter.swift */,
 			);
 			path = Write;
+			sourceTree = "<group>";
+		};
+		35D8FC04216F8D6200D3EF19 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				35D8FC05216F8D6900D3EF19 /* Jot */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		35D8FC05216F8D6900D3EF19 /* Jot */ = {
+			isa = PBXGroup;
+			children = (
+				35D8FC06216F8D6E00D3EF19 /* Write */,
+			);
+			path = Jot;
+			sourceTree = "<group>";
+		};
+		35D8FC06216F8D6E00D3EF19 /* Write */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Write;
+			sourceTree = "<group>";
+		};
+		35D8FC07216F8D7800D3EF19 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		35E183A4215C63D30055BB01 = {
@@ -139,12 +174,12 @@
 		35E183AF215C63D30055BB01 /* Contuity */ = {
 			isa = PBXGroup;
 			children = (
-				35D8FBE52166ED4E00D3EF19 /* Views */,
-				35D8FBE02166ECEF00D3EF19 /* Protocols */,
 				35E183B0215C63D30055BB01 /* AppDelegate.swift */,
 				35E183BB215C63D40055BB01 /* Assets.xcassets */,
 				35E183C0215C63D40055BB01 /* Info.plist */,
 				35D8FBFE216EDBEA00D3EF19 /* LaunchScreen.storyboard */,
+				35D8FBE02166ECEF00D3EF19 /* Protocols */,
+				35D8FBE52166ED4E00D3EF19 /* Views */,
 			);
 			path = Contuity;
 			sourceTree = "<group>";
@@ -154,6 +189,9 @@
 			children = (
 				35E183C9215C63D40055BB01 /* ContuityTests.swift */,
 				35E183CB215C63D40055BB01 /* Info.plist */,
+				35D8FC02216F8D4600D3EF19 /* TestHelper.swift */,
+				35D8FC07216F8D7800D3EF19 /* Protocols */,
+				35D8FC04216F8D6200D3EF19 /* Views */,
 			);
 			path = ContuityTests;
 			sourceTree = "<group>";
@@ -387,6 +425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35D8FC01216F8C4E00D3EF19 /* Prettify.swift in Sources */,
 				35D8FBE22166ED0100D3EF19 /* ViewProtocol.swift in Sources */,
 				35D8FBED216ED04C00D3EF19 /* WriteJotPresenter.swift in Sources */,
 				35E183B1215C63D30055BB01 /* AppDelegate.swift in Sources */,
@@ -400,6 +439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35E183CA215C63D40055BB01 /* ContuityTests.swift in Sources */,
+				35D8FC03216F8D4600D3EF19 /* TestHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
