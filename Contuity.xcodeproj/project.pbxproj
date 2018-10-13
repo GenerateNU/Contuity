@@ -18,6 +18,9 @@
 		35D8FC0E2170139700D3EF19 /* WriteJotViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC0D2170139700D3EF19 /* WriteJotViewControllerTests.swift */; };
 		35D8FC10217013BC00D3EF19 /* WriteJotPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC0F217013BC00D3EF19 /* WriteJotPresenterTests.swift */; };
 		35D8FC132172503800D3EF19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D8FC112172503800D3EF19 /* LaunchScreen.storyboard */; };
+		35D8FC152172559F00D3EF19 /* DatabaseInitializationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC142172559F00D3EF19 /* DatabaseInitializationProtocol.swift */; };
+		35D8FC18217255DA00D3EF19 /* DatabaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC17217255DA00D3EF19 /* DatabaseError.swift */; };
+		35D8FC1E21725D6300D3EF19 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC1D21725D6300D3EF19 /* DateExtension.swift */; };
 		35E183B1215C63D30055BB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E183B0215C63D30055BB01 /* AppDelegate.swift */; };
 		35E183BC215C63D40055BB01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E183BB215C63D40055BB01 /* Assets.xcassets */; };
 		780242C32166CB6200642FFD /* initialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780242C22166CB6200642FFD /* initialize.swift */; };
@@ -56,6 +59,9 @@
 		35D8FC0D2170139700D3EF19 /* WriteJotViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteJotViewControllerTests.swift; sourceTree = "<group>"; };
 		35D8FC0F217013BC00D3EF19 /* WriteJotPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteJotPresenterTests.swift; sourceTree = "<group>"; };
 		35D8FC122172503800D3EF19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		35D8FC142172559F00D3EF19 /* DatabaseInitializationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseInitializationProtocol.swift; sourceTree = "<group>"; };
+		35D8FC17217255DA00D3EF19 /* DatabaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseError.swift; sourceTree = "<group>"; };
+		35D8FC1D21725D6300D3EF19 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		35E183AD215C63D30055BB01 /* Contuity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contuity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E183B0215C63D30055BB01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35E183BB215C63D40055BB01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -176,6 +182,31 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		35D8FC16217255CA00D3EF19 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				35D8FC17217255DA00D3EF19 /* DatabaseError.swift */,
+				35D8FC142172559F00D3EF19 /* DatabaseInitializationProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		35D8FC1921725A0D00D3EF19 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				35D8FC1A21725A2600D3EF19 /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		35D8FC1A21725A2600D3EF19 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				35D8FC1D21725D6300D3EF19 /* DateExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		35E183A4215C63D30055BB01 = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +237,7 @@
 				35E183C0215C63D40055BB01 /* Info.plist */,
 				35D8FC112172503800D3EF19 /* LaunchScreen.storyboard */,
 				35D8FBE02166ECEF00D3EF19 /* Protocols */,
+				35D8FC1921725A0D00D3EF19 /* Utilities */,
 				35D8FBE52166ED4E00D3EF19 /* Views */,
 			);
 			path = Contuity;
@@ -233,6 +265,7 @@
 		784F65B0216435A30007D564 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				35D8FC16217255CA00D3EF19 /* Protocols */,
 				784F65B1216435E00007D564 /* Jot.swift */,
 				784F65B3216438880007D564 /* People.swift */,
 				784F65B52164391B0007D564 /* JotPeople.swift */,
@@ -477,6 +510,7 @@
 				35D8FC01216F8C4E00D3EF19 /* Prettify.swift in Sources */,
 				35D8FBE22166ED0100D3EF19 /* ViewProtocol.swift in Sources */,
 				35D8FBED216ED04C00D3EF19 /* WriteJotPresenter.swift in Sources */,
+				35D8FC18217255DA00D3EF19 /* DatabaseError.swift in Sources */,
 				35E183B1215C63D30055BB01 /* AppDelegate.swift in Sources */,
 				35D8FBE82166ED6300D3EF19 /* WriteJotViewController.swift in Sources */,
 				35D8FBE42166ED2100D3EF19 /* PresenterProtocol.swift in Sources */,
@@ -486,8 +520,10 @@
 				784F65B4216438880007D564 /* People.swift in Sources */,
 				780242C32166CB6200642FFD /* initialize.swift in Sources */,
 				784F65B2216435E00007D564 /* Jot.swift in Sources */,
+				35D8FC1E21725D6300D3EF19 /* DateExtension.swift in Sources */,
 				784F65B8216439680007D564 /* Event.swift in Sources */,
 				784F65C021643AC70007D564 /* Initiative.swift in Sources */,
+				35D8FC152172559F00D3EF19 /* DatabaseInitializationProtocol.swift in Sources */,
 				784F65BE21643AB80007D564 /* Reminder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
