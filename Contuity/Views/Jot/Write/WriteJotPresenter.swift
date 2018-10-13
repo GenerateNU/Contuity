@@ -10,8 +10,15 @@ import Foundation
 import UIKit
 
 protocol WriteJotPresenterProtocol: PresenterProtocol {
+    /// Text body that needs to be saved as the Jot
     var text: String { get set }
 
+    /// Creates a Jot using the text.
+    ///
+    /// - Parameters:
+    ///   - lat: Optional double representing the latitude.
+    ///   - lng: Optional double representing the longitude.
+    /// - Returns: a Jot
     func createJot(lat: Double?, lng: Double?) -> Jot
 }
 
@@ -34,6 +41,11 @@ class WriteJotPresenter: WriteJotPresenterProtocol {
                    longitude: lng)
     }
 
+    /// Helper function to determine whether this Jot should be added to the queue.
+    ///
+    /// TODO: Write queueing logic
+    ///
+    /// - Returns: True if it should be in the queue.
     private func shouldQueue() -> Bool {
         return true
     }

@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: - An extension on the standard Date class.
+// This is useful to provide direct access to date modifications.
 extension Date {
     /// Constructs a readable timestamp of a date
     ///

@@ -8,6 +8,15 @@
 
 import SQLite
 
+/**
+ Protocol specification for database initialization.
+
+ Currently supports creating new tables via connections.
+ */
 protocol DatabaseInitializationProtocol {
+    /// Creates a database table for a model.
+    ///
+    /// - Parameter conn: Provide the database connection point
+    /// - Throws: DatabaseError on table initialization failure
     static func createTable(conn: Connection) throws
 }

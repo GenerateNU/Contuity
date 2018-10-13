@@ -9,6 +9,9 @@
 import Foundation
 import SQLite
 
+/**
+ Jots represent the notes and memos users can write.
+ */
 struct Jot {
     let id: Int
     var data: String?
@@ -43,7 +46,7 @@ extension Jot: DatabaseInitializationProtocol {
         let longitude = Expression<Double>("longitude")
 
         do {
-            try conn.run(table.create{ (t) in
+            try conn.run(table.create{ t in
                 t.column(id, primaryKey: true)
                 t.column(data)
                 t.column(queue)
