@@ -14,10 +14,10 @@
 		35D8FBED216ED04C00D3EF19 /* WriteJotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FBEC216ED04C00D3EF19 /* WriteJotPresenter.swift */; };
 		35D8FC01216F8C4E00D3EF19 /* Prettify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC00216F8C4E00D3EF19 /* Prettify.swift */; };
 		35D8FC03216F8D4600D3EF19 /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC02216F8D4600D3EF19 /* TestHelper.swift */; };
-		35D8FC0A21700F9100D3EF19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D8FC0821700F9100D3EF19 /* LaunchScreen.storyboard */; };
 		35D8FC0C2170132400D3EF19 /* PresenterProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC0B2170132400D3EF19 /* PresenterProtocolTests.swift */; };
 		35D8FC0E2170139700D3EF19 /* WriteJotViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC0D2170139700D3EF19 /* WriteJotViewControllerTests.swift */; };
 		35D8FC10217013BC00D3EF19 /* WriteJotPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC0F217013BC00D3EF19 /* WriteJotPresenterTests.swift */; };
+		35D8FC132172503800D3EF19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D8FC112172503800D3EF19 /* LaunchScreen.storyboard */; };
 		35E183B1215C63D30055BB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E183B0215C63D30055BB01 /* AppDelegate.swift */; };
 		35E183BC215C63D40055BB01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E183BB215C63D40055BB01 /* Assets.xcassets */; };
 		B72C80E7B338A5D2C58BF7A8 /* Pods_ContuityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 627B4B3AD67A38D07635376F /* Pods_ContuityTests.framework */; };
@@ -43,10 +43,10 @@
 		35D8FBEC216ED04C00D3EF19 /* WriteJotPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteJotPresenter.swift; sourceTree = "<group>"; };
 		35D8FC00216F8C4E00D3EF19 /* Prettify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prettify.swift; sourceTree = "<group>"; };
 		35D8FC02216F8D4600D3EF19 /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
-		35D8FC0921700F9100D3EF19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35D8FC0B2170132400D3EF19 /* PresenterProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterProtocolTests.swift; sourceTree = "<group>"; };
 		35D8FC0D2170139700D3EF19 /* WriteJotViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteJotViewControllerTests.swift; sourceTree = "<group>"; };
 		35D8FC0F217013BC00D3EF19 /* WriteJotPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteJotPresenterTests.swift; sourceTree = "<group>"; };
+		35D8FC122172503800D3EF19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		35E183AD215C63D30055BB01 /* Contuity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contuity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E183B0215C63D30055BB01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35E183BB215C63D40055BB01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 				35E183B0215C63D30055BB01 /* AppDelegate.swift */,
 				35E183BB215C63D40055BB01 /* Assets.xcassets */,
 				35E183C0215C63D40055BB01 /* Info.plist */,
-				35D8FC0821700F9100D3EF19 /* LaunchScreen.storyboard */,
+				35D8FC112172503800D3EF19 /* LaunchScreen.storyboard */,
 				35D8FBE02166ECEF00D3EF19 /* Protocols */,
 				35D8FBE52166ED4E00D3EF19 /* Views */,
 			);
@@ -300,7 +300,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35D8FC0A21700F9100D3EF19 /* LaunchScreen.storyboard in Resources */,
+				35D8FC132172503800D3EF19 /* LaunchScreen.storyboard in Resources */,
 				35E183BC215C63D40055BB01 /* Assets.xcassets in Resources */,
 				35D8FBE92166ED6300D3EF19 /* WriteJotViewController.xib in Resources */,
 			);
@@ -462,10 +462,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		35D8FC0821700F9100D3EF19 /* LaunchScreen.storyboard */ = {
+		35D8FC112172503800D3EF19 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				35D8FC0921700F9100D3EF19 /* Base */,
+				35D8FC122172503800D3EF19 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
