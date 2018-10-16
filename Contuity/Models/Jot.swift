@@ -34,7 +34,7 @@ extension Jot: Equatable {
     }
 }
 
-extension Jot: DatabaseInitializationProtocol {
+extension Jot: DatabaseProtocol {
     static func createTable() throws {
         let table = Table("jot")
         let id = Expression<Int>("id")
