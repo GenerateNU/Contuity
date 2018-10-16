@@ -71,16 +71,6 @@ extension Jot: DatabaseInitializationProtocol {
             let statement = try? conn.prepare("\(insert) \(values)") else {
                 return
         }
-        let result = try? statement.run()
-//        print(result)
-//
-//        do {
-//            for row in try conn.prepare("SELECT * FROM jot") {
-//                print("id: \(row[0]), data: \(row[1]), queue: \(row[2]), createdAt: \(row[3]), modifiedAt: \(row[4]), latitude: \(row[5]), longitude: \(row[6])")
-//            }
-//            print("HEREHEHREHRHHEHERHE")
-//        } catch let error {
-//            print(error)
-//        }
+        _ = try? statement.run()
     }
 }
