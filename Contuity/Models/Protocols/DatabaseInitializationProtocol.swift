@@ -16,7 +16,25 @@ import SQLite
 protocol DatabaseInitializationProtocol {
     /// Creates a database table for a model.
     ///
-    /// - Parameter conn: Provide the database connection point
     /// - Throws: DatabaseError on table initialization failure
-    static func createTable(conn: Connection) throws
+    static func createTable() throws
+}
+
+class DatabaseManager {
+
+    static let shared = DatabaseManager()
+
+    private init() {}
+
+    var conn: Connection?
+
+    func attachConnection(_ conn: Connection) {
+        if self.conn == nil {
+            self.conn = conn
+        }
+    }
+
+    func initializeTables() {
+        try? Jot.createTable()
+    }
 }

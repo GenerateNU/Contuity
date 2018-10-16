@@ -160,7 +160,7 @@ func initialize() {
     do {
         let db = try Connection("\(path)/db.sqlite3")
 
-        try Jot.createTable(conn: db)
+        try Jot.createTable()
         createPeopleTable(db: db)
         createJotPeopleTable(db: db)
         createEventTable(db: db)

@@ -23,6 +23,8 @@ class WriteJotViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        textView.delegate = self
+
         presenter.attachView(self)
         prettify()
 
@@ -33,6 +35,13 @@ class WriteJotViewController: UIViewController {
 // MARK: - WriteJotViewProtocol
 extension WriteJotViewController: WriteJotViewProtocol {
 
+}
+
+extension WriteJotViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        presenter.text = textView.text
+        presenter.createJot(lat: nil, lng: nil)
+    }
 }
 
 // MARK: - Prettify

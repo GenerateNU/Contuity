@@ -35,7 +35,7 @@ extension Jot: Equatable {
 }
 
 extension Jot: DatabaseInitializationProtocol {
-    static func createTable(conn: Connection) throws {
+    static func createTable() throws {
         let table = Table("jot")
         let id = Expression<Int>("id")
         let data = Expression<String>("data")
@@ -46,7 +46,7 @@ extension Jot: DatabaseInitializationProtocol {
         let longitude = Expression<Double>("longitude")
 
         do {
-            try conn.run(table.create{ t in
+            try DatabaseManager.shared.conn?.run(table.create{ t in
                 t.column(id, primaryKey: true)
                 t.column(data)
                 t.column(queue)
@@ -60,5 +60,27 @@ extension Jot: DatabaseInitializationProtocol {
         } catch {
             throw DatabaseError.insertionFailed
         }
+    }
+
+    func write() {
+        let insert = "INSERT INTO jot (id, data, queue, createdAt, modifiedAt, latitude, longitude)"
+        let values =
+        "VALUES (\(id), \"\(data ?? "")\", \(queue), \"\(createdAt)\", \"\(createdAt)\", \(latitude ?? 0), \(longitude ?? 0))"
+
+        guard let conn = DatabaseManager.shared.conn,
+            let statement = try? conn.prepare("\(insert) \(values)") else {
+                return
+        }
+        let result = try? statement.run()
+//        print(result)
+//
+//        do {
+//            for row in try conn.prepare("SELECT * FROM jot") {
+//                print("id: \(row[0]), data: \(row[1]), queue: \(row[2]), createdAt: \(row[3]), modifiedAt: \(row[4]), latitude: \(row[5]), longitude: \(row[6])")
+//            }
+//            print("HEREHEHREHRHHEHERHE")
+//        } catch let error {
+//            print(error)
+//        }
     }
 }

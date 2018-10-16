@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SQLite
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +24,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+
+        let path = NSSearchPathForDirectoriesInDomains(
+            .documentDirectory, .userDomainMask, true
+            ).first!
+
+        if let conn = try? Connection("\(path)/db.sqlite3") {
+            DatabaseManager.shared.attachConnection(conn)
+            DatabaseManager.shared.initializeTables()
+        }
 
         return true
     }
