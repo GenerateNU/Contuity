@@ -19,6 +19,7 @@ class WriteJotViewController: UIViewController {
     private (set) var presenter = WriteJotPresenter()
 
     @IBOutlet private (set) var textView: UITextView!
+    @IBOutlet private (set) var saveButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,15 @@ class WriteJotViewController: UIViewController {
         prettify()
 
         navigationItem.title = "Write Jot"
+
+        saveButton.setTitle("Save!", for: .normal)
+        saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
+    }
+
+    @objc private func saveButtonTapped() {
+        presenter.createJot()
+        presenter.text = ""
+        textView.text = ""
     }
 }
 
@@ -40,7 +50,6 @@ extension WriteJotViewController: WriteJotViewProtocol {
 extension WriteJotViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         presenter.text = textView.text
-        presenter.createJot(lat: nil, lng: nil)
     }
 }
 
