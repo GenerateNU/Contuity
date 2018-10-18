@@ -14,7 +14,7 @@ protocol ReadJotPresenterProtocol: PresenterProtocol {
     
     /// This function retrieves the jot represented by the given id from the database;
     /// sets the text of this ReadJot to the retrived Jot
-    mutating func getText(id: Int) -> Void
+    mutating func setText(id: Int) -> Void
 }
 
 /// This class represents a read jot presenter
@@ -23,7 +23,7 @@ class ReadJotPresenter: ReadJotPresenterProtocol {
     
     var text: String = ""
     
-    func getText(id: Int) {
+    func setText(id: Int) {
         return self.text = "newText"
     }
     
