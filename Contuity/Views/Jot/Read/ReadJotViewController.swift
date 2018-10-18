@@ -14,35 +14,28 @@ class ReadJotViewController: UIViewController {
 //    init(PresenterType: previousPage) {
 //        backPage = previousPage
 //    }
-    
     var presenter = ReadJotPresenter()
-    
     /// MARK - properties
     @IBOutlet weak var edit: UIBarButtonItem!
     @IBOutlet weak var back: UIBarButtonItem!
     @IBOutlet weak var readOnlyJot: UITextView!
     @IBOutlet weak var navigation: UINavigationItem!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         presenter.attachView(self)
         prettify()
-        
         readOnlyJot.text = presenter.text
         navigation.title = "Jot"
         navigationItem.title = "Read Jot"
     }
-    
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
         /// code to go to the write jot page for this jot
     }
-    
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
         /// code to go back to the previous page using field "backPage"
     }
-    
 }
 
 extension ReadJotViewController: ViewProtocol {
