@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let path = NSSearchPathForDirectoriesInDomains(
             .documentDirectory, .userDomainMask, true
-            ).first!
+        ).first!
 
         if let conn = try? Connection("\(path)/db.sqlite3") {
             DatabaseManager.shared.attachConnection(conn)

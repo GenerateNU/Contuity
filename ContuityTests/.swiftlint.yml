@@ -1,5 +1,4 @@
 empty_count: error
-force_try: error
 closing_brace: error
 colon: error
 comma: error
@@ -45,7 +44,7 @@ disabled_rules:
   - fallthrough
 
 included:
-  - Contuity
+  - ContuityTests
 
 excluded:
   - Pods

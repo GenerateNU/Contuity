@@ -46,14 +46,15 @@ extension Jot: DatabaseProtocol {
         let longitude = Expression<Double>("longitude")
 
         do {
-            try DatabaseManager.shared.conn?.run(table.create{ t in
-                t.column(id, primaryKey: true)
-                t.column(data)
-                t.column(queue)
-                t.column(createdAt)
-                t.column(modifiedAt)
-                t.column(longitude)
-                t.column(latitude)
+            try DatabaseManager.shared.conn?.run(
+                table.create { t in
+                    t.column(id, primaryKey: true)
+                    t.column(data)
+                    t.column(queue)
+                    t.column(createdAt)
+                    t.column(modifiedAt)
+                    t.column(latitude)
+                    t.column(longitude)
             })
         } catch let Result.error(_, code, _) where code == SQLITE_CONSTRAINT {
             throw DatabaseError.constraintFailed

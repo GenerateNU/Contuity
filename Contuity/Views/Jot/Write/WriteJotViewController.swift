@@ -16,7 +16,7 @@ protocol WriteJotViewProtocol: class {
 /// View controller for writing new Jots
 class WriteJotViewController: UIViewController {
 
-    private (set) var presenter = WriteJotPresenter()
+    var presenter: WriteJotPresenter = WriteJotPresenter()
 
     @IBOutlet private (set) var textView: UITextView!
     @IBOutlet private (set) var saveButton: UIButton!
@@ -31,7 +31,6 @@ class WriteJotViewController: UIViewController {
 
         navigationItem.title = "Write Jot"
 
-        saveButton.setTitle("Save!", for: .normal)
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
     }
 
@@ -56,9 +55,11 @@ extension WriteJotViewController: UITextViewDelegate {
 // MARK: - Prettify
 extension WriteJotViewController: Prettify {
     func prettify() {
+        saveButton.setTitle("Save!", for: .normal)
+
         textView.text = "Reza is the best"
         textView.isHidden = false
         textView.isEditable = true
-        textView.font = UIFont.systemFont(ofSize: 22)
+        textView.font = .systemFont(ofSize: 22)
     }
 }

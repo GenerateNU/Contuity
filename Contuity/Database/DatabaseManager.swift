@@ -17,6 +17,7 @@ class DatabaseManager {
     /// Enforce only one instance
     private init() {}
 
+    /// read-only db connection
     private (set) var conn: Connection?
 
     /// Entry point to attach a connection. Enforces that only one connection
@@ -34,3 +35,15 @@ class DatabaseManager {
         try? Jot.createTable()
     }
 }
+
+#if DEBUG
+// MARK: - Extension for unit testing
+extension DatabaseManager {
+    /// Allows us to set the connection to adequately unit test functionality
+    ///
+    /// - Parameter conn: an optional DB Connection
+    func set(_ conn: Connection?) {
+        self.conn = conn
+    }
+}
+#endif

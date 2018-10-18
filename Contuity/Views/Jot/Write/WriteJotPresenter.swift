@@ -22,7 +22,7 @@ protocol WriteJotPresenterProtocol: PresenterProtocol {
 }
 
 class WriteJotPresenter: WriteJotPresenterProtocol {
-    var text = ""
+    var text: String = ""
 
     weak var view: WriteJotViewProtocol?
 
