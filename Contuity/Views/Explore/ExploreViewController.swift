@@ -8,26 +8,31 @@
 
 import UIKit
 
+// View Protocol for the Explore View
+protocol ExploreViewProtocol: class {
+    
+}
+
+// View Controller for the Explore View
 class ExploreViewController: UITableViewController {
     
-    // MARK: - Properties
-    var jots = [Jots]()
+    private (set) var presenter = ExplorePresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        jots += loadJots()
+        presenter.attachView(self)
+        presenter.jots += presenter.getJots()
         
+        prettify()
+        
+        let nib = UINib(nibName: "JotTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "JotTableViewCell")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-    
-    // MARK: - Table view data source
-    private func loadJots() -> [Jot]? {
-        
     }
     
     
@@ -36,18 +41,18 @@ class ExploreViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return jots.count
+        return presenter.jots.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "JotViewCell"
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? JotViewCell else {
-            fatalError("The dequeued cell is not of type JotViewCell")
+        let cellIdentifier = "JotTableViewCell"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? JotTableViewCell else {
+            fatalError("The dequeued cell is not of type JotTableViewCell")
         }
         
-        let jot = jots[indexPath.row]
-        // TODO: Configure the cell...
+        let jot = presenter.jots[indexPath.row]
+        cell.textLabel!.text = jot.data
         
         return cell
     }
@@ -98,4 +103,15 @@ class ExploreViewController: UITableViewController {
      }
      */
     
+}
+
+// MARK: - ExploreViewProtocol
+extension ExploreViewController: ExploreViewProtocol {
+    
+}
+
+extension ExploreViewController: Prettify {
+    func prettify() {
+        
+    }
 }
