@@ -134,6 +134,7 @@
 		35D8FBE52166ED4E00D3EF19 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				35D8FBE02166ECEF00D3EF19 /* Protocols */,
 				35D8FBEA216ED02500D3EF19 /* Jot */,
 			);
 			path = Views;
@@ -277,7 +278,6 @@
 				35E183BB215C63D40055BB01 /* Assets.xcassets */,
 				35E183C0215C63D40055BB01 /* Info.plist */,
 				35D8FC112172503800D3EF19 /* LaunchScreen.storyboard */,
-				35D8FBE02166ECEF00D3EF19 /* Protocols */,
 				35D8FC1921725A0D00D3EF19 /* Utilities */,
 				35D8FBE52166ED4E00D3EF19 /* Views */,
 			);
