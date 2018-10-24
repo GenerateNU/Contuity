@@ -74,4 +74,75 @@ extension Jot: DatabaseProtocol {
         }
         _ = try? statement.run()
     }
+    static func read(givenID: Int) -> Jot? {
+        guard let conn = DatabaseManager.shared.conn
+        else {
+            print("conn")
+            return nil
+        }
+        do {
+            for row in try conn.prepare("SELECT * FROM jot WHERE id = \(givenID)") {
+                print("for")
+                print("id: \(row[0]), data: \(row[1]), queue: \(row[2]), createdAt: \(row[3]), modifiedAt: \(row[4]), latitude: \(row[5]), longitude: \(row[6])")
+                guard let optionalID: Int64 = row[0] as? Int64 else {
+                    break
+                }
+                let id = Int(optionalID)
+                guard let newData = row[1] as? String? else{
+                    break
+                }
+                let row2 = row[2]
+                var newQueue = false
+                switch row2 {
+                case let row2 as Int64:
+                    if row2 == 1 {
+                        newQueue = true
+                    }
+                default:
+                    break
+                }
+                print("newQueue init over")
+                var newCreatedAt = ""
+                let row3 = row[3]
+                switch row3 {
+                case let row3 as String:
+                    newCreatedAt = String(row3)
+                default:
+                    break
+                }
+                guard let newModifiedAt = row[4] as? String? else{
+                    break
+                }
+                var newLat: Double?
+                let row5 = row[5]
+                switch row5 {
+                case let row5 as Double:
+                    newLat = Double(row5)
+                default:
+                    break
+                }
+                var newLong: Double?
+                let row6 = row[6]
+                switch row6 {
+                case let row6 as Double:
+                    newLong = Double(row6)
+                default:
+                    break
+                }
+                return Jot(id: id,
+                           data: newData,
+                           queue: newQueue,
+                           createdAt: newCreatedAt,
+                           modifiedAt: newModifiedAt,
+                           latitude: newLat,
+                           longitude: newLong)
+            }
+        }
+        catch {
+            print("catch")
+            return nil
+        }
+        print("no branch")
+        return nil
+    }
 }

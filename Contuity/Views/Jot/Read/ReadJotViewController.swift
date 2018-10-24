@@ -20,10 +20,8 @@ class ReadJotViewController: UIViewController {
     @IBOutlet weak var back: UIBarButtonItem!
     @IBOutlet weak var readOnlyJot: UITextView!
     @IBOutlet weak var navigation: UINavigationItem!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         presenter.attachView(self)
         prettify()
         readOnlyJot.text = presenter.text
@@ -32,6 +30,7 @@ class ReadJotViewController: UIViewController {
     }
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
         /// code to go to the write jot page for this jot
+        navigationController?.pushViewController(WriteJotViewController(), animated: true)
     }
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
         /// code to go back to the previous page using field "backPage"

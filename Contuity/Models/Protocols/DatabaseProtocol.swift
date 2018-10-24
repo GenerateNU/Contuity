@@ -21,4 +21,7 @@ protocol DatabaseProtocol {
 
     /// Writes a model to the database. Generally called from presenters.
     func write()
+    
+    ///
+    static func read(givenID: Int) -> Self?
 }

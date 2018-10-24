@@ -19,10 +19,22 @@ protocol ReadJotPresenterProtocol: PresenterProtocol {
 
 /// This class represents a read jot presenter
 class ReadJotPresenter: ReadJotPresenterProtocol {
-    var view: ReadJotViewController?
     var text: String = ""
+    weak var view: ReadJotViewController?
+    func attachView(_ view: ReadJotViewController?) {
+        self.view = view
+    }
     func setText(id: Int) {
-        return self.text = "newText"
+        let readJot = Jot.read(givenID: id)
+        if readJot == nil {
+            self.text = "ERROR: could not retrieve Jot"
+        }
+        else if readJot!.data == nil {
+            self.text = "[no text to display]"
+        }
+        else {
+            self.text = readJot!.data!
+        }
     }
     typealias ViewProtocolType = ReadJotViewController
 }
