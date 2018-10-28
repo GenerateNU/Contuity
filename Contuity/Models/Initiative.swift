@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Initiative {
+struct Initiative: DatabaseProtocol {
     
     var id: Int
     var jotid: Int

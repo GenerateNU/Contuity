@@ -10,11 +10,18 @@ import Foundation
 import UIKit
 
 class ReadJotViewController: UIViewController {
-//    var backPage: PresenterProtocol
-//    init(PresenterType: previousPage) {
-//        backPage = previousPage
+    var jotID: Int = 1
+    var presenter: ReadJotPresenter = ReadJotPresenter()
+    
+//    init (jotID: Int) {
+//        self.jotID = jotID
+//        presenter = ReadJotPresenter()
+//        super.init(nibName: "ReadJotViewController.xib", bundle: nil)
 //    }
-    var presenter = ReadJotPresenter()
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     /// MARK - properties
     @IBOutlet weak var edit: UIBarButtonItem!
     @IBOutlet weak var back: UIBarButtonItem!
@@ -24,6 +31,7 @@ class ReadJotViewController: UIViewController {
         super.viewDidLoad()
         presenter.attachView(self)
         prettify()
+        presenter.setText(jotID: jotID)
         readOnlyJot.text = presenter.text
         navigation.title = "Jot"
         navigationItem.title = "Read Jot"

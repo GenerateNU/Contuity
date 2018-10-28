@@ -6,4 +6,22 @@
 //  Copyright © 2018 Generate. All rights reserved.
 //
 
-import Foundation
+import XCTest
+@testable import Contuity
+
+class ReadJotPresenterTests: XCTestCase {
+    
+    var sut: ReadJotPresenter!
+    
+    override func setUp() {
+        super.setUp()
+        
+        sut = ReadJotPresenter()
+    }
+    
+    override func tearDown() {
+        sut = nil
+        
+        super.tearDown()
+    }
+}

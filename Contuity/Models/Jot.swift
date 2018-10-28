@@ -82,8 +82,6 @@ extension Jot: DatabaseProtocol {
         }
         do {
             for row in try conn.prepare("SELECT * FROM jot WHERE id = \(givenID)") {
-                print("for")
-                print("id: \(row[0]), data: \(row[1]), queue: \(row[2]), createdAt: \(row[3]), modifiedAt: \(row[4]), latitude: \(row[5]), longitude: \(row[6])")
                 guard let optionalID: Int64 = row[0] as? Int64 else {
                     break
                 }
@@ -101,7 +99,6 @@ extension Jot: DatabaseProtocol {
                 default:
                     break
                 }
-                print("newQueue init over")
                 var newCreatedAt = ""
                 let row3 = row[3]
                 switch row3 {
@@ -139,10 +136,8 @@ extension Jot: DatabaseProtocol {
             }
         }
         catch {
-            print("catch")
             return nil
         }
-        print("no branch")
         return nil
     }
 }

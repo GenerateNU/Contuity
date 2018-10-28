@@ -40,6 +40,8 @@
 		92B1FC1B21754C2000333A07 /* QueueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B1FC1921754C2000333A07 /* QueueViewController.xib */; };
 		92B1FC1F2175525400333A07 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1FC1D2175525400333A07 /* ExploreViewController.swift */; };
 		92B1FC202175525400333A07 /* ExploreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B1FC1E2175525400333A07 /* ExploreViewController.xib */; };
+		9A1BCCA82180D90400CF7FD0 /* ReadJotViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BCCA72180D90400CF7FD0 /* ReadJotViewControllerTests.swift */; };
+		9A1BCCAA2180D91400CF7FD0 /* ReadJotPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BCCA92180D91400CF7FD0 /* ReadJotPresenterTests.swift */; };
 		9A3C43062178DEF10019A271 /* ReadJotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3C43052178DEF10019A271 /* ReadJotViewController.xib */; };
 		9A4FE9482178D2AE00AA691A /* ReadJotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4FE9472178D2AE00AA691A /* ReadJotPresenter.swift */; };
 		9A4FE94A2178D3CC00AA691A /* ReadJotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4FE9492178D3CC00AA691A /* ReadJotViewController.swift */; };
@@ -99,6 +101,8 @@
 		92B1FC1921754C2000333A07 /* QueueViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QueueViewController.xib; sourceTree = "<group>"; };
 		92B1FC1D2175525400333A07 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		92B1FC1E2175525400333A07 /* ExploreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreViewController.xib; sourceTree = "<group>"; };
+		9A1BCCA72180D90400CF7FD0 /* ReadJotViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJotViewControllerTests.swift; sourceTree = "<group>"; };
+		9A1BCCA92180D91400CF7FD0 /* ReadJotPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJotPresenterTests.swift; sourceTree = "<group>"; };
 		9A3C43052178DEF10019A271 /* ReadJotViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReadJotViewController.xib; sourceTree = "<group>"; };
 		9A4FE9472178D2AE00AA691A /* ReadJotPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJotPresenter.swift; sourceTree = "<group>"; };
 		9A4FE9492178D3CC00AA691A /* ReadJotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJotViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 		35D8FC05216F8D6900D3EF19 /* Jot */ = {
 			isa = PBXGroup;
 			children = (
+				9A1BCCA62180D8CF00CF7FD0 /* Read */,
 				35D8FC06216F8D6E00D3EF19 /* Write */,
 			);
 			path = Jot;
@@ -355,6 +360,15 @@
 				92B1FC1921754C2000333A07 /* QueueViewController.xib */,
 			);
 			path = Queue;
+			sourceTree = "<group>";
+		};
+		9A1BCCA62180D8CF00CF7FD0 /* Read */ = {
+			isa = PBXGroup;
+			children = (
+				9A1BCCA72180D90400CF7FD0 /* ReadJotViewControllerTests.swift */,
+				9A1BCCA92180D91400CF7FD0 /* ReadJotPresenterTests.swift */,
+			);
+			path = Read;
 			sourceTree = "<group>";
 		};
 		9A4FE9462178D29500AA691A /* Read */ = {
@@ -633,6 +647,8 @@
 				35D8FC292177FE7700D3EF19 /* JotTests.swift in Sources */,
 				35D8FC0C2170132400D3EF19 /* PresenterProtocolTests.swift in Sources */,
 				35D8FC10217013BC00D3EF19 /* WriteJotPresenterTests.swift in Sources */,
+				9A1BCCAA2180D91400CF7FD0 /* ReadJotPresenterTests.swift in Sources */,
+				9A1BCCA82180D90400CF7FD0 /* ReadJotViewControllerTests.swift in Sources */,
 				35D8FC2C217803C800D3EF19 /* DatabaseManagerTests.swift in Sources */,
 				35D8FC262177FCB000D3EF19 /* DateExtensionTests.swift in Sources */,
 				35D8FC03216F8D4600D3EF19 /* TestHelper.swift in Sources */,

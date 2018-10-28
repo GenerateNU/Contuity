@@ -14,7 +14,7 @@ protocol ReadJotPresenterProtocol: PresenterProtocol {
     var text: String { get }
     /// This function retrieves the jot represented by the given id from the database;
     /// sets the text of this ReadJot to the retrived Jot
-    mutating func setText(id: Int)
+    mutating func setText(jotID: Int)
 }
 
 /// This class represents a read jot presenter
@@ -24,8 +24,8 @@ class ReadJotPresenter: ReadJotPresenterProtocol {
     func attachView(_ view: ReadJotViewController?) {
         self.view = view
     }
-    func setText(id: Int) {
-        let readJot = Jot.read(givenID: id)
+    func setText(jotID: Int) {
+        let readJot = Jot.read(givenID: jotID)
         if readJot == nil {
             self.text = "ERROR: could not retrieve Jot"
         }
