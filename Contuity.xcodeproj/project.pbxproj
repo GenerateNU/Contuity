@@ -25,6 +25,7 @@
 		35D8FC262177FCB000D3EF19 /* DateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC252177FCB000D3EF19 /* DateExtensionTests.swift */; };
 		35D8FC292177FE7700D3EF19 /* JotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC282177FE7700D3EF19 /* JotTests.swift */; };
 		35D8FC2C217803C800D3EF19 /* DatabaseManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC2B217803C800D3EF19 /* DatabaseManagerTests.swift */; };
+		35D8FC2E2187845100D3EF19 /* JotInitiativeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC2D2187845100D3EF19 /* JotInitiativeBridge.swift */; };
 		35E183B1215C63D30055BB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E183B0215C63D30055BB01 /* AppDelegate.swift */; };
 		35E183BC215C63D40055BB01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E183BB215C63D40055BB01 /* Assets.xcassets */; };
 		780242C32166CB6200642FFD /* initialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780242C22166CB6200642FFD /* initialize.swift */; };
@@ -70,6 +71,7 @@
 		35D8FC252177FCB000D3EF19 /* DateExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTests.swift; sourceTree = "<group>"; };
 		35D8FC282177FE7700D3EF19 /* JotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotTests.swift; sourceTree = "<group>"; };
 		35D8FC2B217803C800D3EF19 /* DatabaseManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManagerTests.swift; sourceTree = "<group>"; };
+		35D8FC2D2187845100D3EF19 /* JotInitiativeBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotInitiativeBridge.swift; sourceTree = "<group>"; };
 		35E183AD215C63D30055BB01 /* Contuity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contuity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E183B0215C63D30055BB01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35E183BB215C63D40055BB01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -310,14 +312,15 @@
 			isa = PBXGroup;
 			children = (
 				35D8FC16217255CA00D3EF19 /* Protocols */,
-				784F65B1216435E00007D564 /* Jot.swift */,
-				784F65B3216438880007D564 /* People.swift */,
-				784F65B52164391B0007D564 /* JotPeople.swift */,
 				784F65B7216439680007D564 /* Event.swift */,
-				784F65B9216439ED0007D564 /* JotEvent.swift */,
 				784F65BB21643A160007D564 /* FollowUp.swift */,
-				784F65BD21643AB80007D564 /* Reminder.swift */,
 				784F65BF21643AC70007D564 /* Initiative.swift */,
+				784F65B1216435E00007D564 /* Jot.swift */,
+				784F65B9216439ED0007D564 /* JotEvent.swift */,
+				35D8FC2D2187845100D3EF19 /* JotInitiativeBridge.swift */,
+				784F65B52164391B0007D564 /* JotPeople.swift */,
+				784F65B3216438880007D564 /* People.swift */,
+				784F65BD21643AB80007D564 /* Reminder.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				784F65B2216435E00007D564 /* Jot.swift in Sources */,
 				35D8FC1E21725D6300D3EF19 /* DateExtension.swift in Sources */,
 				784F65B8216439680007D564 /* Event.swift in Sources */,
+				35D8FC2E2187845100D3EF19 /* JotInitiativeBridge.swift in Sources */,
 				784F65C021643AC70007D564 /* Initiative.swift in Sources */,
 				35D8FC2021765A7100D3EF19 /* DatabaseProtocol.swift in Sources */,
 				784F65BE21643AB80007D564 /* Reminder.swift in Sources */,

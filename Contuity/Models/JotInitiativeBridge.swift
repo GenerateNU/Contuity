@@ -1,46 +1,46 @@
 //
-//  Initiative.swift
+//  JotInitiativeBridge.swift
 //  Contuity
 //
-//  Created by Lexi Spikerman on 10/2/18.
+//  Created by Anand Kumar on 10/29/18.
 //  Copyright © 2018 Generate. All rights reserved.
 //
 
 import Foundation
 import SQLite
 
-struct Initiative {
-    let name: String
-    var parent: String? // if parent is null, top-level initiative
+struct JotInitiative {
+    let jotId: Int
+    let initiativeTag: String
 }
 
-private extension Initiative {
+private extension JotInitiative {
     var insert: String {
-        return "INSERT INTO initative (name, parent)"
+        return "INSERT INTO jot-initative (jotId, initiativeId)"
     }
 
     var values: String {
-        return "VALUES (\(name), \"\(parent ?? "NULL")\")"
+        return "VALUES (\(jotId), \"\(initiativeTag)\")"
     }
 }
 
-extension Initiative: Equatable {
-    static func == (lhs: Initiative, rhs: Initiative) -> Bool {
-        return lhs.name == rhs.name && lhs.parent == rhs.parent
+extension JotInitiative: Equatable {
+    static func == (lhs: JotInitiative, rhs: JotInitiative) -> Bool {
+        return lhs.jotId == rhs.jotId && lhs.initiativeTag == rhs.initiativeTag
     }
 }
 
-extension Initiative: DatabaseProtocol {
+extension JotInitiative: DatabaseProtocol {
     static func createTable() throws {
-        let table = Table("initiative")
-        let name = Expression<Int>("name")
-        let parent = Expression<String>("parent")
+        let table = Table("jot-initiative")
+        let jot = Expression<Int>("jotId")
+        let initiative = Expression<String>("initiativeId")
 
         do {
             try DatabaseManager.shared.conn?.run(
                 table.create { t in
-                    t.column(name, primaryKey: true)
-                    t.column(parent)
+                    t.column(jot, primaryKey: true)
+                    t.column(initiative)
             })
         } catch let Result.error(_, code, _) where code == SQLITE_CONSTRAINT {
             throw DatabaseError.constraintFailed
