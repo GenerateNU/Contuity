@@ -26,6 +26,8 @@
 		35D8FC292177FE7700D3EF19 /* JotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC282177FE7700D3EF19 /* JotTests.swift */; };
 		35D8FC2C217803C800D3EF19 /* DatabaseManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC2B217803C800D3EF19 /* DatabaseManagerTests.swift */; };
 		35D8FC2E2187845100D3EF19 /* JotInitiativeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC2D2187845100D3EF19 /* JotInitiativeBridge.swift */; };
+		35D8FC302187879400D3EF19 /* JotInitiativeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC2F2187879400D3EF19 /* JotInitiativeTests.swift */; };
+		35D8FC322187892200D3EF19 /* InitiativeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC312187892200D3EF19 /* InitiativeTests.swift */; };
 		35E183B1215C63D30055BB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E183B0215C63D30055BB01 /* AppDelegate.swift */; };
 		35E183BC215C63D40055BB01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E183BB215C63D40055BB01 /* Assets.xcassets */; };
 		780242C32166CB6200642FFD /* initialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780242C22166CB6200642FFD /* initialize.swift */; };
@@ -72,6 +74,8 @@
 		35D8FC282177FE7700D3EF19 /* JotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotTests.swift; sourceTree = "<group>"; };
 		35D8FC2B217803C800D3EF19 /* DatabaseManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManagerTests.swift; sourceTree = "<group>"; };
 		35D8FC2D2187845100D3EF19 /* JotInitiativeBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotInitiativeBridge.swift; sourceTree = "<group>"; };
+		35D8FC2F2187879400D3EF19 /* JotInitiativeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotInitiativeTests.swift; sourceTree = "<group>"; };
+		35D8FC312187892200D3EF19 /* InitiativeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitiativeTests.swift; sourceTree = "<group>"; };
 		35E183AD215C63D30055BB01 /* Contuity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contuity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E183B0215C63D30055BB01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35E183BB215C63D40055BB01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -238,6 +242,8 @@
 		35D8FC272177FE6400D3EF19 /* ModelsTests */ = {
 			isa = PBXGroup;
 			children = (
+				35D8FC312187892200D3EF19 /* InitiativeTests.swift */,
+				35D8FC2F2187879400D3EF19 /* JotInitiativeTests.swift */,
 				35D8FC282177FE7700D3EF19 /* JotTests.swift */,
 			);
 			path = ModelsTests;
@@ -582,11 +588,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				35D8FC0E2170139700D3EF19 /* WriteJotViewControllerTests.swift in Sources */,
+				35D8FC302187879400D3EF19 /* JotInitiativeTests.swift in Sources */,
 				35D8FC292177FE7700D3EF19 /* JotTests.swift in Sources */,
 				35D8FC0C2170132400D3EF19 /* PresenterProtocolTests.swift in Sources */,
 				35D8FC10217013BC00D3EF19 /* WriteJotPresenterTests.swift in Sources */,
 				35D8FC2C217803C800D3EF19 /* DatabaseManagerTests.swift in Sources */,
 				35D8FC262177FCB000D3EF19 /* DateExtensionTests.swift in Sources */,
+				35D8FC322187892200D3EF19 /* InitiativeTests.swift in Sources */,
 				35D8FC03216F8D4600D3EF19 /* TestHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

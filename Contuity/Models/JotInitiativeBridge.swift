@@ -32,7 +32,7 @@ extension JotInitiative: Equatable {
 
 extension JotInitiative: DatabaseProtocol {
     static func createTable() throws {
-        let table = Table("jot-initiative")
+        let table = Table("jotInitiative")
         let jot = Expression<Int>("jotId")
         let initiative = Expression<String>("initiativeId")
 
