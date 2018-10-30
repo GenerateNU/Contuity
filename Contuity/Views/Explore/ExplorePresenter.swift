@@ -28,15 +28,6 @@ class ExplorePresenter: ExplorePresenterProtocol {
     }
     
     func getJots() -> [Jot] {
-        var jots: [Jot] = []
-        let jot = Jot(id: 0,
-                            data: "text",
-                            queue: true,
-                            createdAt: Date().timestamp(),
-                            modifiedAt: nil,
-                            latitude: 0.0,
-                            longitude: 0.0)
-        jots.append(jot)
-        return jots
+        Jot.getJots(false)
     }
 }

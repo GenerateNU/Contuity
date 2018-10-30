@@ -46,6 +46,7 @@ disabled_rules:
 
 included:
   - Contuity
+  - ContuityTests
 
 excluded:
   - Pods
