@@ -7,15 +7,33 @@
 //
 
 import UIKit
+import SQLite
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    static func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        initialize()
-        // Override point for customization after application launch.
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        window = UIWindow(frame: UIScreen.main.bounds)
+
+        let navigationController = UINavigationController()
+        let writeJotViewController = WriteJotViewController()
+        navigationController.viewControllers = [writeJotViewController]
+
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+
+        let path = NSSearchPathForDirectoriesInDomains(
+            .documentDirectory, .userDomainMask, true
+        ).first!
+
+        if let conn = try? Connection("\(path)/db.sqlite3") {
+            DatabaseManager.shared.attachConnection(conn)
+            DatabaseManager.shared.initializeTables()
+        }
+
         return true
     }
 

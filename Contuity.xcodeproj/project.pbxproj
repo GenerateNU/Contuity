@@ -7,11 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35D8FBE22166ED0100D3EF19 /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FBE12166ED0100D3EF19 /* ViewProtocol.swift */; };
+		35D8FBE42166ED2100D3EF19 /* PresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FBE32166ED2100D3EF19 /* PresenterProtocol.swift */; };
+		35D8FBE82166ED6300D3EF19 /* WriteJotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FBE62166ED6300D3EF19 /* WriteJotViewController.swift */; };
+		35D8FBE92166ED6300D3EF19 /* WriteJotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35D8FBE72166ED6300D3EF19 /* WriteJotViewController.xib */; };
+		35D8FBED216ED04C00D3EF19 /* WriteJotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FBEC216ED04C00D3EF19 /* WriteJotPresenter.swift */; };
+		35D8FC01216F8C4E00D3EF19 /* Prettify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC00216F8C4E00D3EF19 /* Prettify.swift */; };
+		35D8FC03216F8D4600D3EF19 /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC02216F8D4600D3EF19 /* TestHelper.swift */; };
+		35D8FC0C2170132400D3EF19 /* PresenterProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC0B2170132400D3EF19 /* PresenterProtocolTests.swift */; };
+		35D8FC0E2170139700D3EF19 /* WriteJotViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC0D2170139700D3EF19 /* WriteJotViewControllerTests.swift */; };
+		35D8FC10217013BC00D3EF19 /* WriteJotPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC0F217013BC00D3EF19 /* WriteJotPresenterTests.swift */; };
+		35D8FC132172503800D3EF19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D8FC112172503800D3EF19 /* LaunchScreen.storyboard */; };
+		35D8FC18217255DA00D3EF19 /* DatabaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC17217255DA00D3EF19 /* DatabaseError.swift */; };
+		35D8FC1E21725D6300D3EF19 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC1D21725D6300D3EF19 /* DateExtension.swift */; };
+		35D8FC2021765A7100D3EF19 /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC1F21765A7100D3EF19 /* DatabaseProtocol.swift */; };
+		35D8FC2221765AA900D3EF19 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC2121765AA900D3EF19 /* DatabaseManager.swift */; };
+		35D8FC262177FCB000D3EF19 /* DateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC252177FCB000D3EF19 /* DateExtensionTests.swift */; };
+		35D8FC292177FE7700D3EF19 /* JotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC282177FE7700D3EF19 /* JotTests.swift */; };
+		35D8FC2C217803C800D3EF19 /* DatabaseManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC2B217803C800D3EF19 /* DatabaseManagerTests.swift */; };
 		35E183B1215C63D30055BB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E183B0215C63D30055BB01 /* AppDelegate.swift */; };
-		35E183BA215C63D30055BB01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35E183B8215C63D30055BB01 /* Main.storyboard */; };
 		35E183BC215C63D40055BB01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E183BB215C63D40055BB01 /* Assets.xcassets */; };
-		35E183BF215C63D40055BB01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35E183BD215C63D40055BB01 /* LaunchScreen.storyboard */; };
-		35E183CA215C63D40055BB01 /* ContuityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E183C9215C63D40055BB01 /* ContuityTests.swift */; };
 		780242C32166CB6200642FFD /* initialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780242C22166CB6200642FFD /* initialize.swift */; };
 		784F65B2216435E00007D564 /* Jot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F65B1216435E00007D564 /* Jot.swift */; };
 		784F65B4216438880007D564 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F65B3216438880007D564 /* People.swift */; };
@@ -37,14 +52,29 @@
 
 /* Begin PBXFileReference section */
 		3214E7D73B974F6FB1AA59E5 /* Pods-ContuityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContuityTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ContuityTests/Pods-ContuityTests.debug.xcconfig"; sourceTree = "<group>"; };
+		35D8FBE12166ED0100D3EF19 /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
+		35D8FBE32166ED2100D3EF19 /* PresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterProtocol.swift; sourceTree = "<group>"; };
+		35D8FBE62166ED6300D3EF19 /* WriteJotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteJotViewController.swift; sourceTree = "<group>"; };
+		35D8FBE72166ED6300D3EF19 /* WriteJotViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WriteJotViewController.xib; sourceTree = "<group>"; };
+		35D8FBEC216ED04C00D3EF19 /* WriteJotPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteJotPresenter.swift; sourceTree = "<group>"; };
+		35D8FC00216F8C4E00D3EF19 /* Prettify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prettify.swift; sourceTree = "<group>"; };
+		35D8FC02216F8D4600D3EF19 /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
+		35D8FC0B2170132400D3EF19 /* PresenterProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterProtocolTests.swift; sourceTree = "<group>"; };
+		35D8FC0D2170139700D3EF19 /* WriteJotViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteJotViewControllerTests.swift; sourceTree = "<group>"; };
+		35D8FC0F217013BC00D3EF19 /* WriteJotPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteJotPresenterTests.swift; sourceTree = "<group>"; };
+		35D8FC122172503800D3EF19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		35D8FC17217255DA00D3EF19 /* DatabaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseError.swift; sourceTree = "<group>"; };
+		35D8FC1D21725D6300D3EF19 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		35D8FC1F21765A7100D3EF19 /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
+		35D8FC2121765AA900D3EF19 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		35D8FC252177FCB000D3EF19 /* DateExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTests.swift; sourceTree = "<group>"; };
+		35D8FC282177FE7700D3EF19 /* JotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotTests.swift; sourceTree = "<group>"; };
+		35D8FC2B217803C800D3EF19 /* DatabaseManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManagerTests.swift; sourceTree = "<group>"; };
 		35E183AD215C63D30055BB01 /* Contuity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contuity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E183B0215C63D30055BB01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		35E183B9215C63D30055BB01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35E183BB215C63D40055BB01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		35E183BE215C63D40055BB01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35E183C0215C63D40055BB01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35E183C5215C63D40055BB01 /* ContuityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContuityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		35E183C9215C63D40055BB01 /* ContuityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContuityTests.swift; sourceTree = "<group>"; };
 		35E183CB215C63D40055BB01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		461BB23A02736D9776FCF1B4 /* Pods-Contuity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contuity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Contuity/Pods-Contuity.debug.xcconfig"; sourceTree = "<group>"; };
 		5DD2C59243C50D5E441307C4 /* Pods-Contuity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contuity.release.xcconfig"; path = "Pods/Target Support Files/Pods-Contuity/Pods-Contuity.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +121,134 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		35D8FBE02166ECEF00D3EF19 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				35D8FBE32166ED2100D3EF19 /* PresenterProtocol.swift */,
+				35D8FC00216F8C4E00D3EF19 /* Prettify.swift */,
+				35D8FBE12166ED0100D3EF19 /* ViewProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		35D8FBE52166ED4E00D3EF19 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				35D8FBE02166ECEF00D3EF19 /* Protocols */,
+				35D8FBEA216ED02500D3EF19 /* Jot */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		35D8FBEA216ED02500D3EF19 /* Jot */ = {
+			isa = PBXGroup;
+			children = (
+				35D8FBEB216ED03900D3EF19 /* Write */,
+			);
+			path = Jot;
+			sourceTree = "<group>";
+		};
+		35D8FBEB216ED03900D3EF19 /* Write */ = {
+			isa = PBXGroup;
+			children = (
+				35D8FBEC216ED04C00D3EF19 /* WriteJotPresenter.swift */,
+				35D8FBE62166ED6300D3EF19 /* WriteJotViewController.swift */,
+				35D8FBE72166ED6300D3EF19 /* WriteJotViewController.xib */,
+			);
+			path = Write;
+			sourceTree = "<group>";
+		};
+		35D8FC04216F8D6200D3EF19 /* ViewsTests */ = {
+			isa = PBXGroup;
+			children = (
+				35D8FC05216F8D6900D3EF19 /* Jot */,
+				35D8FC07216F8D7800D3EF19 /* Protocols */,
+			);
+			path = ViewsTests;
+			sourceTree = "<group>";
+		};
+		35D8FC05216F8D6900D3EF19 /* Jot */ = {
+			isa = PBXGroup;
+			children = (
+				35D8FC06216F8D6E00D3EF19 /* Write */,
+			);
+			path = Jot;
+			sourceTree = "<group>";
+		};
+		35D8FC06216F8D6E00D3EF19 /* Write */ = {
+			isa = PBXGroup;
+			children = (
+				35D8FC0D2170139700D3EF19 /* WriteJotViewControllerTests.swift */,
+				35D8FC0F217013BC00D3EF19 /* WriteJotPresenterTests.swift */,
+			);
+			path = Write;
+			sourceTree = "<group>";
+		};
+		35D8FC07216F8D7800D3EF19 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				35D8FC0B2170132400D3EF19 /* PresenterProtocolTests.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		35D8FC16217255CA00D3EF19 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				35D8FC17217255DA00D3EF19 /* DatabaseError.swift */,
+				35D8FC1F21765A7100D3EF19 /* DatabaseProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		35D8FC1921725A0D00D3EF19 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				35D8FC1A21725A2600D3EF19 /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		35D8FC1A21725A2600D3EF19 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				35D8FC1D21725D6300D3EF19 /* DateExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		35D8FC232177FC7D00D3EF19 /* UtilitiesTests */ = {
+			isa = PBXGroup;
+			children = (
+				35D8FC242177FC8C00D3EF19 /* ExtensionsTests */,
+			);
+			path = UtilitiesTests;
+			sourceTree = "<group>";
+		};
+		35D8FC242177FC8C00D3EF19 /* ExtensionsTests */ = {
+			isa = PBXGroup;
+			children = (
+				35D8FC252177FCB000D3EF19 /* DateExtensionTests.swift */,
+			);
+			path = ExtensionsTests;
+			sourceTree = "<group>";
+		};
+		35D8FC272177FE6400D3EF19 /* ModelsTests */ = {
+			isa = PBXGroup;
+			children = (
+				35D8FC282177FE7700D3EF19 /* JotTests.swift */,
+			);
+			path = ModelsTests;
+			sourceTree = "<group>";
+		};
+		35D8FC2A217803A800D3EF19 /* DatabaseTests */ = {
+			isa = PBXGroup;
+			children = (
+				35D8FC2B217803C800D3EF19 /* DatabaseManagerTests.swift */,
+			);
+			path = DatabaseTests;
+			sourceTree = "<group>";
+		};
 		35E183A4215C63D30055BB01 = {
 			isa = PBXGroup;
 			children = (
@@ -114,14 +272,14 @@
 		35E183AF215C63D30055BB01 /* Contuity */ = {
 			isa = PBXGroup;
 			children = (
-				780242C42166D14400642FFD /* Documents */,
 				780242C12166CB3900642FFD /* Database */,
 				784F65B0216435A30007D564 /* Models */,
 				35E183B0215C63D30055BB01 /* AppDelegate.swift */,
-				35E183B8215C63D30055BB01 /* Main.storyboard */,
 				35E183BB215C63D40055BB01 /* Assets.xcassets */,
-				35E183BD215C63D40055BB01 /* LaunchScreen.storyboard */,
 				35E183C0215C63D40055BB01 /* Info.plist */,
+				35D8FC112172503800D3EF19 /* LaunchScreen.storyboard */,
+				35D8FC1921725A0D00D3EF19 /* Utilities */,
+				35D8FBE52166ED4E00D3EF19 /* Views */,
 			);
 			path = Contuity;
 			sourceTree = "<group>";
@@ -129,8 +287,12 @@
 		35E183C8215C63D40055BB01 /* ContuityTests */ = {
 			isa = PBXGroup;
 			children = (
-				35E183C9215C63D40055BB01 /* ContuityTests.swift */,
+				35D8FC2A217803A800D3EF19 /* DatabaseTests */,
+				35D8FC272177FE6400D3EF19 /* ModelsTests */,
+				35D8FC232177FC7D00D3EF19 /* UtilitiesTests */,
 				35E183CB215C63D40055BB01 /* Info.plist */,
+				35D8FC02216F8D4600D3EF19 /* TestHelper.swift */,
+				35D8FC04216F8D6200D3EF19 /* ViewsTests */,
 			);
 			path = ContuityTests;
 			sourceTree = "<group>";
@@ -139,20 +301,15 @@
 			isa = PBXGroup;
 			children = (
 				780242C22166CB6200642FFD /* initialize.swift */,
+				35D8FC2121765AA900D3EF19 /* DatabaseManager.swift */,
 			);
 			path = Database;
-			sourceTree = "<group>";
-		};
-		780242C42166D14400642FFD /* Documents */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Documents;
 			sourceTree = "<group>";
 		};
 		784F65B0216435A30007D564 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				35D8FC16217255CA00D3EF19 /* Protocols */,
 				784F65B1216435E00007D564 /* Jot.swift */,
 				784F65B3216438880007D564 /* People.swift */,
 				784F65B52164391B0007D564 /* JotPeople.swift */,
@@ -263,9 +420,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35E183BF215C63D40055BB01 /* LaunchScreen.storyboard in Resources */,
+				35D8FC132172503800D3EF19 /* LaunchScreen.storyboard in Resources */,
 				35E183BC215C63D40055BB01 /* Assets.xcassets in Resources */,
-				35E183BA215C63D30055BB01 /* Main.storyboard in Resources */,
+				35D8FBE92166ED6300D3EF19 /* WriteJotViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,15 +551,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35D8FC01216F8C4E00D3EF19 /* Prettify.swift in Sources */,
+				35D8FBE22166ED0100D3EF19 /* ViewProtocol.swift in Sources */,
+				35D8FBED216ED04C00D3EF19 /* WriteJotPresenter.swift in Sources */,
+				35D8FC18217255DA00D3EF19 /* DatabaseError.swift in Sources */,
+				35E183B1215C63D30055BB01 /* AppDelegate.swift in Sources */,
+				35D8FBE82166ED6300D3EF19 /* WriteJotViewController.swift in Sources */,
+				35D8FBE42166ED2100D3EF19 /* PresenterProtocol.swift in Sources */,
 				784F65BA216439ED0007D564 /* JotEvent.swift in Sources */,
 				784F65B62164391B0007D564 /* JotPeople.swift in Sources */,
 				784F65BC21643A160007D564 /* FollowUp.swift in Sources */,
-				35E183B1215C63D30055BB01 /* AppDelegate.swift in Sources */,
 				784F65B4216438880007D564 /* People.swift in Sources */,
 				780242C32166CB6200642FFD /* initialize.swift in Sources */,
+				35D8FC2221765AA900D3EF19 /* DatabaseManager.swift in Sources */,
 				784F65B2216435E00007D564 /* Jot.swift in Sources */,
+				35D8FC1E21725D6300D3EF19 /* DateExtension.swift in Sources */,
 				784F65B8216439680007D564 /* Event.swift in Sources */,
 				784F65C021643AC70007D564 /* Initiative.swift in Sources */,
+				35D8FC2021765A7100D3EF19 /* DatabaseProtocol.swift in Sources */,
 				784F65BE21643AB80007D564 /* Reminder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,7 +577,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35E183CA215C63D40055BB01 /* ContuityTests.swift in Sources */,
+				35D8FC0E2170139700D3EF19 /* WriteJotViewControllerTests.swift in Sources */,
+				35D8FC292177FE7700D3EF19 /* JotTests.swift in Sources */,
+				35D8FC0C2170132400D3EF19 /* PresenterProtocolTests.swift in Sources */,
+				35D8FC10217013BC00D3EF19 /* WriteJotPresenterTests.swift in Sources */,
+				35D8FC2C217803C800D3EF19 /* DatabaseManagerTests.swift in Sources */,
+				35D8FC262177FCB000D3EF19 /* DateExtensionTests.swift in Sources */,
+				35D8FC03216F8D4600D3EF19 /* TestHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,18 +598,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		35E183B8215C63D30055BB01 /* Main.storyboard */ = {
+		35D8FC112172503800D3EF19 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				35E183B9215C63D30055BB01 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		35E183BD215C63D40055BB01 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				35E183BE215C63D40055BB01 /* Base */,
+				35D8FC122172503800D3EF19 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -567,6 +731,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Contuity/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -585,6 +750,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Contuity/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

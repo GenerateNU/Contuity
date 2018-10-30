@@ -9,33 +9,6 @@
 import Foundation
 import SQLite
 
-func createJotTable(db: Connection) {
-    let jot = Table("jot")
-    let id = Expression<Int>("id")
-    let data = Expression<String>("data")
-    let queue = Expression<Bool>("queue")
-    let createdat = Expression<Date>("createdat")
-    let modifiedat = Expression<Date>("modifiedat")
-    let longitude = Expression<Double>("longitude")
-    let latitude = Expression<Double>("latitude")
-    
-    do {
-        try db.run(jot.create { t in
-            t.column(id, primaryKey: true)
-            t.column(data)
-            t.column(queue)
-            t.column(createdat)
-            t.column(modifiedat)
-            t.column(longitude)
-            t.column(latitude)
-        })
-    } catch let Result.error(message, code, statement) where code == SQLITE_CONSTRAINT {
-        print("constraint failed: \(message), in \(statement)")
-    } catch let error {
-        print("insertion failed: \(error)")
-    }
-}
-
 func createPeopleTable(db: Connection) {
     let people = Table("people")
     let id = Expression<Int>("id")
@@ -187,7 +160,7 @@ func initialize() {
     do {
         let db = try Connection("\(path)/db.sqlite3")
 
-        createJotTable(db: db)
+        try Jot.createTable()
         createPeopleTable(db: db)
         createJotPeopleTable(db: db)
         createEventTable(db: db)
