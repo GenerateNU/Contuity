@@ -33,6 +33,8 @@ class DatabaseManager {
     /// Table initializer
     func initializeTables() {
         try? Jot.createTable()
+        try? Initiative.createTable()
+        try? JotInitiative.createTable()
     }
 }
 
