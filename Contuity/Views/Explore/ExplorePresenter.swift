@@ -15,7 +15,7 @@ protocol ExplorePresenterProtocol: PresenterProtocol {
     /// Gets all the Jots to show on the Explore page
     ///
     /// - Returns: a list of Jots to display
-    func getJots() -> [Jot]
+    func getJots() -> [Jot]?
 }
 
 class ExplorePresenter: ExplorePresenterProtocol {
@@ -27,7 +27,7 @@ class ExplorePresenter: ExplorePresenterProtocol {
         self.view = view
     }
     
-    func getJots() -> [Jot] {
-        Jot.getJots(false)
+    func getJots() -> [Jot]? {
+        return Jot.getJots(queue: false)
     }
 }

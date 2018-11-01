@@ -9,8 +9,8 @@
 import XCTest
 @testable import Contuity
 
-class ExploreTests: XCTestCase {
-
+class ExplorePresenterTests: XCTestCase {
+    
     func testGetJots() {
         let jot1 = Jot(id: 0, data: "", queue: true, createdAt: "now", modifiedAt: nil, latitude: nil, longitude: nil)
         let jot2 = Jot(id: 1, data: "", queue: true, createdAt: "now", modifiedAt: nil, latitude: nil, longitude: nil)
@@ -18,7 +18,13 @@ class ExploreTests: XCTestCase {
         jot1.write()
         jot2.write()
         
+        let expectedJots = [jot1, jot2]
         
+        let sut = ExplorePresenter()
+        
+        let jots = sut.getJots()
+        
+        XCTAssertEqual(jots!, expectedJots)
     }
-
+    
 }

@@ -41,6 +41,7 @@
 		92E440D321794BD4006F59A8 /* ExplorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E440D221794BD4006F59A8 /* ExplorePresenter.swift */; };
 		92E440DC21795A47006F59A8 /* JotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E440DA21795A47006F59A8 /* JotTableViewCell.swift */; };
 		92E440DD21795A47006F59A8 /* JotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E440DB21795A47006F59A8 /* JotTableViewCell.xib */; };
+		92FD62E02187DA5C009F631E /* ExplorePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD62DF2187DA5C009F631E /* ExplorePresenterTests.swift */; };
 		B72C80E7B338A5D2C58BF7A8 /* Pods_ContuityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 627B4B3AD67A38D07635376F /* Pods_ContuityTests.framework */; };
 		DDFC66D50989239275EB26E8 /* Pods_Contuity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C5B146592AA402EC202DA2 /* Pods_Contuity.framework */; };
 /* End PBXBuildFile section */
@@ -98,6 +99,7 @@
 		92E440D221794BD4006F59A8 /* ExplorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresenter.swift; sourceTree = "<group>"; };
 		92E440DA21795A47006F59A8 /* JotTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotTableViewCell.swift; sourceTree = "<group>"; };
 		92E440DB21795A47006F59A8 /* JotTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JotTableViewCell.xib; sourceTree = "<group>"; };
+		92FD62DF2187DA5C009F631E /* ExplorePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresenterTests.swift; sourceTree = "<group>"; };
 		B0C5B146592AA402EC202DA2 /* Pods_Contuity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contuity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4FDA0361F033B089D6FD59D /* Pods-ContuityTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContuityTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ContuityTests/Pods-ContuityTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,6 +173,7 @@
 		35D8FC04216F8D6200D3EF19 /* ViewsTests */ = {
 			isa = PBXGroup;
 			children = (
+				92FD62DE2187DA33009F631E /* Explore */,
 				35D8FC05216F8D6900D3EF19 /* Jot */,
 				35D8FC07216F8D7800D3EF19 /* Protocols */,
 			);
@@ -351,6 +354,14 @@
 				92E440DB21795A47006F59A8 /* JotTableViewCell.xib */,
 			);
 			path = JotTableViewCell;
+			sourceTree = "<group>";
+		};
+		92FD62DE2187DA33009F631E /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				92FD62DF2187DA5C009F631E /* ExplorePresenterTests.swift */,
+			);
+			path = Explore;
 			sourceTree = "<group>";
 		};
 		FB0265FDFBA69E1084C21057 /* Pods */ = {
@@ -613,6 +624,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92FD62E02187DA5C009F631E /* ExplorePresenterTests.swift in Sources */,
 				35D8FC0E2170139700D3EF19 /* WriteJotViewControllerTests.swift in Sources */,
 				35D8FC292177FE7700D3EF19 /* JotTests.swift in Sources */,
 				35D8FC0C2170132400D3EF19 /* PresenterProtocolTests.swift in Sources */,

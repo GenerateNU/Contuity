@@ -142,13 +142,13 @@ extension Jot: DatabaseProtocol {
         return nil
     }
     
-    func parseRow(row: Statement): Jot {
+    static func parseRow(row: Statement.Element) -> Jot? {
         guard let optionalID: Int64 = row[0] as? Int64 else {
-            break
+            return nil
         }
         let id = Int(optionalID)
         guard let newData = row[1] as? String? else{
-            break
+            return nil
         }
         let row2 = row[2]
         var newQueue = false
@@ -166,10 +166,10 @@ extension Jot: DatabaseProtocol {
         case let row3 as String:
             newCreatedAt = String(row3)
         default:
-            break
+            return nil
         }
         guard let newModifiedAt = row[4] as? String? else{
-            break
+            return nil
         }
         var newLat: Double?
         let row5 = row[5]
@@ -177,7 +177,7 @@ extension Jot: DatabaseProtocol {
         case let row5 as Double:
             newLat = Double(row5)
         default:
-            break
+            return nil
         }
         var newLong: Double?
         let row6 = row[6]
@@ -185,7 +185,7 @@ extension Jot: DatabaseProtocol {
         case let row6 as Double:
             newLong = Double(row6)
         default:
-            break
+            return nil
         }
         return Jot(id: id,
                    data: newData,
@@ -196,24 +196,34 @@ extension Jot: DatabaseProtocol {
                    longitude: newLong)
     }
     
-    static func getJots(queue: boolean): [Jot] {
-        let jots: [Jot] = []
+    static func getJots(queue: Bool) -> [Jot]? {
+        var jots: [Jot] = []
         guard let conn = DatabaseManager.shared.conn
         else {
-            print("conn")
             return nil
         }
         do {
-            if (queue) {
+            if queue {
                 for row in try conn.prepare("SELECT * FROM jot where queue = true") {
-                    jots.append(parseRow(row))
+                    let jot = parseRow(row: row)
+                    if jot != nil {
+                        jots.append(jot!)
+                    }
+                    
                 }
-
             } else {
                 for row in try conn.prepare("SELECT * FROM jot") {
-                    jots.append(parseRow(row))
+                    let jot = parseRow(row: row)
+                    if jot != nil {
+                        jots.append(jot!)
+                    }
+                    
                 }
             }
         }
+        catch {
+            return nil
+        }
+        return jots
     }
 }

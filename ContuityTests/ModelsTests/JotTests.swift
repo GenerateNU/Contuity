@@ -19,11 +19,11 @@ class JotTests: XCTestCase {
         XCTAssertNotEqual(jot1, jot2)
     }
 
-    func testWrite() {
+    func testWrite() throws {
         let jot1 = Jot(id: -1, data: "", queue: true, createdAt: "now", modifiedAt: nil, latitude: nil, longitude: nil)
         jot1.write()
 
-        let statement = try! DatabaseManager.shared.conn?.prepare("SELECT * FROM jot")
+        let statement = try DatabaseManager.shared.conn?.prepare("SELECT * FROM jot")
         XCTAssertNotNil(statement)
         XCTAssertEqual(statement?.columnCount, 7)
         XCTAssertEqual(statement?.columnNames, ["id", "data", "queue", "createdAt", "modifiedAt", "latitude", "longitude"])
