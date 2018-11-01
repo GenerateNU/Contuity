@@ -131,27 +131,6 @@ func createReminderTable(db: Connection) {
     }
 }
 
-func createInitiativeTable(db: Connection) {
-    let jot = Table("jot")
-    let id = Expression<Int>("id")
-    let jotid = Expression<Int>("jotid")
-    let name = Expression<String>("name")
-    let parent = Expression<Int>("parent")
-
-    do {
-        try db.run(jot.create { t in
-            t.column(id, primaryKey: true)
-            t.column(jotid)
-            t.column(name)
-            t.column(parent)
-        })
-    } catch let Result.error(message, code, statement) where code == SQLITE_CONSTRAINT {
-        print("constraint failed: \(message), in \(statement)")
-    } catch let error {
-        print("insertion failed: \(error)")
-    }
-}
-
 func initialize() {
     let path = NSSearchPathForDirectoriesInDomains(
         .documentDirectory, .userDomainMask, true
@@ -161,13 +140,15 @@ func initialize() {
         let db = try Connection("\(path)/db.sqlite3")
 
         try Jot.createTable()
+        try Initiative.createTable()
+        try JotInitiative.createTable()
+
         createPeopleTable(db: db)
         createJotPeopleTable(db: db)
         createEventTable(db: db)
         createJotEventTable(db: db)
         createFollowUpTable(db: db)
         createReminderTable(db: db)
-        createInitiativeTable(db: db)
     } catch let Result.error(message, code, statement) where code == SQLITE_CONSTRAINT {
         print("constraint failed: \(message), in \(statement)")
     } catch let error {
