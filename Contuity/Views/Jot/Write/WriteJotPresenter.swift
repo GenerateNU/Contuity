@@ -24,7 +24,7 @@ protocol WriteJotPresenterProtocol: PresenterProtocol {
 class WriteJotPresenter: WriteJotPresenterProtocol {
     var text: String = ""
 
-    weak var view: WriteJotViewProtocol?
+    var view: WriteJotViewProtocol?
 
     func attachView(_ view: WriteJotViewProtocol?) {
         self.view = view

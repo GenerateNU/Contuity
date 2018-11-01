@@ -14,7 +14,7 @@ import SQLite
  */
 struct Jot {
     let id: Int
-    var data: String?
+    var data: String
     var queue: Bool
     let createdAt: String
     var modifiedAt: String?
@@ -66,7 +66,7 @@ extension Jot: DatabaseProtocol {
     func write() {
         let insert = "INSERT INTO jot (id, data, queue, createdAt, modifiedAt, latitude, longitude)"
         let values =
-        "VALUES (\(id), \"\(data ?? "")\", \(queue), \"\(createdAt)\", \"\(createdAt)\", \(latitude ?? 0), \(longitude ?? 0))"
+        "VALUES (\(id), \"\(data)\", \(queue), \"\(createdAt)\", \"\(modifiedAt ?? createdAt)\", \(latitude ?? 0), \(longitude ?? 0))"
 
         guard let conn = DatabaseManager.shared.conn,
             let statement = try? conn.prepare("\(insert) \(values)") else {
