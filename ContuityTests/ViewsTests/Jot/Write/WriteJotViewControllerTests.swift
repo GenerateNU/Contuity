@@ -48,11 +48,11 @@ class WriteJotViewControllerTests: XCTestCase {
         let mockPresenter = MockWriteJotPresenter()
         sut.presenter = mockPresenter
 
-        XCTAssertFalse(mockPresenter.createdJot)
+        XCTAssertFalse(mockPresenter.createdData)
 
         sut.saveButton.sendActions(for: .touchUpInside)
 
-        XCTAssertTrue(mockPresenter.createdJot)
+        XCTAssertTrue(mockPresenter.createdData)
     }
 
     func testWriteInViewUpdatesPresenterText() {
@@ -67,10 +67,10 @@ class WriteJotViewControllerTests: XCTestCase {
 private extension WriteJotViewControllerTests {
     class MockWriteJotPresenter: WriteJotPresenter {
 
-        var createdJot = false
+        var createdData = false
 
-        override func createJot(lat: Double?, lng: Double?) {
-            createdJot = true
+        override func createData(lat: Double?, lng: Double?) {
+            createdData = true
         }
     }
 }

@@ -13,15 +13,17 @@ protocol WriteJotPresenterProtocol: PresenterProtocol {
     /// Text body that needs to be saved as the Jot
     var text: String { get set }
 
-    /// Creates a Jot using the text and writes to the database
+    /// Creates a Jot using the text and writes to the database.
+    /// The text is then parsed and initiatives are written.
     ///
     /// - Parameters:
     ///   - lat: Optional double representing the latitude.
     ///   - lng: Optional double representing the longitude.
-    func createJot(lat: Double?, lng: Double?)
+    func createData(lat: Double?, lng: Double?)
 }
 
 class WriteJotPresenter: WriteJotPresenterProtocol {
+
     var text: String = ""
 
     var view: WriteJotViewProtocol?
@@ -30,7 +32,7 @@ class WriteJotPresenter: WriteJotPresenterProtocol {
         self.view = view
     }
 
-    func createJot(lat: Double? = nil, lng: Double? = nil) {
+    func createData(lat: Double? = nil, lng: Double? = nil) {
         let jot =  Jot(id: Int.random(in: 0...1000000),
                    data: text,
                    queue: shouldQueue(),
@@ -40,14 +42,28 @@ class WriteJotPresenter: WriteJotPresenterProtocol {
                    longitude: lng)
 
         jot.write()
+
+        createInitiatives(with: jot.id)
+    }
+
+    private func createInitiatives(with jotId: Int) {
+        let initiatives: [Initiative] = text.taggedWords.map { value -> Initiative in
+            return Initiative(name: value, parent: nil)
+        }
+
+        initiatives.forEach { initiative in
+            initiative.write()
+
+            let bridge = JotInitiative(jotId: jotId, initiativeTag: initiative.name)
+            bridge.write()
+        }
     }
 
     /// Helper function to determine whether this Jot should be added to the queue.
     ///
-    /// TODO: Write queueing logic
     ///
     /// - Returns: True if it should be in the queue.
     private func shouldQueue() -> Bool {
-        return true
+        return text.taggedWords.count <= 0
     }
 }

@@ -35,7 +35,7 @@ class WriteJotViewController: UIViewController {
     }
 
     @objc private func saveButtonTapped() {
-        presenter.createJot()
+        presenter.createData()
         presenter.text = ""
         textView.text = ""
     }
