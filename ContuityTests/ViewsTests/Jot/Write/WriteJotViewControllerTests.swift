@@ -44,7 +44,7 @@ class WriteJotViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.textView.font, .systemFont(ofSize: 22))
     }
 
-    func testTapSaveButtonCallsCreateJot() {
+    func testTapSaveButtonCallsCreateData() {
         let mockPresenter = MockWriteJotPresenter()
         sut.presenter = mockPresenter
 
@@ -69,7 +69,7 @@ private extension WriteJotViewControllerTests {
 
         var createdData = false
 
-        override func createData(lat: Double?, lng: Double?) {
+        override func createData(at id: Int, lat: Double?, lng: Double?) {
             createdData = true
         }
     }

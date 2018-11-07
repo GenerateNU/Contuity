@@ -17,9 +17,10 @@ protocol WriteJotPresenterProtocol: PresenterProtocol {
     /// The text is then parsed and initiatives are written.
     ///
     /// - Parameters:
+    ///   - id: Optional int id, otherwise randomly picks one
     ///   - lat: Optional double representing the latitude.
     ///   - lng: Optional double representing the longitude.
-    func createData(lat: Double?, lng: Double?)
+    func createData(at id: Int, lat: Double?, lng: Double?)
 }
 
 class WriteJotPresenter: WriteJotPresenterProtocol {
@@ -32,8 +33,8 @@ class WriteJotPresenter: WriteJotPresenterProtocol {
         self.view = view
     }
 
-    func createData(lat: Double? = nil, lng: Double? = nil) {
-        let jot =  Jot(id: Int.random(in: 0...1000000),
+    func createData(at id: Int = Int.random(in: 0...1000000), lat: Double? = nil, lng: Double? = nil) {
+        let jot =  Jot(id: id,
                    data: text,
                    queue: shouldQueue(),
                    createdAt: Date().timestamp(),
