@@ -14,7 +14,7 @@ import SQLite
  */
 struct Jot {
     let id: Int
-    var data: String?
+    var data: String
     var queue: Bool
     let createdAt: String
     var modifiedAt: String?
@@ -66,7 +66,7 @@ extension Jot: DatabaseProtocol {
     func write() {
         let insert = "INSERT INTO jot (id, data, queue, createdAt, modifiedAt, latitude, longitude)"
         let values =
-        "VALUES (\(id), \"\(data ?? "")\", \(queue), \"\(createdAt)\", \"\(createdAt)\", \(latitude ?? 0), \(longitude ?? 0))"
+        "VALUES (\(id), \"\(data)\", \(queue), \"\(createdAt)\", \"\(modifiedAt ?? createdAt)\", \(latitude ?? 0), \(longitude ?? 0))"
 
         guard let conn = DatabaseManager.shared.conn,
             let statement = try? conn.prepare("\(insert) \(values)") else {
@@ -74,6 +74,24 @@ extension Jot: DatabaseProtocol {
         }
         _ = try? statement.run()
     }
+    
+    func update() {
+        let dataMessage = "data = \"\(data)\""
+        let queueMessage = "queue = \(queue)"
+        let createdMessage = "createdAt = \"\(createdAt)\""
+        let modifiedMessage = "modifiedAt = \"\(modifiedAt ?? createdAt)\""
+        let latMessage = "latitude = \(latitude ?? 0)"
+        let longMessage = "longitude = \(longitude ?? 0)"
+        let setMessage = "\(dataMessage), \(queueMessage), \(createdMessage), \(modifiedMessage), \(latMessage), \(longMessage)"
+        let update = "UPDATE jot SET \(setMessage) WHERE id = \(id)"
+        
+        guard let conn = DatabaseManager.shared.conn,
+            let statement = try? conn.prepare(update) else {
+                return
+        }
+        _ = try? statement.run()
+    }
+    
     static func read(givenID: Int) -> Jot? {
         guard let conn = DatabaseManager.shared.conn
         else {
@@ -82,13 +100,12 @@ extension Jot: DatabaseProtocol {
         }
         do {
             for row in try conn.prepare("SELECT * FROM jot WHERE id = \(givenID)") {
-                guard let optionalID: Int64 = row[0] as? Int64 else {
+                guard let optionalID: Int64 = row[0] as? Int64,
+                    let newData = row[1] as? String
+                else {
                     break
                 }
                 let id = Int(optionalID)
-                guard let newData = row[1] as? String? else{
-                    break
-                }
                 let row2 = row[2]
                 var newQueue = false
                 switch row2 {

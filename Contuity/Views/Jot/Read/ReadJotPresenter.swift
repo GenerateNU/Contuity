@@ -25,16 +25,12 @@ class ReadJotPresenter: ReadJotPresenterProtocol {
         self.view = view
     }
     func setText(jotID: Int) {
-        let readJot = Jot.read(givenID: jotID)
-        if readJot == nil {
-            self.text = "ERROR: could not retrieve Jot"
+        guard let readJot = Jot.read(givenID: jotID) else {
+            // TODO: make this throw an exception
+            // could not retrieve
+            self.text = "ERROR: could not retrieve jot."
+            return
         }
-        else if readJot!.data == nil {
-            self.text = "[no text to display]"
-        }
-        else {
-            self.text = readJot!.data!
-        }
+        self.text = readJot.data
     }
-    typealias ViewProtocolType = ReadJotViewController
 }

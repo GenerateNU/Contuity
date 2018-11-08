@@ -10,48 +10,45 @@ import Foundation
 import UIKit
 
 class ReadJotViewController: UIViewController {
-    var jotID: Int = 1
+    var jotID: Int = 1 // this needs to be set to the given jotID in a constructor
     var presenter: ReadJotPresenter = ReadJotPresenter()
     
-//    init (jotID: Int) {
-//        self.jotID = jotID
-//        presenter = ReadJotPresenter()
-//        super.init(nibName: "ReadJotViewController.xib", bundle: nil)
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
     /// MARK - properties
-    @IBOutlet weak var edit: UIBarButtonItem!
-    @IBOutlet weak var back: UIBarButtonItem!
-    @IBOutlet weak var readOnlyJot: UITextView!
-    @IBOutlet weak var navigation: UINavigationItem!
+    @IBOutlet private (set) var readJotTextView: UITextView!
+    @IBOutlet private (set) var backButton: UIButton!
+    @IBOutlet private (set) var editButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        readJotTextView.delegate = self
         presenter.attachView(self)
-        prettify()
         presenter.setText(jotID: jotID)
-        readOnlyJot.text = presenter.text
-        navigation.title = "Jot"
+        prettify()
         navigationItem.title = "Read Jot"
     }
-    @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
-        /// code to go to the write jot page for this jot
-        navigationController?.pushViewController(WriteJotViewController(), animated: true)
+    @IBAction func editButtonTapped(_ sender: UIButton) {
+        let editWriteJotVC = WriteJotViewController()
+        editWriteJotVC.presenter.setJotID(givenID: jotID)
+        editWriteJotVC.presenter.update = true
+        navigationController?.pushViewController(editWriteJotVC, animated: true)
     }
-    @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
+    @IBAction func backButtonTapped(_ sender: UIButton) {
         /// code to go back to the previous page using field "backPage"
+        navigationController?.popViewController(animated: true)
     }
 }
 
-extension ReadJotViewController: ViewProtocol {
-
+extension ReadJotViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        presenter.text = textView.text
+    }
 }
 
 extension ReadJotViewController: Prettify {
     func prettify() {
-        readOnlyJot.isEditable = false
-        readOnlyJot.font = .systemFont(ofSize: 22)
+        readJotTextView.text = presenter.text
+        readJotTextView.isHidden = false
+        readJotTextView.isEditable = false
+        readJotTextView.font = .systemFont(ofSize: 22)
     }
 }
