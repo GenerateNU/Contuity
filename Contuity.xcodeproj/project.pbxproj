@@ -39,6 +39,9 @@
 		784F65BC21643A160007D564 /* FollowUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F65BB21643A160007D564 /* FollowUp.swift */; };
 		784F65BE21643AB80007D564 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F65BD21643AB80007D564 /* Reminder.swift */; };
 		784F65C021643AC70007D564 /* Initiative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F65BF21643AC70007D564 /* Initiative.swift */; };
+		7851298A218FC2260078E533 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78512989218FC2260078E533 /* DetailsViewController.swift */; };
+		7851298C218FC2670078E533 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851298B218FC2670078E533 /* AddContactViewController.swift */; };
+		787C2701218F886100DCA800 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787C2700218F886100DCA800 /* MasterViewController.swift */; };
 		B72C80E7B338A5D2C58BF7A8 /* Pods_ContuityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 627B4B3AD67A38D07635376F /* Pods_ContuityTests.framework */; };
 		DDFC66D50989239275EB26E8 /* Pods_Contuity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C5B146592AA402EC202DA2 /* Pods_Contuity.framework */; };
 /* End PBXBuildFile section */
@@ -94,6 +97,9 @@
 		784F65BB21643A160007D564 /* FollowUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUp.swift; sourceTree = "<group>"; };
 		784F65BD21643AB80007D564 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		784F65BF21643AC70007D564 /* Initiative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initiative.swift; sourceTree = "<group>"; };
+		78512989218FC2260078E533 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		7851298B218FC2670078E533 /* AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
+		787C2700218F886100DCA800 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		B0C5B146592AA402EC202DA2 /* Pods_Contuity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contuity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4FDA0361F033B089D6FD59D /* Pods-ContuityTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContuityTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ContuityTests/Pods-ContuityTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +146,7 @@
 		35D8FBE52166ED4E00D3EF19 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				78B72834218F6613002C861F /* People */,
 				35D8FBE02166ECEF00D3EF19 /* Protocols */,
 				35D8FBEA216ED02500D3EF19 /* Jot */,
 			);
@@ -329,6 +336,24 @@
 				784F65BD21643AB80007D564 /* Reminder.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		78B72834218F6613002C861F /* People */ = {
+			isa = PBXGroup;
+			children = (
+				78B72835218F6620002C861F /* Write */,
+			);
+			path = People;
+			sourceTree = "<group>";
+		};
+		78B72835218F6620002C861F /* Write */ = {
+			isa = PBXGroup;
+			children = (
+				787C2700218F886100DCA800 /* MasterViewController.swift */,
+				78512989218FC2260078E533 /* DetailsViewController.swift */,
+				7851298B218FC2670078E533 /* AddContactViewController.swift */,
+			);
+			path = Write;
 			sourceTree = "<group>";
 		};
 		FB0265FDFBA69E1084C21057 /* Pods */ = {
@@ -560,6 +585,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7851298C218FC2670078E533 /* AddContactViewController.swift in Sources */,
 				35D8FC01216F8C4E00D3EF19 /* Prettify.swift in Sources */,
 				35D8FBE22166ED0100D3EF19 /* ViewProtocol.swift in Sources */,
 				35D8FBED216ED04C00D3EF19 /* WriteJotPresenter.swift in Sources */,
@@ -570,6 +596,7 @@
 				784F65BA216439ED0007D564 /* JotEvent.swift in Sources */,
 				784F65B62164391B0007D564 /* JotPeople.swift in Sources */,
 				784F65BC21643A160007D564 /* FollowUp.swift in Sources */,
+				7851298A218FC2260078E533 /* DetailsViewController.swift in Sources */,
 				784F65B4216438880007D564 /* People.swift in Sources */,
 				780242C32166CB6200642FFD /* initialize.swift in Sources */,
 				35D8FC2221765AA900D3EF19 /* DatabaseManager.swift in Sources */,
@@ -579,6 +606,7 @@
 				35D8FC2E2187845100D3EF19 /* JotInitiativeBridge.swift in Sources */,
 				784F65C021643AC70007D564 /* Initiative.swift in Sources */,
 				35D8FC2021765A7100D3EF19 /* DatabaseProtocol.swift in Sources */,
+				787C2701218F886100DCA800 /* MasterViewController.swift in Sources */,
 				784F65BE21643AB80007D564 /* Reminder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
