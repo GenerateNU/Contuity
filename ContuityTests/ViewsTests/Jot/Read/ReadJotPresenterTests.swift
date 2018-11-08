@@ -2,7 +2,7 @@
 //  ReadJotPresenterTests.swift
 //  ContuityTests
 //
-//  Created by Reza Akhtar on 24.10.18.
+//  Created by Reza Akhtar on 08.11.18.
 //  Copyright © 2018 Generate. All rights reserved.
 //
 
@@ -23,5 +23,21 @@ class ReadJotPresenterTests: XCTestCase {
         sut = nil
         
         super.tearDown()
+    }
+    
+    func testSetJotID() {
+        let jotID = 444
+        let actualData = "test set jot id 444"
+        let writeJot = Jot(id: jotID,
+                           data: actualData,
+                           queue: false,
+                           createdAt: "now",
+                           modifiedAt: nil,
+                           latitude: nil,
+                           longitude: nil)
+        writeJot.write()
+        XCTAssertEqual(sut.text, "")
+        sut.setText(jotID: jotID)
+        XCTAssertEqual(sut.text, actualData)
     }
 }
