@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class ReadJotViewController: UIViewController {
-    var jotID: Int = 1 // this needs to be set to the given jotID in a constructor
+    var jotID: Int = 1 // TODO: this needs to be set to the given jotID in a constructor
     var presenter: ReadJotPresenter = ReadJotPresenter()
     
     /// MARK - properties
@@ -33,7 +33,6 @@ class ReadJotViewController: UIViewController {
         navigationController?.pushViewController(editWriteJotVC, animated: true)
     }
     @IBAction func backButtonTapped(_ sender: UIButton) {
-        /// code to go back to the previous page using field "backPage"
         navigationController?.popViewController(animated: true)
     }
 }

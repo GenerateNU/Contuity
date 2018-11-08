@@ -24,6 +24,7 @@ class ReadJotPresenter: ReadJotPresenterProtocol {
     func attachView(_ view: ReadJotViewController?) {
         self.view = view
     }
+    /// sets the text of this presenter to the data according to the given jot id
     func setText(jotID: Int) {
         guard let readJot = Jot.read(givenID: jotID) else {
             // TODO: make this throw an exception
