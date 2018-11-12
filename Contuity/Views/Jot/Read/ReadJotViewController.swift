@@ -17,35 +17,28 @@ class ReadJotViewController: UIViewController {
     @IBOutlet private (set) var readJotTextView: UITextView!
     @IBOutlet private (set) var backButton: UIButton!
     @IBOutlet private (set) var editButton: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        readJotTextView.delegate = self
         presenter.attachView(self)
-        presenter.setText(jotID: jotID)
         prettify()
         navigationItem.title = "Read Jot"
     }
+    // This method pushes an editable view of this jot over this readable view.
     @IBAction func editButtonTapped(_ sender: UIButton) {
         let editWriteJotVC = WriteJotViewController()
         editWriteJotVC.presenter.setJotID(givenID: jotID)
         editWriteJotVC.presenter.update = true
         navigationController?.pushViewController(editWriteJotVC, animated: true)
     }
+    // This method pops this view off of the stack, thus going back to the previous view.
     @IBAction func backButtonTapped(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
 }
 
-extension ReadJotViewController: UITextViewDelegate {
-    func textViewDidChange(_ textView: UITextView) {
-        presenter.text = textView.text
-    }
-}
-
 extension ReadJotViewController: Prettify {
     func prettify() {
-        readJotTextView.text = presenter.text
+        readJotTextView.text = presenter.getText(jotID: self.jotID)
         readJotTextView.isHidden = false
         readJotTextView.isEditable = false
         readJotTextView.font = .systemFont(ofSize: 22)

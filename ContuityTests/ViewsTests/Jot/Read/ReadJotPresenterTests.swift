@@ -25,7 +25,7 @@ class ReadJotPresenterTests: XCTestCase {
         super.tearDown()
     }
     
-    func testSetJotID() {
+    func testGetJotID() {
         let jotID = 444
         let actualData = "test set jot id 444"
         let writeJot = Jot(id: jotID,
@@ -36,8 +36,6 @@ class ReadJotPresenterTests: XCTestCase {
                            latitude: nil,
                            longitude: nil)
         writeJot.write()
-        XCTAssertEqual(sut.text, "")
-        sut.setText(jotID: jotID)
-        XCTAssertEqual(sut.text, actualData)
+        XCTAssertEqual(sut.getText(jotID: jotID), actualData)
     }
 }

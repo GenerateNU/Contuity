@@ -56,4 +56,13 @@ extension JotInitiative: DatabaseProtocol {
         }
         _ = try? statement.run()
     }
+    
+    func update() {
+        /// TODO: implement update method for JotInitiative
+    }
+    
+    static func read(givenID: Int) -> JotInitiative? {
+        /// TODO: implement read method for JotInitiative
+        return nil
+    }
 }

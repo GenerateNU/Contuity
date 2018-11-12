@@ -62,7 +62,7 @@ extension Jot: DatabaseProtocol {
             throw DatabaseError.insertionFailed
         }
     }
-
+    // This function writes a new jot to the database.
     func write() {
         let insert = "INSERT INTO jot (id, data, queue, createdAt, modifiedAt, latitude, longitude)"
         let values =
@@ -74,7 +74,7 @@ extension Jot: DatabaseProtocol {
         }
         _ = try? statement.run()
     }
-    
+    // This function updates the given jot.
     func update() {
         let dataMessage = "data = \"\(data)\""
         let queueMessage = "queue = \(queue)"
@@ -92,6 +92,7 @@ extension Jot: DatabaseProtocol {
         _ = try? statement.run()
     }
     
+    // This function returns the jot with the given id if one exists.
     static func read(givenID: Int) -> Jot? {
         guard let conn = DatabaseManager.shared.conn
         else {
@@ -101,8 +102,7 @@ extension Jot: DatabaseProtocol {
         do {
             for row in try conn.prepare("SELECT * FROM jot WHERE id = \(givenID)") {
                 guard let optionalID: Int64 = row[0] as? Int64,
-                    let newData = row[1] as? String
-                else {
+                    let newData = row[1] as? String else {
                     break
                 }
                 let id = Int(optionalID)
@@ -124,7 +124,7 @@ extension Jot: DatabaseProtocol {
                 default:
                     break
                 }
-                guard let newModifiedAt = row[4] as? String? else{
+                guard let newModifiedAt = row[4] as? String? else {
                     break
                 }
                 var newLat: Double?

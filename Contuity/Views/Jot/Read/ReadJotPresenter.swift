@@ -10,28 +10,21 @@ import Foundation
 
 /// This protocol represents the protocol for a read jot presenter
 protocol ReadJotPresenterProtocol: PresenterProtocol {
-    /// Text displayed by this ReadJot
-    var text: String { get }
-    /// This function retrieves the jot represented by the given id from the database;
-    /// sets the text of this ReadJot to the retrived Jot
-    mutating func setText(jotID: Int)
+    /// returns the text to be displayed by this ReadJot
+    func getText(jotID: Int) -> String
 }
 
 /// This class represents a read jot presenter
 class ReadJotPresenter: ReadJotPresenterProtocol {
-    var text: String = ""
     weak var view: ReadJotViewController?
     func attachView(_ view: ReadJotViewController?) {
         self.view = view
     }
-    /// sets the text of this presenter to the data according to the given jot id
-    func setText(jotID: Int) {
+    /// this method returns the text at the given id.
+    func getText(jotID: Int) -> String {
         guard let readJot = Jot.read(givenID: jotID) else {
-            // TODO: make this throw an exception
-            // could not retrieve
-            self.text = "ERROR: could not retrieve jot."
-            return
+            return "ERROR: could not retrieve jot."
         }
-        self.text = readJot.data
+        return readJot.data
     }
 }

@@ -39,10 +39,6 @@
 		784F65BC21643A160007D564 /* FollowUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F65BB21643A160007D564 /* FollowUp.swift */; };
 		784F65BE21643AB80007D564 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F65BD21643AB80007D564 /* Reminder.swift */; };
 		784F65C021643AC70007D564 /* Initiative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F65BF21643AC70007D564 /* Initiative.swift */; };
-		92B1FC1A21754C2000333A07 /* QueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1FC1821754C2000333A07 /* QueueViewController.swift */; };
-		92B1FC1B21754C2000333A07 /* QueueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B1FC1921754C2000333A07 /* QueueViewController.xib */; };
-		92B1FC1F2175525400333A07 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1FC1D2175525400333A07 /* ExploreViewController.swift */; };
-		92B1FC202175525400333A07 /* ExploreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B1FC1E2175525400333A07 /* ExploreViewController.xib */; };
 		9A1BCCA82180D90400CF7FD0 /* ReadJotViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BCCA72180D90400CF7FD0 /* ReadJotViewControllerTests.swift */; };
 		9A1BCCAA2180D91400CF7FD0 /* ReadJotPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BCCA92180D91400CF7FD0 /* ReadJotPresenterTests.swift */; };
 		9A3C43062178DEF10019A271 /* ReadJotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3C43052178DEF10019A271 /* ReadJotViewController.xib */; };
@@ -103,10 +99,6 @@
 		784F65BB21643A160007D564 /* FollowUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUp.swift; sourceTree = "<group>"; };
 		784F65BD21643AB80007D564 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		784F65BF21643AC70007D564 /* Initiative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initiative.swift; sourceTree = "<group>"; };
-		92B1FC1821754C2000333A07 /* QueueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueViewController.swift; sourceTree = "<group>"; };
-		92B1FC1921754C2000333A07 /* QueueViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QueueViewController.xib; sourceTree = "<group>"; };
-		92B1FC1D2175525400333A07 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
-		92B1FC1E2175525400333A07 /* ExploreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreViewController.xib; sourceTree = "<group>"; };
 		9A1BCCA72180D90400CF7FD0 /* ReadJotViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJotViewControllerTests.swift; sourceTree = "<group>"; };
 		9A1BCCA92180D91400CF7FD0 /* ReadJotPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJotPresenterTests.swift; sourceTree = "<group>"; };
 		9A3C43052178DEF10019A271 /* ReadJotViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReadJotViewController.xib; sourceTree = "<group>"; };
@@ -285,6 +277,7 @@
 				35E183AE215C63D30055BB01 /* Products */,
 				FB0265FDFBA69E1084C21057 /* Pods */,
 				31A3BE10F4A7F4D5103A1CA4 /* Frameworks */,
+				9A49DAC2219A038100E170DC /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -351,24 +344,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		92B1FC1C2175521A00333A07 /* Explore */ = {
-			isa = PBXGroup;
-			children = (
-				92B1FC1D2175525400333A07 /* ExploreViewController.swift */,
-				92B1FC1E2175525400333A07 /* ExploreViewController.xib */,
-			);
-			path = Explore;
-			sourceTree = "<group>";
-		};
-		92E5BBCA217548DC00A7FAE4 /* Queue */ = {
-			isa = PBXGroup;
-			children = (
-				92B1FC1821754C2000333A07 /* QueueViewController.swift */,
-				92B1FC1921754C2000333A07 /* QueueViewController.xib */,
-			);
-			path = Queue;
-			sourceTree = "<group>";
-		};
 		9A1BCCA62180D8CF00CF7FD0 /* Read */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +351,13 @@
 				9A1BCCA92180D91400CF7FD0 /* ReadJotPresenterTests.swift */,
 			);
 			path = Read;
+			sourceTree = "<group>";
+		};
+		9A49DAC2219A038100E170DC /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		9A4FE9462178D29500AA691A /* Read */ = {
@@ -486,12 +468,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92B1FC1B21754C2000333A07 /* QueueViewController.xib in Resources */,
 				35D8FC132172503800D3EF19 /* LaunchScreen.storyboard in Resources */,
 				35E183BC215C63D40055BB01 /* Assets.xcassets in Resources */,
 				35D8FBE92166ED6300D3EF19 /* WriteJotViewController.xib in Resources */,
 				9A3C43062178DEF10019A271 /* ReadJotViewController.xib in Resources */,
-				92B1FC202175525400333A07 /* ExploreViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,7 +602,6 @@
 			files = (
 				9A4FE94A2178D3CC00AA691A /* ReadJotViewController.swift in Sources */,
 				9A4FE9482178D2AE00AA691A /* ReadJotPresenter.swift in Sources */,
-				92B1FC1A21754C2000333A07 /* QueueViewController.swift in Sources */,
 				35D8FC01216F8C4E00D3EF19 /* Prettify.swift in Sources */,
 				35D8FBE22166ED0100D3EF19 /* ViewProtocol.swift in Sources */,
 				35D8FBED216ED04C00D3EF19 /* WriteJotPresenter.swift in Sources */,
@@ -634,7 +613,6 @@
 				784F65B62164391B0007D564 /* JotPeople.swift in Sources */,
 				784F65BC21643A160007D564 /* FollowUp.swift in Sources */,
 				784F65B4216438880007D564 /* People.swift in Sources */,
-				92B1FC1F2175525400333A07 /* ExploreViewController.swift in Sources */,
 				780242C32166CB6200642FFD /* initialize.swift in Sources */,
 				35D8FC2221765AA900D3EF19 /* DatabaseManager.swift in Sources */,
 				784F65B2216435E00007D564 /* Jot.swift in Sources */,

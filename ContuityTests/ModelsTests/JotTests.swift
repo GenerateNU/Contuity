@@ -15,6 +15,7 @@ class JotTests: XCTestCase {
         /// TODO: fix this bug in tests (database maintained over time)
     }
 
+    // This is a test for the implementation of the equatable protocol in Jot
     func testEquatable() {
         let jot1 = Jot(id: 0, data: "", queue: true, createdAt: "now", modifiedAt: nil, latitude: nil, longitude: nil)
         let jot2 = Jot(id: 1, data: "", queue: true, createdAt: "now", modifiedAt: nil, latitude: nil, longitude: nil)
@@ -23,9 +24,10 @@ class JotTests: XCTestCase {
         XCTAssertNotEqual(jot1, jot2)
     }
 
+    // This is a test for the write function in the class Jot
     func testWrite() {
         self.freshTables()
-        let jot1 = Jot(id: -1, data: "", queue: true, createdAt: "now", modifiedAt: nil, latitude: nil, longitude: nil)
+        let jot1 = Jot(id: -1, data: "", queue: true, createdAt: "now", modifiedAt: nil, latitude: 20, longitude: nil)
         jot1.write()
 
         let statement = try! DatabaseManager.shared.conn?.prepare("SELECT * FROM jot")
@@ -34,6 +36,7 @@ class JotTests: XCTestCase {
         XCTAssertEqual(statement?.columnNames, ["id", "data", "queue", "createdAt", "modifiedAt", "latitude", "longitude"])
     }
     
+    // This is a test for the read function in the class Jot
     func testRead() {
         self.freshTables()
         let text1: String = "Whoa, I can't believe this works"
@@ -45,16 +48,19 @@ class JotTests: XCTestCase {
         let jot2 = Jot(id: 2, data: text2, queue: false, createdAt: now, modifiedAt: now, latitude: 0, longitude: 0)
         jot2.write()
         let createdAt3 = "04-20-6969 10:55:30"
-        let jot3 = Jot(id: 3, data: text3, queue: true, createdAt: createdAt3, modifiedAt: createdAt3, latitude: 0, longitude: 0)
+        let jot3 = Jot(id: 3, data: text3, queue: true, createdAt: createdAt3, modifiedAt: createdAt3, latitude: 20, longitude: 0)
         jot3.write()
         
         XCTAssertNotEqual(jot1, jot2)
         let readJot = Jot.read(givenID: 4)
         XCTAssertEqual(jot1, readJot)
         XCTAssertNotEqual(jot2, readJot)
+        /// This test fails because of a problem in writing to the database.
+        /// If given a lat or lng, it defaults to 0.
         XCTAssertEqual(jot3, Jot.read(givenID: 3))
     }
     
+    // This is a test for the update function in the class Jot
     func testUpdate() {
         self.freshTables()
         let text1: String = "Scuba diving with the squad #ThatsWack"
