@@ -15,7 +15,8 @@ protocol ExplorePresenterProtocol: PresenterProtocol {
     /// Gets all the Jots to show on the Explore page
     ///
     /// - Returns: a list of Jots to display
-    func getJots() -> [Jot]?
+    /// - Throws: DatabaseError.selectFailed if the SELECT operation on the database failed
+    func getJots() throws -> [Jot]
 }
 
 class ExplorePresenter: ExplorePresenterProtocol {
@@ -27,7 +28,9 @@ class ExplorePresenter: ExplorePresenterProtocol {
         self.view = view
     }
     
-    func getJots() -> [Jot]? {
-        return Jot.getJots(queue: false)
+    func getJots() throws -> [Jot] {
+        do {
+            return try Jot.getJots(queue: false)
+        }
     }
 }

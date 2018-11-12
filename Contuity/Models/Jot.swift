@@ -75,81 +75,34 @@ extension Jot: DatabaseProtocol {
         _ = try? statement.run()
     }
     
-    static func read(givenID: Int) -> Jot? {
+    static func read(givenID: Int) throws -> Jot {
         guard let conn = DatabaseManager.shared.conn
             else {
-                print("conn")
-                return nil
+                throw DatabaseError.selectFailed
         }
         do {
             for row in try conn.prepare("SELECT * FROM jot WHERE id = \(givenID)") {
-                guard let optionalID: Int64 = row[0] as? Int64 else {
-                    break
-                }
-                let id = Int(optionalID)
-                guard let newData = row[1] as? String? else{
-                    break
-                }
-                let row2 = row[2]
-                var newQueue = false
-                switch row2 {
-                case let row2 as Int64:
-                    if row2 == 1 {
-                        newQueue = true
-                    }
-                default:
-                    break
-                }
-                var newCreatedAt = ""
-                let row3 = row[3]
-                switch row3 {
-                case let row3 as String:
-                    newCreatedAt = String(row3)
-                default:
-                    break
-                }
-                guard let newModifiedAt = row[4] as? String? else{
-                    break
-                }
-                var newLat: Double?
-                let row5 = row[5]
-                switch row5 {
-                case let row5 as Double:
-                    newLat = Double(row5)
-                default:
-                    break
-                }
-                var newLong: Double?
-                let row6 = row[6]
-                switch row6 {
-                case let row6 as Double:
-                    newLong = Double(row6)
-                default:
-                    break
-                }
-                return Jot(id: id,
-                           data: newData,
-                           queue: newQueue,
-                           createdAt: newCreatedAt,
-                           modifiedAt: newModifiedAt,
-                           latitude: newLat,
-                           longitude: newLong)
+                return try parseRow(row: row)
             }
         }
         catch {
-            return nil
+            throw DatabaseError.selectFailed
         }
-        return nil
+        throw DatabaseError.selectFailed
     }
     
-    static func parseRow(row: Statement.Element) -> Jot? {
-        guard let optionalID: Int64 = row[0] as? Int64 else {
-            return nil
+    /// Parses a single row from the database into a Jot
+    ///
+    /// - Parameter row: a row from the database
+    /// - Returns: a Jot
+    /// - Throws: DatabaseError.selectFailed if the database SELECT failed
+    private static func parseRow(row: Statement.Element) throws -> Jot {
+        guard let optionalID: Int64 = row[0] as? Int64,
+            let newData = row[1] as? String
+            else {
+                throw DatabaseError.selectFailed
         }
         let id = Int(optionalID)
-        guard let newData = row[1] as? String? else{
-            return nil
-        }
         let row2 = row[2]
         var newQueue = false
         switch row2 {
@@ -166,10 +119,10 @@ extension Jot: DatabaseProtocol {
         case let row3 as String:
             newCreatedAt = String(row3)
         default:
-            return nil
+            throw DatabaseError.selectFailed
         }
         guard let newModifiedAt = row[4] as? String? else{
-            return nil
+            throw DatabaseError.selectFailed
         }
         var newLat: Double?
         let row5 = row[5]
@@ -177,7 +130,7 @@ extension Jot: DatabaseProtocol {
         case let row5 as Double:
             newLat = Double(row5)
         default:
-            return nil
+            throw DatabaseError.selectFailed
         }
         var newLong: Double?
         let row6 = row[6]
@@ -185,7 +138,7 @@ extension Jot: DatabaseProtocol {
         case let row6 as Double:
             newLong = Double(row6)
         default:
-            return nil
+            throw DatabaseError.selectFailed
         }
         return Jot(id: id,
                    data: newData,
@@ -196,33 +149,33 @@ extension Jot: DatabaseProtocol {
                    longitude: newLong)
     }
     
-    static func getJots(queue: Bool) -> [Jot]? {
+    
+    /// Returns a set of Jots from the database
+    /// de
+    /// - Parameter queue: if queue is true only get jots where queue = true, otherwise get all jots
+    /// - Returns: an array of Jots
+    /// - Throws: DatabaseError.selectFailed if SELECT operation on database failed
+    static func getJots(queue: Bool) throws -> [Jot] {
         var jots: [Jot] = []
         guard let conn = DatabaseManager.shared.conn
         else {
-            return nil
+            throw DatabaseError.selectFailed
         }
         do {
             if queue {
                 for row in try conn.prepare("SELECT * FROM jot where queue = true") {
-                    let jot = parseRow(row: row)
-                    if jot != nil {
-                        jots.append(jot!)
-                    }
-                    
+                    let jot = try parseRow(row: row)
+                    jots.append(jot)
                 }
             } else {
                 for row in try conn.prepare("SELECT * FROM jot") {
-                    let jot = parseRow(row: row)
-                    if jot != nil {
-                        jots.append(jot!)
-                    }
-                    
+                    let jot = try parseRow(row: row)
+                    jots.append(jot)
                 }
             }
         }
         catch {
-            return nil
+            throw DatabaseError.selectFailed
         }
         return jots
     }

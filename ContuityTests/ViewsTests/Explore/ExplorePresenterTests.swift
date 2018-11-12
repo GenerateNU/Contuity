@@ -11,9 +11,10 @@ import XCTest
 
 class ExplorePresenterTests: XCTestCase {
     
-    func testGetJots() {
-        let jot1 = Jot(id: 0, data: "", queue: true, createdAt: "now", modifiedAt: nil, latitude: nil, longitude: nil)
-        let jot2 = Jot(id: 1, data: "", queue: true, createdAt: "now", modifiedAt: nil, latitude: nil, longitude: nil)
+    func testGetJots() throws {
+        var jots: [Jot] = []
+        let jot1 = Jot(id: 0, data: "", queue: true, createdAt: "now", modifiedAt: "now", latitude: 0, longitude: 0)
+        let jot2 = Jot(id: 1, data: "", queue: true, createdAt: "now", modifiedAt: "now", latitude: 0, longitude: 0)
         
         jot1.write()
         jot2.write()
@@ -22,9 +23,10 @@ class ExplorePresenterTests: XCTestCase {
         
         let sut = ExplorePresenter()
         
-        let jots = sut.getJots()
+        do {
+            jots = try sut.getJots()
+        }
         
-        XCTAssertEqual(jots!, expectedJots)
+        XCTAssertEqual(jots, expectedJots)
     }
-    
 }

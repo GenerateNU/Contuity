@@ -17,13 +17,12 @@ class ExploreViewController: UITableViewController {
     private (set) var presenter = ExplorePresenter()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        var jots: [Jot] = []
         presenter.attachView(self)
-        let jots = presenter.getJots()
-        if jots != nil {
-            presenter.jots += jots!
+        do {
+            jots = try presenter.getJots()
         }
-        
+        catch {}
         prettify()
         let nib = UINib(nibName: "JotTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "JotTableViewCell")
