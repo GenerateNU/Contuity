@@ -18,7 +18,7 @@ protocol WriteJotPresenterProtocol: PresenterProtocol {
 
     /// The id of the jot being written or updated
     var jotID: Int { get set }
-    
+
     /// Creates a Jot using the text and writes to the database.
     ///
     /// - Parameters:

@@ -62,6 +62,25 @@ class WriteJotViewControllerTests: XCTestCase {
 
         XCTAssertEqual(sut.presenter.text, "ayyyy lmao")
     }
+
+    func testWriteWithNewInitiativesTriggersAlert() {
+        let testWindow = UIWindow()
+        testWindow.rootViewController = sut
+        testWindow.makeKeyAndVisible()
+
+        sut.presenter.text = "disney #xd #woohoo"
+        sut.presenter.update = false
+        sut.saveButton.sendActions(for: .touchUpInside)
+
+        // TODO: Failing even though functionality works 🤔
+        let alertController = sut.presentedViewController as? UIAlertController
+        XCTAssertNotNil(alertController)
+        XCTAssertEqual(alertController?.title, "Add new initiatives?")
+        XCTAssertEqual(alertController?.message, "Are you sure would like to add new initiatives?")
+        XCTAssertEqual(alertController?.actions.first?.title, "Yes")
+        XCTAssertEqual(alertController?.actions.last?.title, "No")
+        XCTAssertEqual(alertController?.actions.count, 2)
+    }
 }
 
 private extension WriteJotViewControllerTests {

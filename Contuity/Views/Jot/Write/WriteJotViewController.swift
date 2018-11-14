@@ -31,10 +31,36 @@ class WriteJotViewController: UIViewController {
 
         navigationItem.title = "Write Jot"
 
-        saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
+        saveButton.addTarget(self, action: #selector(showInitiativeAlertsOnSave), for: .touchUpInside)
     }
 
-    @objc private func saveButtonTapped() {
+    /// When the save button is tapped, this is triggered to notify the user they are about to save
+    /// A jot with new initiatives attached.
+    @objc private func showInitiativeAlertsOnSave() {
+        let hasNewInitiatives = presenter.update
+            ? Set((Jot.read(givenID: presenter.jotID)?.data ?? "").taggedWords)
+                .isSubset(of: presenter.text.taggedWords)
+            : presenter.text.taggedWords.count > 0
+
+        if hasNewInitiatives {
+            let confirmNewInitiativesAlert = UIAlertController(
+                title: "Add new initiatives?",
+                message: "Are you sure would like to add new initiatives?",
+                preferredStyle: .alert)
+            confirmNewInitiativesAlert.addAction(
+                UIAlertAction(title: "Yes", style: .default, handler: { _ in
+                    self.saveTextAsJot()
+                }))
+            confirmNewInitiativesAlert.addAction(UIAlertAction(title: "No", style: .cancel))
+
+            presentInMainThread(confirmNewInitiativesAlert, isAnimated: true)
+        } else {
+            saveTextAsJot()
+        }
+    }
+
+    /// Saves text to the database using the presenter
+    private func saveTextAsJot() {
         presenter.saveJot()
         if presenter.update {
             navigationController?.popViewController(animated: true)
