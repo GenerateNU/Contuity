@@ -56,4 +56,13 @@ extension Initiative: DatabaseProtocol {
         }
         _ = try? statement.run()
     }
+    
+    func update() {
+        /// TODO: implement update method for Initiative
+    }
+    
+    static func read(givenID: Int) -> Initiative? {
+        /// TODO: implement read method for Initiative
+        return nil
+    }
 }

@@ -40,7 +40,7 @@ class WriteJotViewControllerTests: XCTestCase {
 
         XCTAssertFalse(sut.textView.isHidden)
         XCTAssertTrue(sut.textView.isEditable)
-        XCTAssertEqual(sut.textView.text, "Reza is the best")
+        XCTAssertEqual(sut.textView.text, "")
         XCTAssertEqual(sut.textView.font, .systemFont(ofSize: 22))
     }
 
@@ -48,11 +48,11 @@ class WriteJotViewControllerTests: XCTestCase {
         let mockPresenter = MockWriteJotPresenter()
         sut.presenter = mockPresenter
 
-        XCTAssertFalse(mockPresenter.createdData)
+        XCTAssertFalse(mockPresenter.createdJot)
 
         sut.saveButton.sendActions(for: .touchUpInside)
 
-        XCTAssertTrue(mockPresenter.createdData)
+        XCTAssertTrue(mockPresenter.createdJot)
     }
 
     func testWriteInViewUpdatesPresenterText() {
@@ -67,10 +67,10 @@ class WriteJotViewControllerTests: XCTestCase {
 private extension WriteJotViewControllerTests {
     class MockWriteJotPresenter: WriteJotPresenter {
 
-        var createdData = false
+        var createdJot = false
 
-        override func createData(at id: Int, lat: Double?, lng: Double?) {
-            createdData = true
+        override func saveJot(lat: Double?, lng: Double?) {
+            createdJot = true
         }
     }
 }

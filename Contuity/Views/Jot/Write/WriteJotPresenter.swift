@@ -13,19 +13,31 @@ protocol WriteJotPresenterProtocol: PresenterProtocol {
     /// Text body that needs to be saved as the Jot
     var text: String { get set }
 
+    /// If true, then this WriteJotPresenter is updating an existing jot
+    var update: Bool { get set }
+
+    /// The id of the jot being written or updated
+    var jotID: Int { get set }
+    
     /// Creates a Jot using the text and writes to the database.
-    /// The text is then parsed and initiatives are written.
     ///
     /// - Parameters:
-    ///   - id: Optional int id, otherwise randomly picks one
     ///   - lat: Optional double representing the latitude.
     ///   - lng: Optional double representing the longitude.
-    func createData(at id: Int, lat: Double?, lng: Double?)
+    func saveJot(lat: Double?, lng: Double?)
+
+    /// Sets the id of this presenter to the given id
+    ///
+    /// - Parameters:
+    ///   - givenID: the id that this id should be set to
+    func setJotID(givenID: Int)
 }
 
 class WriteJotPresenter: WriteJotPresenterProtocol {
 
     var text: String = ""
+    var update: Bool = false
+    var jotID: Int = Int.random(in: 0...1000000)
 
     var view: WriteJotViewProtocol?
 
@@ -33,18 +45,27 @@ class WriteJotPresenter: WriteJotPresenterProtocol {
         self.view = view
     }
 
-    func createData(at id: Int = Int.random(in: 0...1000000), lat: Double? = nil, lng: Double? = nil) {
-        let jot =  Jot(id: id,
-                   data: text,
-                   queue: shouldQueue(),
-                   createdAt: Date().timestamp(),
-                   modifiedAt: nil,
-                   latitude: lat,
-                   longitude: lng)
+    func saveJot(lat: Double? = nil, lng: Double? = nil) {
+        if update {
+            guard let updateJot = Jot.read(givenID: self.jotID) else {
+                return
+            }
+            updateJot.update()
+        }
+        else {
+            /// TODO: fix all random id assignments
+            self.jotID = Int.random(in: 0...1000000)
+            let jot =  Jot(id: jotID,
+                           data: text,
+                           queue: shouldQueue(),
+                           createdAt: Date().timestamp(),
+                           modifiedAt: nil,
+                           latitude: lat,
+                           longitude: lng)
+            jot.write()
+        }
 
-        jot.write()
-
-        createInitiatives(with: jot.id)
+        createInitiatives(with: self.jotID)
     }
 
     private func createInitiatives(with jotId: Int) {
@@ -58,6 +79,12 @@ class WriteJotPresenter: WriteJotPresenterProtocol {
             let bridge = JotInitiative(jotId: jotId, initiativeTag: initiative.name)
             bridge.write()
         }
+    }
+
+    /// This method sets the id of the given jot.
+    func setJotID(givenID: Int) {
+        self.jotID = givenID
+        self.text = Jot.read(givenID: jotID)?.data ?? ""
     }
 
     /// Helper function to determine whether this Jot should be added to the queue.

@@ -41,6 +41,11 @@
 		784F65BC21643A160007D564 /* FollowUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F65BB21643A160007D564 /* FollowUp.swift */; };
 		784F65BE21643AB80007D564 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F65BD21643AB80007D564 /* Reminder.swift */; };
 		784F65C021643AC70007D564 /* Initiative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F65BF21643AC70007D564 /* Initiative.swift */; };
+		9A1BCCA82180D90400CF7FD0 /* ReadJotViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BCCA72180D90400CF7FD0 /* ReadJotViewControllerTests.swift */; };
+		9A1BCCAA2180D91400CF7FD0 /* ReadJotPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BCCA92180D91400CF7FD0 /* ReadJotPresenterTests.swift */; };
+		9A3C43062178DEF10019A271 /* ReadJotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3C43052178DEF10019A271 /* ReadJotViewController.xib */; };
+		9A4FE9482178D2AE00AA691A /* ReadJotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4FE9472178D2AE00AA691A /* ReadJotPresenter.swift */; };
+		9A4FE94A2178D3CC00AA691A /* ReadJotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4FE9492178D3CC00AA691A /* ReadJotViewController.swift */; };
 		B72C80E7B338A5D2C58BF7A8 /* Pods_ContuityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 627B4B3AD67A38D07635376F /* Pods_ContuityTests.framework */; };
 		DDFC66D50989239275EB26E8 /* Pods_Contuity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C5B146592AA402EC202DA2 /* Pods_Contuity.framework */; };
 /* End PBXBuildFile section */
@@ -98,6 +103,11 @@
 		784F65BB21643A160007D564 /* FollowUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUp.swift; sourceTree = "<group>"; };
 		784F65BD21643AB80007D564 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		784F65BF21643AC70007D564 /* Initiative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initiative.swift; sourceTree = "<group>"; };
+		9A1BCCA72180D90400CF7FD0 /* ReadJotViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJotViewControllerTests.swift; sourceTree = "<group>"; };
+		9A1BCCA92180D91400CF7FD0 /* ReadJotPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJotPresenterTests.swift; sourceTree = "<group>"; };
+		9A3C43052178DEF10019A271 /* ReadJotViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReadJotViewController.xib; sourceTree = "<group>"; };
+		9A4FE9472178D2AE00AA691A /* ReadJotPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJotPresenter.swift; sourceTree = "<group>"; };
+		9A4FE9492178D3CC00AA691A /* ReadJotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJotViewController.swift; sourceTree = "<group>"; };
 		B0C5B146592AA402EC202DA2 /* Pods_Contuity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contuity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4FDA0361F033B089D6FD59D /* Pods-ContuityTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContuityTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ContuityTests/Pods-ContuityTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,6 +163,7 @@
 		35D8FBEA216ED02500D3EF19 /* Jot */ = {
 			isa = PBXGroup;
 			children = (
+				9A4FE9462178D29500AA691A /* Read */,
 				35D8FBEB216ED03900D3EF19 /* Write */,
 			);
 			path = Jot;
@@ -180,6 +191,7 @@
 		35D8FC05216F8D6900D3EF19 /* Jot */ = {
 			isa = PBXGroup;
 			children = (
+				9A1BCCA62180D8CF00CF7FD0 /* Read */,
 				35D8FC06216F8D6E00D3EF19 /* Write */,
 			);
 			path = Jot;
@@ -271,6 +283,7 @@
 				35E183AE215C63D30055BB01 /* Products */,
 				FB0265FDFBA69E1084C21057 /* Pods */,
 				31A3BE10F4A7F4D5103A1CA4 /* Frameworks */,
+				9A49DAC2219A038100E170DC /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -335,6 +348,32 @@
 				784F65BD21643AB80007D564 /* Reminder.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		9A1BCCA62180D8CF00CF7FD0 /* Read */ = {
+			isa = PBXGroup;
+			children = (
+				9A1BCCA72180D90400CF7FD0 /* ReadJotViewControllerTests.swift */,
+				9A1BCCA92180D91400CF7FD0 /* ReadJotPresenterTests.swift */,
+			);
+			path = Read;
+			sourceTree = "<group>";
+		};
+		9A49DAC2219A038100E170DC /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		9A4FE9462178D29500AA691A /* Read */ = {
+			isa = PBXGroup;
+			children = (
+				9A4FE9472178D2AE00AA691A /* ReadJotPresenter.swift */,
+				9A4FE9492178D3CC00AA691A /* ReadJotViewController.swift */,
+				9A3C43052178DEF10019A271 /* ReadJotViewController.xib */,
+			);
+			path = Read;
 			sourceTree = "<group>";
 		};
 		FB0265FDFBA69E1084C21057 /* Pods */ = {
@@ -438,6 +477,7 @@
 				35D8FC132172503800D3EF19 /* LaunchScreen.storyboard in Resources */,
 				35E183BC215C63D40055BB01 /* Assets.xcassets in Resources */,
 				35D8FBE92166ED6300D3EF19 /* WriteJotViewController.xib in Resources */,
+				9A3C43062178DEF10019A271 /* ReadJotViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +606,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A4FE94A2178D3CC00AA691A /* ReadJotViewController.swift in Sources */,
+				9A4FE9482178D2AE00AA691A /* ReadJotPresenter.swift in Sources */,
 				35D8FC01216F8C4E00D3EF19 /* Prettify.swift in Sources */,
 				35D8FBE22166ED0100D3EF19 /* ViewProtocol.swift in Sources */,
 				35D8FBED216ED04C00D3EF19 /* WriteJotPresenter.swift in Sources */,
@@ -600,6 +642,8 @@
 				35D8FC0C2170132400D3EF19 /* PresenterProtocolTests.swift in Sources */,
 				35D8FC10217013BC00D3EF19 /* WriteJotPresenterTests.swift in Sources */,
 				35D8FC36218B9F6600D3EF19 /* StringExtensionTests.swift in Sources */,
+				9A1BCCAA2180D91400CF7FD0 /* ReadJotPresenterTests.swift in Sources */,
+				9A1BCCA82180D90400CF7FD0 /* ReadJotViewControllerTests.swift in Sources */,
 				35D8FC2C217803C800D3EF19 /* DatabaseManagerTests.swift in Sources */,
 				35D8FC262177FCB000D3EF19 /* DateExtensionTests.swift in Sources */,
 				35D8FC322187892200D3EF19 /* InitiativeTests.swift in Sources */,

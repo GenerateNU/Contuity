@@ -27,8 +27,9 @@ class WriteJotPresenterTests: XCTestCase {
 
     func testCreateDataAddsInitiativesToDatabaseProperly() {
         sut.text = "yoooo #imthebest"
+        sut.jotID = 999999
 
-        sut.createData(at: 999999)
+        sut.saveJot()
 
         let bridgeStmt = try! DatabaseManager.shared.conn?.prepare(
             "SELECT * FROM jotInitiative where jotId = 999999")
