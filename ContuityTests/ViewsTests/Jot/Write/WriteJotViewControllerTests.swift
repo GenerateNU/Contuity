@@ -12,13 +12,11 @@ import XCTest
 class WriteJotViewControllerTests: XCTestCase {
 
     var sut: WriteJotViewController!
-    var navigationController: UINavigationController!
 
     override func setUp() {
         super.setUp()
 
         sut = WriteJotViewController()
-        navigationController = UINavigationController(rootViewController: sut)
 
         _ = sut.view
     }
@@ -72,7 +70,6 @@ class WriteJotViewControllerTests: XCTestCase {
         sut.presenter.update = false
         sut.saveButton.sendActions(for: .touchUpInside)
 
-        // TODO: Failing even though functionality works 🤔
         let alertController = sut.presentedViewController as? UIAlertController
         XCTAssertNotNil(alertController)
         XCTAssertEqual(alertController?.title, "Add new initiatives?")
