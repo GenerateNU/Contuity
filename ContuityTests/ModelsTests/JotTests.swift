@@ -48,7 +48,7 @@ class JotTests: XCTestCase {
         let jot2 = Jot(id: 2, data: text2, queue: false, createdAt: now, modifiedAt: now, latitude: 0, longitude: 0)
         jot2.write()
         let createdAt3 = "04-20-6969 10:55:30"
-        let jot3 = Jot(id: 3, data: text3, queue: true, createdAt: createdAt3, modifiedAt: createdAt3, latitude: 20, longitude: 0)
+        let jot3 = Jot(id: 5, data: text3, queue: true, createdAt: createdAt3, modifiedAt: createdAt3, latitude: 20, longitude: 0)
         jot3.write()
         
         XCTAssertNotEqual(jot1, jot2)
@@ -57,7 +57,7 @@ class JotTests: XCTestCase {
         XCTAssertNotEqual(jot2, readJot)
         /// This test fails because of a problem in writing to the database.
         /// If given a lat or lng, it defaults to 0.
-        XCTAssertEqual(jot3, Jot.read(givenID: 3))
+        XCTAssertEqual(jot3, Jot.read(givenID: 5))
     }
     
     // This is a test for the update function in the class Jot

@@ -23,6 +23,4 @@ protocol DatabaseProtocol {
     func write()
     /// Updates the model to the database.
     func update()
-    /// Returns an instance of the model with the field stored at the given id
-    static func read(givenID: Int) -> Self?
 }

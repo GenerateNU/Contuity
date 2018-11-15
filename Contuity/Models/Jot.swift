@@ -35,6 +35,7 @@ extension Jot: Equatable {
 }
 
 extension Jot: DatabaseProtocol {
+    
     static func createTable() throws {
         let table = Table("jot")
         let id = Expression<Int>("id")
@@ -91,19 +92,21 @@ extension Jot: DatabaseProtocol {
         }
         _ = try? statement.run()
     }
-    
+}
+
+extension Jot {
     // This function returns the jot with the given id if one exists.
     static func read(givenID: Int) -> Jot? {
         guard let conn = DatabaseManager.shared.conn
-        else {
-            print("conn")
-            return nil
+            else {
+                print("conn")
+                return nil
         }
         do {
             for row in try conn.prepare("SELECT * FROM jot WHERE id = \(givenID)") {
                 guard let optionalID: Int64 = row[0] as? Int64,
                     let newData = row[1] as? String else {
-                    break
+                        break
                 }
                 let id = Int(optionalID)
                 let row2 = row[2]

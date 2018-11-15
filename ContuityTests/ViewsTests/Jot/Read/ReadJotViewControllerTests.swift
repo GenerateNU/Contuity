@@ -40,8 +40,6 @@ class ReadJotViewControllerTests: XCTestCase {
     
     func testViewDidLoad() {
         XCTAssertTrue(sut.presenter.view === sut)
-        XCTAssertNotNil(sut.readJotTextView.delegate)
-        XCTAssertTrue(sut.readJotTextView.delegate === sut)
     }
     
     func testBeautify() {

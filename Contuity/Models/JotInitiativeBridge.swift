@@ -60,7 +60,9 @@ extension JotInitiative: DatabaseProtocol {
     func update() {
         /// TODO: implement update method for JotInitiative
     }
-    
+}
+
+extension JotInitiative {
     static func read(givenID: Int) -> JotInitiative? {
         /// TODO: implement read method for JotInitiative
         return nil
