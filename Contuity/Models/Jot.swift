@@ -162,16 +162,13 @@ extension Jot: DatabaseProtocol {
             throw DatabaseError.selectFailed
         }
         do {
+            var select = "SELECT * FROM jot"
             if queue {
-                for row in try conn.prepare("SELECT * FROM jot where queue = true") {
-                    let jot = try parseRow(row: row)
-                    jots.append(jot)
-                }
-            } else {
-                for row in try conn.prepare("SELECT * FROM jot") {
-                    let jot = try parseRow(row: row)
-                    jots.append(jot)
-                }
+                select += "where queue = true"
+            }
+            for row in try conn.prepare(select) {
+                let jot = try parseRow(row: row)
+                jots.append(jot)
             }
         }
         catch {

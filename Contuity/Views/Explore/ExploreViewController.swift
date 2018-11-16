@@ -35,11 +35,11 @@ class ExploreViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "JotTableViewCell"
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? JotTableViewCell else {
-            fatalError("The dequeued cell is not of type JotTableViewCell")
-        }
         let jot = presenter.jots[indexPath.row]
-        cell.textLabel!.text = jot.data
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? JotTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.textLabel?.text = jot.data
         return cell
     }
 }
