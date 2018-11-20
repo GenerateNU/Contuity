@@ -35,9 +35,16 @@ class WriteJotViewController: UIViewController {
     }
 
     @objc private func saveButtonTapped() {
-        presenter.createJot()
-        presenter.text = ""
-        textView.text = ""
+        presenter.saveJot()
+        if presenter.update {
+            navigationController?.popViewController(animated: true)
+        }
+        else {
+            let rjvc = ReadJotViewController()
+            rjvc.jotID = presenter.jotID
+            navigationController?.pushViewController(rjvc, animated: true)
+            textView.text = ""
+        }
     }
 }
 
@@ -56,8 +63,7 @@ extension WriteJotViewController: UITextViewDelegate {
 extension WriteJotViewController: Prettify {
     func prettify() {
         saveButton.setTitle("Save!", for: .normal)
-
-        textView.text = "Reza is the best"
+        textView.text = presenter.text
         textView.isHidden = false
         textView.isEditable = true
         textView.font = .systemFont(ofSize: 22)
