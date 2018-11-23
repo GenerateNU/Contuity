@@ -21,4 +21,6 @@ protocol DatabaseProtocol {
 
     /// Writes a model to the database. Generally called from presenters.
     func write()
+    /// Updates the model to the database.
+    func update()
 }

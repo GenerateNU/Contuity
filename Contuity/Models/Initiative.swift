@@ -31,6 +31,7 @@ extension Initiative: Equatable {
 }
 
 extension Initiative: DatabaseProtocol {
+    
     static func createTable() throws {
         let table = Table("initiative")
         let name = Expression<Int>("name")
@@ -55,5 +56,9 @@ extension Initiative: DatabaseProtocol {
                 return
         }
         _ = try? statement.run()
+    }
+    
+    func update() {
+        /// TODO: implement update method for Initiative
     }
 }

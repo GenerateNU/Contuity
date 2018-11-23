@@ -14,7 +14,7 @@ import SQLite
  */
 struct Jot {
     let id: Int
-    var data: String?
+    var data: String
     var queue: Bool
     let createdAt: String
     var modifiedAt: String?
@@ -35,6 +35,7 @@ extension Jot: Equatable {
 }
 
 extension Jot: DatabaseProtocol {
+    
     static func createTable() throws {
         let table = Table("jot")
         let id = Expression<Int>("id")
@@ -62,11 +63,11 @@ extension Jot: DatabaseProtocol {
             throw DatabaseError.insertionFailed
         }
     }
-
+    // This function writes a new jot to the database.
     func write() {
         let insert = "INSERT INTO jot (id, data, queue, createdAt, modifiedAt, latitude, longitude)"
         let values =
-        "VALUES (\(id), \"\(data ?? "")\", \(queue), \"\(createdAt)\", \"\(createdAt)\", \(latitude ?? 0), \(longitude ?? 0))"
+        "VALUES (\(id), \"\(data)\", \(queue), \"\(createdAt)\", \"\(modifiedAt ?? createdAt)\", \(latitude ?? 0), \(longitude ?? 0))"
 
         guard let conn = DatabaseManager.shared.conn,
             let statement = try? conn.prepare("\(insert) \(values)") else {
@@ -74,7 +75,27 @@ extension Jot: DatabaseProtocol {
         }
         _ = try? statement.run()
     }
-    
+    // This function updates the given jot.
+    func update() {
+        let dataMessage = "data = \"\(data)\""
+        let queueMessage = "queue = \(queue)"
+        let createdMessage = "createdAt = \"\(createdAt)\""
+        let modifiedMessage = "modifiedAt = \"\(modifiedAt ?? createdAt)\""
+        let latMessage = "latitude = \(latitude ?? 0)"
+        let longMessage = "longitude = \(longitude ?? 0)"
+        let setMessage = "\(dataMessage), \(queueMessage), \(createdMessage), \(modifiedMessage), \(latMessage), \(longMessage)"
+        let update = "UPDATE jot SET \(setMessage) WHERE id = \(id)"
+        
+        guard let conn = DatabaseManager.shared.conn,
+            let statement = try? conn.prepare(update) else {
+                return
+        }
+        _ = try? statement.run()
+    }
+}
+
+extension Jot {
+    // This function returns the jot with the given id if one exists.
     static func read(givenID: Int) throws -> Jot {
         guard let conn = DatabaseManager.shared.conn
             else {
@@ -148,8 +169,6 @@ extension Jot: DatabaseProtocol {
                    latitude: newLat,
                    longitude: newLong)
     }
-    
-    
     /// Returns a set of Jots from the database
     /// de
     /// - Parameter queue: if queue is true only get jots where queue = true, otherwise get all jots

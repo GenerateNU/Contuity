@@ -40,7 +40,7 @@ class WriteJotViewControllerTests: XCTestCase {
 
         XCTAssertFalse(sut.textView.isHidden)
         XCTAssertTrue(sut.textView.isEditable)
-        XCTAssertEqual(sut.textView.text, "Reza is the best")
+        XCTAssertEqual(sut.textView.text, "")
         XCTAssertEqual(sut.textView.font, .systemFont(ofSize: 22))
     }
 
@@ -69,7 +69,7 @@ private extension WriteJotViewControllerTests {
 
         var createdJot = false
 
-        override func createJot(lat: Double?, lng: Double?) {
+        override func saveJot(lat: Double?, lng: Double?) {
             createdJot = true
         }
     }
