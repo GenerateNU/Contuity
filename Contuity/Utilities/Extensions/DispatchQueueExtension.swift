@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Extension on the Dispatch Queue to allow more granular control of threading
 extension DispatchQueue {
     /// Dispatches an action to the main presentation thread
     ///
