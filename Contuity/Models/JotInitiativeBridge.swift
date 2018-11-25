@@ -16,7 +16,7 @@ struct JotInitiative {
 
 private extension JotInitiative {
     var insert: String {
-        return "INSERT INTO jot-initative (jotId, initiativeId)"
+        return "INSERT INTO jot-initiative (jotId, initiativeId)"
     }
 
     var values: String {
@@ -60,7 +60,9 @@ extension JotInitiative: DatabaseProtocol {
     func update() {
         /// TODO: implement update method for JotInitiative
     }
-    
+}
+
+extension JotInitiative {
     static func read(givenID: Int) -> JotInitiative? {
         /// TODO: implement read method for JotInitiative
         return nil
