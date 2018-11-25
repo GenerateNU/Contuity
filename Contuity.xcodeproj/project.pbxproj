@@ -28,8 +28,12 @@
 		35D8FC2E2187845100D3EF19 /* JotInitiativeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC2D2187845100D3EF19 /* JotInitiativeBridge.swift */; };
 		35D8FC302187879400D3EF19 /* JotInitiativeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC2F2187879400D3EF19 /* JotInitiativeTests.swift */; };
 		35D8FC322187892200D3EF19 /* InitiativeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC312187892200D3EF19 /* InitiativeTests.swift */; };
+		35D8FC34218B95E200D3EF19 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC33218B95E200D3EF19 /* StringExtension.swift */; };
+		35D8FC36218B9F6600D3EF19 /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FC35218B9F6600D3EF19 /* StringExtensionTests.swift */; };
 		35E183B1215C63D30055BB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E183B0215C63D30055BB01 /* AppDelegate.swift */; };
 		35E183BC215C63D40055BB01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E183BB215C63D40055BB01 /* Assets.xcassets */; };
+		35F22368219CB37100F17616 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F22367219CB37100F17616 /* UIViewControllerExtension.swift */; };
+		35F2236A219CB3AB00F17616 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F22369219CB3AB00F17616 /* DispatchQueueExtension.swift */; };
 		780242C32166CB6200642FFD /* initialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780242C22166CB6200642FFD /* initialize.swift */; };
 		784F65B2216435E00007D564 /* Jot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F65B1216435E00007D564 /* Jot.swift */; };
 		784F65B4216438880007D564 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F65B3216438880007D564 /* People.swift */; };
@@ -81,12 +85,16 @@
 		35D8FC2D2187845100D3EF19 /* JotInitiativeBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotInitiativeBridge.swift; sourceTree = "<group>"; };
 		35D8FC2F2187879400D3EF19 /* JotInitiativeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotInitiativeTests.swift; sourceTree = "<group>"; };
 		35D8FC312187892200D3EF19 /* InitiativeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitiativeTests.swift; sourceTree = "<group>"; };
+		35D8FC33218B95E200D3EF19 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		35D8FC35218B9F6600D3EF19 /* StringExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
 		35E183AD215C63D30055BB01 /* Contuity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contuity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E183B0215C63D30055BB01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35E183BB215C63D40055BB01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35E183C0215C63D40055BB01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35E183C5215C63D40055BB01 /* ContuityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContuityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E183CB215C63D40055BB01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35F22367219CB37100F17616 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		35F22369219CB3AB00F17616 /* DispatchQueueExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtension.swift; sourceTree = "<group>"; };
 		461BB23A02736D9776FCF1B4 /* Pods-Contuity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contuity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Contuity/Pods-Contuity.debug.xcconfig"; sourceTree = "<group>"; };
 		5DD2C59243C50D5E441307C4 /* Pods-Contuity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contuity.release.xcconfig"; path = "Pods/Target Support Files/Pods-Contuity/Pods-Contuity.release.xcconfig"; sourceTree = "<group>"; };
 		627B4B3AD67A38D07635376F /* Pods_ContuityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ContuityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,6 +230,7 @@
 		35D8FC1921725A0D00D3EF19 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				35F22366219CB35600F17616 /* UIExtensions */,
 				35D8FC1A21725A2600D3EF19 /* Extensions */,
 			);
 			path = Utilities;
@@ -231,6 +240,8 @@
 			isa = PBXGroup;
 			children = (
 				35D8FC1D21725D6300D3EF19 /* DateExtension.swift */,
+				35D8FC33218B95E200D3EF19 /* StringExtension.swift */,
+				35F22369219CB3AB00F17616 /* DispatchQueueExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -247,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				35D8FC252177FCB000D3EF19 /* DateExtensionTests.swift */,
+				35D8FC35218B9F6600D3EF19 /* StringExtensionTests.swift */,
 			);
 			path = ExtensionsTests;
 			sourceTree = "<group>";
@@ -316,6 +328,14 @@
 				35D8FC04216F8D6200D3EF19 /* ViewsTests */,
 			);
 			path = ContuityTests;
+			sourceTree = "<group>";
+		};
+		35F22366219CB35600F17616 /* UIExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				35F22367219CB37100F17616 /* UIViewControllerExtension.swift */,
+			);
+			path = UIExtensions;
 			sourceTree = "<group>";
 		};
 		780242C12166CB3900642FFD /* Database */ = {
@@ -612,13 +632,16 @@
 				784F65BA216439ED0007D564 /* JotEvent.swift in Sources */,
 				784F65B62164391B0007D564 /* JotPeople.swift in Sources */,
 				784F65BC21643A160007D564 /* FollowUp.swift in Sources */,
+				35F2236A219CB3AB00F17616 /* DispatchQueueExtension.swift in Sources */,
 				784F65B4216438880007D564 /* People.swift in Sources */,
 				780242C32166CB6200642FFD /* initialize.swift in Sources */,
+				35D8FC34218B95E200D3EF19 /* StringExtension.swift in Sources */,
 				35D8FC2221765AA900D3EF19 /* DatabaseManager.swift in Sources */,
 				784F65B2216435E00007D564 /* Jot.swift in Sources */,
 				35D8FC1E21725D6300D3EF19 /* DateExtension.swift in Sources */,
 				784F65B8216439680007D564 /* Event.swift in Sources */,
 				35D8FC2E2187845100D3EF19 /* JotInitiativeBridge.swift in Sources */,
+				35F22368219CB37100F17616 /* UIViewControllerExtension.swift in Sources */,
 				784F65C021643AC70007D564 /* Initiative.swift in Sources */,
 				35D8FC2021765A7100D3EF19 /* DatabaseProtocol.swift in Sources */,
 				784F65BE21643AB80007D564 /* Reminder.swift in Sources */,
@@ -634,6 +657,7 @@
 				35D8FC292177FE7700D3EF19 /* JotTests.swift in Sources */,
 				35D8FC0C2170132400D3EF19 /* PresenterProtocolTests.swift in Sources */,
 				35D8FC10217013BC00D3EF19 /* WriteJotPresenterTests.swift in Sources */,
+				35D8FC36218B9F6600D3EF19 /* StringExtensionTests.swift in Sources */,
 				9A1BCCAA2180D91400CF7FD0 /* ReadJotPresenterTests.swift in Sources */,
 				9A1BCCA82180D90400CF7FD0 /* ReadJotViewControllerTests.swift in Sources */,
 				35D8FC2C217803C800D3EF19 /* DatabaseManagerTests.swift in Sources */,

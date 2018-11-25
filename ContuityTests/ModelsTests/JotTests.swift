@@ -10,9 +10,9 @@ import XCTest
 @testable import Contuity
 
 class JotTests: XCTestCase {
-    
-    func freshTables() {
-        /// TODO: fix this bug in tests (database maintained over time)
+
+    override func setUp() {
+        // Refresh tables here
     }
 
     // This is a test for the implementation of the equatable protocol in Jot
@@ -26,7 +26,6 @@ class JotTests: XCTestCase {
 
     // This is a test for the write function in the class Jot
     func testWrite() {
-        self.freshTables()
         let jot1 = Jot(id: -1, data: "", queue: true, createdAt: "now", modifiedAt: nil, latitude: 20, longitude: nil)
         jot1.write()
 
@@ -38,7 +37,6 @@ class JotTests: XCTestCase {
     
     // This is a test for the read function in the class Jot
     func testRead() {
-        self.freshTables()
         let text1: String = "Whoa, I can't believe this works"
         let text2: String = "The text for jot2"
         let text3: String = "Scuba diving with the squad #funtimes"
@@ -48,7 +46,7 @@ class JotTests: XCTestCase {
         let jot2 = Jot(id: 2, data: text2, queue: false, createdAt: now, modifiedAt: now, latitude: 0, longitude: 0)
         jot2.write()
         let createdAt3 = "04-20-6969 10:55:30"
-        let jot3 = Jot(id: 5, data: text3, queue: true, createdAt: createdAt3, modifiedAt: createdAt3, latitude: 20, longitude: 0)
+        let jot3 = Jot(id: 237844, data: text3, queue: true, createdAt: createdAt3, modifiedAt: createdAt3, latitude: 20, longitude: 0)
         jot3.write()
         
         XCTAssertNotEqual(jot1, jot2)
@@ -57,12 +55,11 @@ class JotTests: XCTestCase {
         XCTAssertNotEqual(jot2, readJot)
         /// This test fails because of a problem in writing to the database.
         /// If given a lat or lng, it defaults to 0.
-        XCTAssertEqual(jot3, Jot.read(givenID: 5))
+        XCTAssertEqual(jot3, Jot.read(givenID: 237844))
     }
     
     // This is a test for the update function in the class Jot
     func testUpdate() {
-        self.freshTables()
         let text1: String = "Scuba diving with the squad #ThatsWack"
         let text2: String = "Scuba diving with the squad #funtimes"
         let now = "now"
