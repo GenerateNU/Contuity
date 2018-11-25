@@ -16,7 +16,7 @@ struct JotInitiative {
 
 private extension JotInitiative {
     var insert: String {
-        return "INSERT INTO jot-initative (jotId, initiativeId)"
+        return "INSERT INTO jot-initiative (jotId, initiativeId)"
     }
 
     var values: String {
