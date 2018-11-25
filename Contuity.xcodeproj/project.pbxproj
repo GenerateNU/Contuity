@@ -49,6 +49,7 @@
 		92AF53FC21AB340700794B28 /* JotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AF53FA21AB340700794B28 /* JotTableViewCell.swift */; };
 		92AF53FD21AB340700794B28 /* JotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AF53FB21AB340700794B28 /* JotTableViewCell.xib */; };
 		92AF540121AB359600794B28 /* ExplorePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AF540021AB359600794B28 /* ExplorePresenterTests.swift */; };
+		92AF540321AB496300794B28 /* ExploreViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AF540221AB496300794B28 /* ExploreViewControllerTests.swift */; };
 		9A1BCCA82180D90400CF7FD0 /* ReadJotViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BCCA72180D90400CF7FD0 /* ReadJotViewControllerTests.swift */; };
 		9A1BCCAA2180D91400CF7FD0 /* ReadJotPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BCCA92180D91400CF7FD0 /* ReadJotPresenterTests.swift */; };
 		9A3C43062178DEF10019A271 /* ReadJotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3C43052178DEF10019A271 /* ReadJotViewController.xib */; };
@@ -119,6 +120,7 @@
 		92AF53FA21AB340700794B28 /* JotTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotTableViewCell.swift; sourceTree = "<group>"; };
 		92AF53FB21AB340700794B28 /* JotTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JotTableViewCell.xib; sourceTree = "<group>"; };
 		92AF540021AB359600794B28 /* ExplorePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresenterTests.swift; sourceTree = "<group>"; };
+		92AF540221AB496300794B28 /* ExploreViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewControllerTests.swift; sourceTree = "<group>"; };
 		9A1BCCA72180D90400CF7FD0 /* ReadJotViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJotViewControllerTests.swift; sourceTree = "<group>"; };
 		9A1BCCA92180D91400CF7FD0 /* ReadJotPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJotPresenterTests.swift; sourceTree = "<group>"; };
 		9A3C43052178DEF10019A271 /* ReadJotViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReadJotViewController.xib; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				92AF540021AB359600794B28 /* ExplorePresenterTests.swift */,
+				92AF540221AB496300794B28 /* ExploreViewControllerTests.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -701,6 +704,7 @@
 			files = (
 				35D8FC0E2170139700D3EF19 /* WriteJotViewControllerTests.swift in Sources */,
 				35D8FC302187879400D3EF19 /* JotInitiativeTests.swift in Sources */,
+				92AF540321AB496300794B28 /* ExploreViewControllerTests.swift in Sources */,
 				35D8FC292177FE7700D3EF19 /* JotTests.swift in Sources */,
 				35D8FC0C2170132400D3EF19 /* PresenterProtocolTests.swift in Sources */,
 				35D8FC10217013BC00D3EF19 /* WriteJotPresenterTests.swift in Sources */,

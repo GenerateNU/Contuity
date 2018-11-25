@@ -63,18 +63,20 @@ extension Jot: DatabaseProtocol {
             throw DatabaseError.insertionFailed
         }
     }
+
     // This function writes a new jot to the database.
     func write() {
         let insert = "INSERT INTO jot (id, data, queue, createdAt, modifiedAt, latitude, longitude)"
         let values =
         "VALUES (\(id), \"\(data)\", \(queue), \"\(createdAt)\", \"\(modifiedAt ?? createdAt)\", \(latitude ?? 0), \(longitude ?? 0))"
-        
+
         guard let conn = DatabaseManager.shared.conn,
             let statement = try? conn.prepare("\(insert) \(values)") else {
                 return
         }
         _ = try? statement.run()
     }
+
     // This function updates the given jot.
     func update() {
         let dataMessage = "data = \"\(data)\""
@@ -85,7 +87,7 @@ extension Jot: DatabaseProtocol {
         let longMessage = "longitude = \(longitude ?? 0)"
         let setMessage = "\(dataMessage), \(queueMessage), \(createdMessage), \(modifiedMessage), \(latMessage), \(longMessage)"
         let update = "UPDATE jot SET \(setMessage) WHERE id = \(id)"
-        
+
         guard let conn = DatabaseManager.shared.conn,
             let statement = try? conn.prepare(update) else {
                 return

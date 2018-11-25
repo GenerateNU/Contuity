@@ -21,10 +21,6 @@ class ExplorePresenterTests: XCTestCase {
         
         let sut = ExplorePresenter()
         
-        do {
-            jots = try sut.getJots()
-        }
-        
-        XCTAssertEqual(jots, expectedJots)
+        XCTAssertEqual(sut.jots, expectedJots)
     }
 }

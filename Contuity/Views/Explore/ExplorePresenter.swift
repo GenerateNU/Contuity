@@ -9,22 +9,13 @@ import Foundation
 
 protocol ExplorePresenterProtocol: PresenterProtocol {
     /// The jots that need to be displayed
-    var jots: [Jot] { get set }
+    var jots: [Jot] { get }
 }
 
 class ExplorePresenter: ExplorePresenterProtocol {
-    var jots: [Jot] = []
-    init() {
-        print("hi")
-        do {
-            jots = try Jot.getJots(queue: false)
-            print(jots)
-        }
-        catch {
-            print("bye")
-        }
-    }
+    var jots: [Jot] { return (try? Jot.getJots(queue: false)) ?? [] }
     weak var view: ExploreViewProtocol?
+
     func attachView(_ view: ExploreViewProtocol?) {
         self.view = view
     }

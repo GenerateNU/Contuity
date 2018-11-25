@@ -37,20 +37,14 @@ class WriteJotViewController: UIViewController {
     /// When the save button is tapped, this is triggered to notify the user they are about to save
     /// A jot with new initiatives attached.
     @objc private func processTextToSave() {
-        do {
-            let hasNewInitiatives = presenter.update
-                ? Set((try Jot.read(givenID: presenter.jotID).data).taggedWords)
-                    .isSubset(of: presenter.text.taggedWords)
-                : presenter.text.taggedWords.count > 0
-            
-            if hasNewInitiatives {
-                showNewInitiativesAlert()
-            } else {
-                saveTextAsJot()
-            }
-        }
-        catch {
-            
+        let hasNewInitiatives = presenter.update
+            ? Set(((try? Jot.read(givenID: presenter.jotID).data) ?? "").taggedWords)
+                .isSubset(of: presenter.text.taggedWords)
+            : presenter.text.taggedWords.count > 0
+        if hasNewInitiatives {
+            showNewInitiativesAlert()
+        } else {
+            saveTextAsJot()
         }
     }
 
