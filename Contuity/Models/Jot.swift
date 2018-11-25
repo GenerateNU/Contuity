@@ -45,7 +45,7 @@ extension Jot: DatabaseProtocol {
         let modifiedAt = Expression<String>("modifiedAt")
         let latitude = Expression<Double>("latitude")
         let longitude = Expression<Double>("longitude")
-        
+ 
         do {
             try DatabaseManager.shared.conn?.run(
                 table.create { t in
@@ -68,7 +68,7 @@ extension Jot: DatabaseProtocol {
         let insert = "INSERT INTO jot (id, data, queue, createdAt, modifiedAt, latitude, longitude)"
         let values =
         "VALUES (\(id), \"\(data)\", \(queue), \"\(createdAt)\", \"\(modifiedAt ?? createdAt)\", \(latitude ?? 0), \(longitude ?? 0))"
-        
+
         guard let conn = DatabaseManager.shared.conn,
             let statement = try? conn.prepare("\(insert) \(values)") else {
                 return
