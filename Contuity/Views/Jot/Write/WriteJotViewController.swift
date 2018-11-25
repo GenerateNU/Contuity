@@ -70,6 +70,9 @@ class WriteJotViewController: UIViewController {
             navigationController?.popViewController(animated: true)
         }
         else {
+            let rjvc = ReadJotViewController()
+            rjvc.jotID = presenter.jotID
+            navigationController?.pushViewController(rjvc, animated: true)
             textView.text = ""
         }
     }
