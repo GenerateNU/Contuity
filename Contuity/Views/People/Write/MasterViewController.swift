@@ -3,10 +3,10 @@ import Contacts
 import ContactsUI
 
 class MasterViewController: UITableViewController, CNContactPickerDelegate {
-    
+
     var detailViewController: DetailViewController? = nil
     var objects = [CNContact]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -17,14 +17,14 @@ class MasterViewController: UITableViewController, CNContactPickerDelegate {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
-        
+
         NotificationCenter.default.addObserver(self, selector: Selector(("insertNewObject:")), name: NSNotification.Name(rawValue: "addNewContact"), object: nil)
         self.getContacts()
     }
-    
+
     func getContacts() {
         let store = CNContactStore()
-        
+
         if CNContactStore.authorizationStatus(for: .contacts) == .notDetermined {
             store.requestAccess(for: .contacts, completionHandler: { (authorized: Bool, error: NSError?) -> Void in
                 if authorized {
@@ -42,37 +42,37 @@ class MasterViewController: UITableViewController, CNContactPickerDelegate {
             let predicate = CNContact.predicateForContactsInGroup(withIdentifier: groups[0].identifier)
             //let predicate = CNContact.predicateForContactsMatchingName("John")
             let keysToFetch = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName), CNContactEmailAddressesKey] as [Any]
-            
+
             let contacts = try store.unifiedContacts(matching: predicate, keysToFetch: keysToFetch as! [CNKeyDescriptor])
             self.objects = contacts
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            DispatchQueue.main.async(execute: { () -> Void in
                 self.tableView.reloadData()
             })
         } catch {
             print(error)
         }
     }
-    
+
     func addExistingContact() {
         let contactPicker = CNContactPickerViewController()
         contactPicker.delegate = self
         self.present(contactPicker, animated: true, completion: nil)
     }
-    
+
     func contactPicker(picker: CNContactPickerViewController, didSelectContact contact: CNContact) {
-        NotificationCenter.defaultCenter.postNotificationName("addNewContact", object: nil, userInfo: ["contactToAdd": contact])
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "addNewContact"), object: nil)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
         super.viewWillAppear(animated)
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     func insertNewObject(sender: NSNotification) {
         if let contact = sender.userInfo?["contactToAdd"] as? CNContact {
             objects.insert(contact, at: 0)
@@ -80,9 +80,9 @@ class MasterViewController: UITableViewController, CNContactPickerDelegate {
             self.tableView.insertRows(at: [indexPath as IndexPath], with: .automatic)
         }
     }
-    
+
     // MARK: - Segues
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let object = objects[indexPath.row]
@@ -93,29 +93,29 @@ class MasterViewController: UITableViewController, CNContactPickerDelegate {
             }
         }
     }
-    
+
     // MARK: - Table View
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return objects.count
     }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
-        
+
         let contact = self.objects[indexPath.row]
         let formatter = CNContactFormatter()
-        
+
         cell.textLabel?.text = formatter.string(from: contact)
         cell.detailTextLabel?.text = contact.emailAddresses.first?.value as String?
-        
+
         return cell
     }
-    
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return false
     }
