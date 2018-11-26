@@ -28,4 +28,14 @@ class InitiativeTests: XCTestCase {
         XCTAssertEqual(statement?.columnCount, 2)
         XCTAssertEqual(statement?.columnNames, ["name", "parent"])
     }
+    
+    func testGetInitiatives() {
+        let init1 = Initiative(name: "hello", parent: "NEIN")
+        let init2 = Initiative(name: "bye", parent: nil)
+        init1.write()
+        init2.write()
+        let initiatives = [init1, init2]
+        
+        XCTAssertEqual(try Initiative.getInitiatives(), initiatives)
+    }
 }

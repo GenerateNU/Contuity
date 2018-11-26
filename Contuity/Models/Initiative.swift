@@ -31,7 +31,7 @@ extension Initiative: Equatable {
 }
 
 extension Initiative: DatabaseProtocol {
-    
+
     static func createTable() throws {
         let table = Table("initiative")
         let name = Expression<Int>("name")
@@ -60,5 +60,35 @@ extension Initiative: DatabaseProtocol {
     
     func update() {
         /// TODO: implement update method for Initiative
+    }
+}
+
+extension Initiative {
+
+    private static func parseRow(row: Statement.Element) throws -> Initiative {
+        guard let name = row[0] as? String else {
+            throw DatabaseError.selectFailed
+        }
+        guard let parent = row[1] as? String? else {
+            throw DatabaseError.selectFailed
+        }
+        return Initiative(name: name, parent: parent)
+    }
+
+    static func getInitiatives() throws -> [Initiative] {
+        var initiatives: [Initiative] = []
+        guard let conn = DatabaseManager.shared.conn
+            else {
+                throw DatabaseError.selectFailed
+        }
+        do {
+            for row in try conn.prepare("SELECT * FROM jot-initiative") {
+                try initiatives.append(parseRow(row: row))
+            }
+        }
+        catch {
+            throw DatabaseError.selectFailed
+        }
+        throw DatabaseError.selectFailed
     }
 }

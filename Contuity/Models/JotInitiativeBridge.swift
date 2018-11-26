@@ -56,7 +56,7 @@ extension JotInitiative: DatabaseProtocol {
         }
         _ = try? statement.run()
     }
-    
+
     func update() {
         /// TODO: implement update method for JotInitiative
     }
@@ -66,5 +66,26 @@ extension JotInitiative {
     static func read(givenID: Int) -> JotInitiative? {
         /// TODO: implement read method for JotInitiative
         return nil
+    }
+
+    static func getJots(initiative: String) throws -> [Jot]  {
+        var jots: [Jot] = []
+        guard let conn = DatabaseManager.shared.conn
+            else {
+                throw DatabaseError.selectFailed
+        }
+        do {
+            for row in try conn.prepare("SELECT * FROM jot-initiative WHERE intiative = \(initiative)") {
+                guard let optionalID: Int64 = row[0] as? Int64 else {
+                    break
+                }
+                let jot = try Jot.read(givenID: Int(optionalID))
+                jots.append(jot)
+            }
+        }
+        catch {
+            throw DatabaseError.selectFailed
+        }
+        throw DatabaseError.selectFailed
     }
 }

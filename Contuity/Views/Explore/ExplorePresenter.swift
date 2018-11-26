@@ -10,6 +10,8 @@ import Foundation
 protocol ExplorePresenterProtocol: PresenterProtocol {
     /// The jots that need to be displayed
     var jots: [Jot] { get }
+
+    func filter(initiative: String) -> [Jot]
 }
 
 class ExplorePresenter: ExplorePresenterProtocol {
@@ -18,5 +20,14 @@ class ExplorePresenter: ExplorePresenterProtocol {
 
     func attachView(_ view: ExploreViewProtocol?) {
         self.view = view
+    }
+
+    func filter(initiative: String) -> [Jot] {
+        do {
+           return try JotInitiative.getJots(initiative: initiative)
+        }
+        catch {
+            return []
+        }
     }
 }

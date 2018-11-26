@@ -10,7 +10,6 @@ import XCTest
 class ExplorePresenterTests: XCTestCase {
     
     func testGetJots() throws {
-        var jots: [Jot] = []
         let jot1 = Jot(id: 0, data: "", queue: true, createdAt: "now", modifiedAt: "now", latitude: 0, longitude: 0)
         let jot2 = Jot(id: 1, data: "", queue: true, createdAt: "now", modifiedAt: "now", latitude: 0, longitude: 0)
         
@@ -22,5 +21,27 @@ class ExplorePresenterTests: XCTestCase {
         let sut = ExplorePresenter()
         
         XCTAssertEqual(sut.jots, expectedJots)
+    }
+    
+    func testFilter() {
+        let jot = Jot(id: 0, data: "hi", queue: true, createdAt: "", modifiedAt: "", latitude: nil, longitude: nil)
+        let ji = JotInitiative(jotId: 0, initiativeTag: "ayyy")
+        let jot1 = Jot(id: 1, data: "bye", queue: true, createdAt: "", modifiedAt: "", latitude: nil, longitude: nil)
+        let ji1 = JotInitiative(jotId: 0, initiativeTag: "ayyy")
+        let jot2 = Jot(id: 0, data: "hi", queue: true, createdAt: "", modifiedAt: "", latitude: nil, longitude: nil)
+        let ji2 = JotInitiative(jotId: 0, initiativeTag: "asdf")
+        jot.write()
+        jot1.write()
+        jot2.write()
+        ji.write()
+        ji1.write()
+        ji2.write()
+        let ayyy = [jot, jot1]
+        let asdf = [jot2]
+        
+        let sut = ExplorePresenter()
+        
+        XCTAssertEqual(sut.filter(initiative: "ayyy"), ayyy)
+        XCTAssertEqual(sut.filter(initiative: "asdf"), asdf)
     }
 }

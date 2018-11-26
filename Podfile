@@ -4,6 +4,7 @@ use_frameworks!
 def common_pods
   pod 'SwiftLint', '0.27.0'
   pod 'SQLite.swift', '0.11.5'
+  pod 'BTNavigationDropdownMenu'
 end
 
 def common_test_pods
