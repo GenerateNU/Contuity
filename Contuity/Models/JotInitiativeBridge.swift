@@ -68,11 +68,11 @@ extension JotInitiative {
         return nil
     }
 
-    static func getJots(initiative: String) throws -> [Jot]  {
+    static func getJots(initiative: String) -> [Jot]  {
         var jots: [Jot] = []
         guard let conn = DatabaseManager.shared.conn
             else {
-                throw DatabaseError.selectFailed
+                return []
         }
         do {
             for row in try conn.prepare("SELECT * FROM jot-initiative WHERE intiative = \(initiative)") {
@@ -82,10 +82,10 @@ extension JotInitiative {
                 let jot = try Jot.read(givenID: Int(optionalID))
                 jots.append(jot)
             }
+            return jots
         }
         catch {
-            throw DatabaseError.selectFailed
+            return []
         }
-        throw DatabaseError.selectFailed
     }
 }

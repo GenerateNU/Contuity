@@ -25,7 +25,7 @@ class ExploreViewController: UITableViewController {
         displayedJots = presenter.jots
         var  items: [String] = ["All"]
 
-        try? items += Initiative.getInitiatives().map { $0.name }
+        try? items += Initiative.initiatives.map { $0.name }
         let menuView = BTNavigationDropdownMenu(title: BTTitle.index(0), items: items)
         menuView.arrowTintColor = UIColor.black
         self.navigationItem.titleView = menuView

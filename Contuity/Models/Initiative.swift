@@ -75,20 +75,20 @@ extension Initiative {
         return Initiative(name: name, parent: parent)
     }
 
-    static func getInitiatives() throws -> [Initiative] {
+    static var initiatives: [Initiative] {
         var initiatives: [Initiative] = []
         guard let conn = DatabaseManager.shared.conn
             else {
-                throw DatabaseError.selectFailed
+                return []
         }
         do {
             for row in try conn.prepare("SELECT * FROM jot-initiative") {
                 try initiatives.append(parseRow(row: row))
             }
+            return initiatives
         }
         catch {
-            throw DatabaseError.selectFailed
+            return []
         }
-        throw DatabaseError.selectFailed
     }
 }

@@ -29,8 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let navigationController = UINavigationController()
         let writeJotViewController = WriteJotViewController()
-        let exploreViewController = ExploreViewController()
-        navigationController.viewControllers = [exploreViewController]
+        navigationController.viewControllers = [writeJotViewController]
 
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

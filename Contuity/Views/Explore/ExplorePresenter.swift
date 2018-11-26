@@ -23,11 +23,6 @@ class ExplorePresenter: ExplorePresenterProtocol {
     }
 
     func filter(initiative: String) -> [Jot] {
-        do {
-           return try JotInitiative.getJots(initiative: initiative)
-        }
-        catch {
-            return []
-        }
+        return JotInitiative.getJots(initiative: initiative)
     }
 }
