@@ -16,7 +16,7 @@ struct JotInitiative {
 
 private extension JotInitiative {
     var insert: String {
-        return "INSERT INTO jot-initiative (jotId, initiativeId)"
+        return "INSERT INTO jotinitiative (jotid, initiativeid)"
     }
 
     var values: String {
@@ -32,9 +32,9 @@ extension JotInitiative: Equatable {
 
 extension JotInitiative: DatabaseProtocol {
     static func createTable() throws {
-        let table = Table("jotInitiative")
-        let jot = Expression<Int>("jotId")
-        let initiative = Expression<String>("initiativeId")
+        let table = Table("jotinitiative")
+        let jot = Expression<Int>("jotid")
+        let initiative = Expression<String>("initiativeid")
 
         do {
             try DatabaseManager.shared.conn?.run(
