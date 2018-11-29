@@ -18,13 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        let navigationController = UINavigationController()
-        let writeJotViewController = WriteJotViewController()
-        navigationController.viewControllers = [writeJotViewController]
-
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
-
         let path = NSSearchPathForDirectoriesInDomains(
             .documentDirectory, .userDomainMask, true
         ).first!
@@ -33,6 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             DatabaseManager.shared.attachConnection(conn)
             DatabaseManager.shared.initializeTables()
         }
+
+        let navigationController = UINavigationController()
+        let writeJotViewController = WriteJotViewController()
+        navigationController.viewControllers = [writeJotViewController]
+
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
 
         return true
     }
