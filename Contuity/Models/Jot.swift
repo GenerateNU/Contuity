@@ -75,6 +75,7 @@ extension Jot: DatabaseProtocol {
         }
         _ = try? statement.run()
     }
+
     // This function updates the given jot.
     func update() {
         let dataMessage = "data = \"\(data)\""

@@ -11,9 +11,9 @@ import SQLite
 
 /// This class represents the followup attribute for a jot. It keeps the id of the jot to which it is attributed.
 struct FollowUp {
-    var id: Int
-    var jotid: Int
-    var datetime: String
+    let id: Int
+    let jotid: Int
+    let datetime: String
 }
 
 extension FollowUp: Equatable {
@@ -44,25 +44,24 @@ extension FollowUp: DatabaseProtocol {
             throw DatabaseError.insertionFailed
         }
     }
-    
+
     func write() {
         let insert = "INSERT INTO followup (id, jotid, datetime)"
-        let values =
-        "VALUES (\(id), \(jotid), \"\(datetime)\""
-        
+        let values = "VALUES (\(id), \(jotid), \"\(datetime)\")"
+
         guard let conn = DatabaseManager.shared.conn,
             let statement = try? conn.prepare("\(insert) \(values)") else {
                 return
         }
         _ = try? statement.run()
     }
-    
+
     func update() {
         // This function updates the given followup.
         func update() {
             let setMessage = "\(id), \(jotid), \(datetime)"
             let update = "UPDATE followup SET \(setMessage) WHERE id = \(id)"
-            
+
             guard let conn = DatabaseManager.shared.conn,
                 let statement = try? conn.prepare(update) else {
                     return
@@ -79,15 +78,11 @@ extension FollowUp {
             return nil
         }
         do {
-            print(givenID)
-            print("trying")
             for row in try conn.prepare("SELECT * FROM followup WHERE id = \(givenID)") {
-                print("found one")
-                    guard let optionalID: Int64 = row[0] as? Int64,
-                            let optionalJotID: Int64  = row[1] as? Int64 else {
-                                    return nil
-                    }
-                print("done")
+                guard let optionalID: Int64 = row[0] as? Int64,
+                        let optionalJotID: Int64  = row[1] as? Int64 else {
+                                return nil
+                }
                 let curID = Int(optionalID)
                 let curJotID = Int(optionalJotID)
                 var curDatetime = ""
