@@ -33,7 +33,8 @@ class JotInitiativeTests: XCTestCase {
     func testWrite() {
         let ji = JotInitiative(jotId: 0, initiativeTag: "ayyy")
         ji.write()
-        let statement = try! DatabaseManager.shared.conn?.prepare("SELECT * FROM jotInitiative")
+
+        let statement = try! DatabaseManager.shared.conn?.prepare("SELECT * FROM jotinitiative")
         XCTAssertNotNil(statement)
         XCTAssertEqual(statement?.columnCount, 2)
         XCTAssertEqual(statement?.columnNames, ["jotId", "initiativeId"])

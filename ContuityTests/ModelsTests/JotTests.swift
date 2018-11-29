@@ -82,4 +82,9 @@ class JotTests: XCTestCase {
         XCTAssertEqual(jot1.modifiedAt, modifiedAt)
         XCTAssertEqual(jot1.data, text2)
     }
+
+    func testNextId() {
+        // TODO: May fail until we can systematically refresh tables in tests
+        XCTAssertEqual(Jot.nextId, 237848)
+    }
 }
