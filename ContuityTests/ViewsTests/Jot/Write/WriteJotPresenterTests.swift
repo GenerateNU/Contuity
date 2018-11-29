@@ -24,4 +24,21 @@ class WriteJotPresenterTests: XCTestCase {
 
         super.tearDown()
     }
+
+    func testCreateDataAddsInitiativesToDatabaseProperly() {
+        sut.text = "yoooo #imthebest"
+        sut.jotID = 999999
+
+        sut.saveJot()
+
+        let bridgeStmt = try! DatabaseManager.shared.conn?.prepare(
+            "SELECT * FROM jotInitiative where jotId = 999999")
+        XCTAssertNotNil(bridgeStmt)
+        XCTAssertEqual(bridgeStmt?.columnCount, 2)
+
+        let initiativeStmt = try! DatabaseManager.shared.conn?.prepare(
+            "SELECT * FROM initiative where name = #imthebest")
+        XCTAssertNotNil(initiativeStmt)
+        XCTAssertEqual(initiativeStmt?.columnCount, 2)
+    }
 }

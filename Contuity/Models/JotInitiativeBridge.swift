@@ -16,7 +16,7 @@ struct JotInitiative {
 
 private extension JotInitiative {
     var insert: String {
-        return "INSERT INTO jot-initative (jotId, initiativeId)"
+        return "INSERT INTO jot-initiative (jotId, initiativeId)"
     }
 
     var values: String {
@@ -40,7 +40,7 @@ extension JotInitiative: DatabaseProtocol {
             try DatabaseManager.shared.conn?.run(
                 table.create { t in
                     t.column(jot, primaryKey: true)
-                    t.column(initiative)
+                    t.column(initiative, primaryKey: true)
             })
         } catch let Result.error(_, code, _) where code == SQLITE_CONSTRAINT {
             throw DatabaseError.constraintFailed
@@ -55,5 +55,16 @@ extension JotInitiative: DatabaseProtocol {
                 return
         }
         _ = try? statement.run()
+    }
+    
+    func update() {
+        /// TODO: implement update method for JotInitiative
+    }
+}
+
+extension JotInitiative {
+    static func read(givenID: Int) -> JotInitiative? {
+        /// TODO: implement read method for JotInitiative
+        return nil
     }
 }

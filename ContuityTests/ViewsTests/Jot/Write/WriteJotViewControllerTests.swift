@@ -12,13 +12,11 @@ import XCTest
 class WriteJotViewControllerTests: XCTestCase {
 
     var sut: WriteJotViewController!
-    var navigationController: UINavigationController!
 
     override func setUp() {
         super.setUp()
 
         sut = WriteJotViewController()
-        navigationController = UINavigationController(rootViewController: sut)
 
         _ = sut.view
     }
@@ -40,11 +38,11 @@ class WriteJotViewControllerTests: XCTestCase {
 
         XCTAssertFalse(sut.textView.isHidden)
         XCTAssertTrue(sut.textView.isEditable)
-        XCTAssertEqual(sut.textView.text, "Reza is the best")
+        XCTAssertEqual(sut.textView.text, "")
         XCTAssertEqual(sut.textView.font, .systemFont(ofSize: 22))
     }
 
-    func testTapSaveButtonCallsCreateJot() {
+    func testTapSaveButtonCallsCreateData() {
         let mockPresenter = MockWriteJotPresenter()
         sut.presenter = mockPresenter
 
@@ -62,6 +60,24 @@ class WriteJotViewControllerTests: XCTestCase {
 
         XCTAssertEqual(sut.presenter.text, "ayyyy lmao")
     }
+
+    func testWriteWithNewInitiativesTriggersAlert() {
+        let testWindow = UIWindow()
+        testWindow.rootViewController = sut
+        testWindow.makeKeyAndVisible()
+
+        sut.presenter.text = "disney #xd #woohoo"
+        sut.presenter.update = false
+        sut.saveButton.sendActions(for: .touchUpInside)
+
+        let alertController = sut.presentedViewController as? UIAlertController
+        XCTAssertNotNil(alertController)
+        XCTAssertEqual(alertController?.title, "Add new initiatives?")
+        XCTAssertEqual(alertController?.message, "Are you sure would like to add new initiatives?")
+        XCTAssertEqual(alertController?.actions.first?.title, "Yes")
+        XCTAssertEqual(alertController?.actions.last?.title, "No")
+        XCTAssertEqual(alertController?.actions.count, 2)
+    }
 }
 
 private extension WriteJotViewControllerTests {
@@ -69,7 +85,7 @@ private extension WriteJotViewControllerTests {
 
         var createdJot = false
 
-        override func createJot(lat: Double?, lng: Double?) {
+        override func saveJot(lat: Double?, lng: Double?) {
             createdJot = true
         }
     }
