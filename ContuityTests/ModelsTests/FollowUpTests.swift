@@ -60,8 +60,8 @@ class FollowupTests: XCTestCase {
     
     // This is a test for the read function in the class Jot
     func testRead() {
-        let followup1: FollowUp = FollowUp(id: 2,
-                                           jotid: 5,
+        let followup1: FollowUp = FollowUp(id: 11,
+                                           jotid: 6,
                                            datetime: "04-20-6969 10:55:30")
         followup1.write()
         
@@ -69,7 +69,7 @@ class FollowupTests: XCTestCase {
         XCTAssertNotNil(statement)
         XCTAssertEqual(statement?.columnCount, 3)
         XCTAssertEqual(statement?.columnNames, ["id", "jotid", "datetime"])
-        XCTAssertEqual(FollowUp.read(givenID: 2), followup1)
+        XCTAssertEqual(FollowUp.read(givenID: 11), followup1)
     }
     
     // This is a test for the update function in the class Jot
