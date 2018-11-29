@@ -76,4 +76,8 @@ class JotTests: XCTestCase {
         XCTAssertEqual(jot1.modifiedAt, modifiedAt)
         XCTAssertEqual(jot1.data, text2)
     }
+
+    func testNextId() {
+        XCTAssertEqual(Jot.nextId, 1000000)
+    }
 }

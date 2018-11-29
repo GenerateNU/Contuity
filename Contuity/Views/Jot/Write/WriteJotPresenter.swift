@@ -53,8 +53,7 @@ class WriteJotPresenter: WriteJotPresenterProtocol {
             updateJot.update()
         }
         else {
-            /// TODO: fix all random id assignments
-            self.jotID = Int.random(in: 0...1000000)
+            self.jotID = Jot.nextId
             let jot =  Jot(id: jotID,
                            data: text,
                            queue: shouldQueue(),
