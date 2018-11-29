@@ -15,27 +15,32 @@ class MasterViewController: UITableViewController, CNContactPickerDelegate {
         
         if let split = self.splitViewController {
             let controllers = split.viewControllers
-            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController // swiftlint:disable:this force_cast
         }
 
-        NotificationCenter.default.addObserver(self, selector: Selector(("insertNewObject:")), name: NSNotification.Name(rawValue: "addNewContact"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: Selector(("insertNewObject:")),
+                                               name: NSNotification.Name(rawValue: "addNewContact"), object: nil)
         self.getContacts()
     }
 
     func getContacts() {
         let store = CNContactStore()
-
-        if CNContactStore.authorizationStatus(for: .contacts) == .notDetermined {
-            store.requestAccess(for: .contacts, completionHandler: { (authorized: Bool, error: NSError?) -> Void in
-                if authorized {
-                    self.retrieveContactsWithStore(store: store)
+        func requestAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void) {
+            switch CNContactStore.authorizationStatus(for: .contacts) {
+            case .authorized:
+                completionHandler(true)
+            case .restricted, .notDetermined:
+                store.requestAccess(for: .contacts) { granted, error in
+                    if granted {
+                        completionHandler(true)
+                    }
                 }
-                } as! (Bool, Error?) -> Void)
-        } else if CNContactStore.authorizationStatus(for: .contacts) == .authorized {
-            self.retrieveContactsWithStore(store: store)
+            case .denied:
+                completionHandler(false)
+            }
         }
     }
-    
+
     func retrieveContactsWithStore(store: CNContactStore) {
         do {
             let groups = try store.groups(matching: nil)
@@ -43,7 +48,7 @@ class MasterViewController: UITableViewController, CNContactPickerDelegate {
             //let predicate = CNContact.predicateForContactsMatchingName("John")
             let keysToFetch = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName), CNContactEmailAddressesKey] as [Any]
 
-            let contacts = try store.unifiedContacts(matching: predicate, keysToFetch: keysToFetch as! [CNKeyDescriptor])
+            let contacts = try store.unifiedContacts(matching: predicate, keysToFetch: keysToFetch as! [CNKeyDescriptor]) // swiftlint:disable:this force_cast
             self.objects = contacts
             DispatchQueue.main.async(execute: { () -> Void in
                 self.tableView.reloadData()
@@ -86,7 +91,7 @@ class MasterViewController: UITableViewController, CNContactPickerDelegate {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let object = objects[indexPath.row]
-                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController // swiftlint:disable:this force_cast
                 controller.contactItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true

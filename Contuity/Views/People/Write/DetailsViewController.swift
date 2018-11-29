@@ -15,15 +15,19 @@ class DetailViewController: UIViewController {
             self.configureView()
         }
     }
-    
+
     func configureView() {
         // Update the user interface for the detail item.
         if let oldContact = self.contactItem {
             let store = CNContactStore()
 
             do {
-                let keysToFetch = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName), CNContactEmailAddressesKey, CNContactPostalAddressesKey, CNContactImageDataKey, CNContactImageDataAvailableKey] as [Any]
-                let contact = try store.unifiedContact(withIdentifier: oldContact.identifier, keysToFetch: keysToFetch as! [CNKeyDescriptor])
+                let keysToFetch = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName),
+                                   CNContactEmailAddressesKey,
+                                   CNContactPostalAddressesKey,
+                                   CNContactImageDataKey,
+                                   CNContactImageDataAvailableKey] as? [CNKeyDescriptor]
+                let contact = try store.unifiedContact(withIdentifier: oldContact.identifier, keysToFetch: keysToFetch ?? [])
 
                 DispatchQueue.main.async(execute: { () -> Void in
                     if contact.imageDataAvailable {

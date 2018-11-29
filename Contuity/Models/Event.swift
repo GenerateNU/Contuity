@@ -9,14 +9,14 @@
 import Foundation
 
 class Event {
-    
+
     var id: Int
     var name: String?
     var latitude: Double?
     var longitude: Double?
     var createdat: Date
     var eventtime: Date?
-    
+
     init(id: Int, name: String?, latitude: Double?, longitude: Double?, createdat: Date, eventtime: Date?){
         self.id = id
         self.name = name

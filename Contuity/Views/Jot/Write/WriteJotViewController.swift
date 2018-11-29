@@ -38,6 +38,7 @@ class WriteJotViewController: UIViewController {
         presenter.createJot()
         presenter.text = ""
         textView.text = ""
+        navigationController?.pushViewController(MasterViewController(), animated: false)
     }
 }
 

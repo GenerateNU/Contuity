@@ -15,7 +15,7 @@ class People {
     var number: String?
     var email: String?
     var createdat: Date
-    
+
     init(id: Int, name: String?, number: String?, email: String?, createdat: Date){
         self.id = id
         self.name = name

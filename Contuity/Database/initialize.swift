@@ -16,7 +16,7 @@ func createPeopleTable(db: Connection) {
     let number = Expression<String>("number")
     let email = Expression<String>("email")
     let createdat = Expression<Date>("createdat")
-    
+
     do {
         try db.run(people.create { t in
             t.column(id, primaryKey: true)
@@ -57,7 +57,7 @@ func createEventTable(db: Connection) {
     let latitude = Expression<Double>("latitude")
     let eventtime = Expression<Date>("eventtime")
     let createdat = Expression<Date>("createdat")
-    
+
     do {
         try db.run(event.create { t in
             t.column(id, primaryKey: true)
@@ -78,7 +78,7 @@ func createJotEventTable(db: Connection) {
     let jotevent = Table("jotevent")
     let jotid = Expression<Int>("jotid")
     let eventid = Expression<Int>("eventid")
-    
+
     do {
         try db.run(jotevent.create { t in
             t.column(jotid, primaryKey: true)
