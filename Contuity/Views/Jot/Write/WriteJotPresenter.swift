@@ -18,6 +18,10 @@ protocol WriteJotPresenterProtocol: PresenterProtocol {
 
     /// The id of the jot being written or updated
     var jotID: Int { get set }
+    
+    /// A list which contains all the followups attached to this jot.
+    /// TODO: list of attributes?
+    var followups: Array<FollowUp> { get set }
 
     /// Creates a Jot using the text and writes to the database.
     ///
@@ -34,10 +38,10 @@ protocol WriteJotPresenterProtocol: PresenterProtocol {
 }
 
 class WriteJotPresenter: WriteJotPresenterProtocol {
-
     var text: String = ""
     var update: Bool = false
     var jotID: Int = Int.random(in: 0...1000000)
+    var followups: [FollowUp] = []
 
     var view: WriteJotViewProtocol?
 

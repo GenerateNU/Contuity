@@ -6,11 +6,22 @@
 //  Copyright © 2018 Generate. All rights reserved.
 //
 
+import SQLite
 import XCTest
 @testable import Contuity
 
 class JotInitiativeTests: XCTestCase {
-
+    
+    override func setUp() {
+        // Create tables
+    }
+    
+    override func tearDown() {
+        // Delete tables here
+        let tableName = "jotInitiative"
+        try? DatabaseManager.shared.conn?.execute("DELETE FROM " + tableName)
+    }
+    
     func testEquatable() {
         let ji1 = JotInitiative(jotId: 0, initiativeTag: "hello")
         let ji2 = JotInitiative(jotId: 1, initiativeTag: "world")
@@ -22,7 +33,6 @@ class JotInitiativeTests: XCTestCase {
     func testWrite() {
         let ji = JotInitiative(jotId: 0, initiativeTag: "ayyy")
         ji.write()
-
         let statement = try! DatabaseManager.shared.conn?.prepare("SELECT * FROM jotInitiative")
         XCTAssertNotNil(statement)
         XCTAssertEqual(statement?.columnCount, 2)

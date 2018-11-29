@@ -12,9 +12,15 @@ import XCTest
 class JotTests: XCTestCase {
 
     override func setUp() {
-        // Refresh tables here
+        // Create tables
     }
-
+    
+    override func tearDown() {
+        // Delete tables here
+        let tableName = "jot"
+        try? DatabaseManager.shared.conn?.execute("DELETE FROM " + tableName)
+    }
+    
     // This is a test for the implementation of the equatable protocol in Jot
     func testEquatable() {
         let jot1 = Jot(id: 0, data: "", queue: true, createdAt: "now", modifiedAt: nil, latitude: nil, longitude: nil)
