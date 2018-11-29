@@ -43,6 +43,10 @@
 		784F65BC21643A160007D564 /* FollowUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F65BB21643A160007D564 /* FollowUp.swift */; };
 		784F65BE21643AB80007D564 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F65BD21643AB80007D564 /* Reminder.swift */; };
 		784F65C021643AC70007D564 /* Initiative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F65BF21643AC70007D564 /* Initiative.swift */; };
+		78A6B35B21B0B30D000BFA28 /* ReadPeoplePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A6B35A21B0B30D000BFA28 /* ReadPeoplePresenter.swift */; };
+		78A6B35D21B0B31B000BFA28 /* ReadPeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A6B35C21B0B31B000BFA28 /* ReadPeopleViewController.swift */; };
+		78A6B35F21B0B32F000BFA28 /* WritePeoplePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A6B35E21B0B32F000BFA28 /* WritePeoplePresenter.swift */; };
+		78A6B36121B0B34F000BFA28 /* WritePeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A6B36021B0B34F000BFA28 /* WritePeopleViewController.swift */; };
 		9A1BCCA82180D90400CF7FD0 /* ReadJotViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BCCA72180D90400CF7FD0 /* ReadJotViewControllerTests.swift */; };
 		9A1BCCAA2180D91400CF7FD0 /* ReadJotPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BCCA92180D91400CF7FD0 /* ReadJotPresenterTests.swift */; };
 		9A3C43062178DEF10019A271 /* ReadJotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3C43052178DEF10019A271 /* ReadJotViewController.xib */; };
@@ -107,6 +111,10 @@
 		784F65BB21643A160007D564 /* FollowUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUp.swift; sourceTree = "<group>"; };
 		784F65BD21643AB80007D564 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		784F65BF21643AC70007D564 /* Initiative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initiative.swift; sourceTree = "<group>"; };
+		78A6B35A21B0B30D000BFA28 /* ReadPeoplePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadPeoplePresenter.swift; sourceTree = "<group>"; };
+		78A6B35C21B0B31B000BFA28 /* ReadPeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadPeopleViewController.swift; sourceTree = "<group>"; };
+		78A6B35E21B0B32F000BFA28 /* WritePeoplePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePeoplePresenter.swift; sourceTree = "<group>"; };
+		78A6B36021B0B34F000BFA28 /* WritePeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePeopleViewController.swift; sourceTree = "<group>"; };
 		9A1BCCA72180D90400CF7FD0 /* ReadJotViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJotViewControllerTests.swift; sourceTree = "<group>"; };
 		9A1BCCA92180D91400CF7FD0 /* ReadJotPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJotPresenterTests.swift; sourceTree = "<group>"; };
 		9A3C43052178DEF10019A271 /* ReadJotViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReadJotViewController.xib; sourceTree = "<group>"; };
@@ -158,6 +166,7 @@
 		35D8FBE52166ED4E00D3EF19 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				78A6B35721B0B2E0000BFA28 /* People */,
 				35D8FBE02166ECEF00D3EF19 /* Protocols */,
 				35D8FBEA216ED02500D3EF19 /* Jot */,
 			);
@@ -362,6 +371,33 @@
 				784F65BD21643AB80007D564 /* Reminder.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		78A6B35721B0B2E0000BFA28 /* People */ = {
+			isa = PBXGroup;
+			children = (
+				78A6B35921B0B2F4000BFA28 /* Read */,
+				78A6B35821B0B2EE000BFA28 /* Write */,
+			);
+			path = People;
+			sourceTree = "<group>";
+		};
+		78A6B35821B0B2EE000BFA28 /* Write */ = {
+			isa = PBXGroup;
+			children = (
+				78A6B35E21B0B32F000BFA28 /* WritePeoplePresenter.swift */,
+				78A6B36021B0B34F000BFA28 /* WritePeopleViewController.swift */,
+			);
+			path = Write;
+			sourceTree = "<group>";
+		};
+		78A6B35921B0B2F4000BFA28 /* Read */ = {
+			isa = PBXGroup;
+			children = (
+				78A6B35A21B0B30D000BFA28 /* ReadPeoplePresenter.swift */,
+				78A6B35C21B0B31B000BFA28 /* ReadPeopleViewController.swift */,
+			);
+			path = Read;
 			sourceTree = "<group>";
 		};
 		9A1BCCA62180D8CF00CF7FD0 /* Read */ = {
@@ -643,6 +679,10 @@
 				35D8FC2E2187845100D3EF19 /* JotInitiativeBridge.swift in Sources */,
 				35F22368219CB37100F17616 /* UIViewControllerExtension.swift in Sources */,
 				784F65C021643AC70007D564 /* Initiative.swift in Sources */,
+				78A6B36121B0B34F000BFA28 /* WritePeopleViewController.swift in Sources */,
+				78A6B35D21B0B31B000BFA28 /* ReadPeopleViewController.swift in Sources */,
+				78A6B35B21B0B30D000BFA28 /* ReadPeoplePresenter.swift in Sources */,
+				78A6B35F21B0B32F000BFA28 /* WritePeoplePresenter.swift in Sources */,
 				35D8FC2021765A7100D3EF19 /* DatabaseProtocol.swift in Sources */,
 				784F65BE21643AB80007D564 /* Reminder.swift in Sources */,
 			);
