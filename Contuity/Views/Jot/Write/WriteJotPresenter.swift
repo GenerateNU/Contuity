@@ -47,10 +47,13 @@ class WriteJotPresenter: WriteJotPresenterProtocol {
 
     func saveJot(lat: Double? = nil, lng: Double? = nil) {
         if update {
-            guard let updateJot = Jot.read(givenID: jotID) else {
+            do {
+                let updateJot = try Jot.read(givenID: self.jotID)
+                updateJot.update()
+            }
+            catch {
                 return
             }
-            updateJot.update()
         }
         else {
             self.jotID = Jot.nextId
@@ -83,7 +86,12 @@ class WriteJotPresenter: WriteJotPresenterProtocol {
     /// This method sets the id of the given jot.
     func setJotID(givenID: Int) {
         self.jotID = givenID
-        self.text = Jot.read(givenID: givenID)?.data ?? ""
+        do {
+            self.text = try Jot.read(givenID: jotID).data
+        }
+        catch {
+            self.text = ""
+        }
     }
 
     /// Helper function to determine whether this Jot should be added to the queue.

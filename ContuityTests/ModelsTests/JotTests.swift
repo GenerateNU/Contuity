@@ -36,7 +36,7 @@ class JotTests: XCTestCase {
     }
     
     // This is a test for the read function in the class Jot
-    func testRead() {
+    func testRead() throws {
         let text1: String = "Whoa, I can't believe this works"
         let text2: String = "The text for jot2"
         let text3: String = "Scuba diving with the squad #funtimes"
@@ -50,12 +50,12 @@ class JotTests: XCTestCase {
         jot3.write()
         
         XCTAssertNotEqual(jot1, jot2)
-        let readJot = Jot.read(givenID: 4)
+        let readJot = try Jot.read(givenID: 4)
         XCTAssertEqual(jot1, readJot)
         XCTAssertNotEqual(jot2, readJot)
         /// This test fails because of a problem in writing to the database.
         /// If given a lat or lng, it defaults to 0.
-        XCTAssertEqual(jot3, Jot.read(givenID: 237844))
+        XCTAssertEqual(jot3, try Jot.read(givenID: 237844))
     }
     
     // This is a test for the update function in the class Jot
