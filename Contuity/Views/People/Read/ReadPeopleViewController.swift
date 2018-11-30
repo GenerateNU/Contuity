@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 class ReadPeopleViewController: UIViewController {
-    var PeopleID: Int = 1 // TODO: this needs to be set to the given PeopleID in a constructor
+    var peopleID: Int = 1 // TODO: this needs to be set to the given PeopleID in a constructor
     var presenter: ReadPeoplePresenter = ReadPeoplePresenter()
     
     /// MARK - properties
@@ -18,7 +18,7 @@ class ReadPeopleViewController: UIViewController {
     // This method pushes an editable view of this People over this readable view.
     @IBAction func editButtonTapped(_ sender: UIButton) {
         let editWritePeopleVC = WritePeopleViewController()
-        editWritePeopleVC.presenter.setPeopleID(givenID: PeopleID)
+        editWritePeopleVC.presenter.setPeopleID(givenID: peopleID)
         editWritePeopleVC.presenter.update = true
         navigationController?.pushViewController(editWritePeopleVC, animated: true)
     }
@@ -30,7 +30,7 @@ class ReadPeopleViewController: UIViewController {
 
 extension ReadPeopleViewController: Prettify {
     func prettify() {
-        readPeopleTextView.text = presenter.getText(PeopleID: self.PeopleID)
+        readPeopleTextView.text = presenter.getText(peopleID: self.peopleID)
         readPeopleTextView.isHidden = false
         readPeopleTextView.isEditable = false
         readPeopleTextView.font = .systemFont(ofSize: 22)

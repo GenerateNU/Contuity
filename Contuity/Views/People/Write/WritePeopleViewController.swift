@@ -23,33 +23,18 @@ class WritePeopleViewController: UIViewController {
         
         navigationItem.title = "Write People"
         
-        saveButton.addTarget(self, action: #selector(processTextToSave), for: .touchUpInside)
-    }
-    
-    /// When the save button is tapped, this is triggered to notify the user they are about to save
-    /// A People with new initiatives attached.
-    @objc private func processTextToSave() {
-        let hasNewInitiatives = presenter.update
-            ? Set((People.read(givenID: presenter.PeopleID)?.data ?? "").taggedWords)
-                .isSubset(of: presenter.text.taggedWords)
-            : presenter.text.taggedWords.count > 0
-        
-        if hasNewInitiatives {
-            showNewInitiativesAlert()
-        } else {
-            saveTextAsPeople()
-        }
+        saveButton.addTarget(self, action: #selector(saveTextAsPeople), for: .touchUpInside)
     }
     
     /// Saves text to the database using the presenter
-    private func saveTextAsPeople() {
-        presenter.savePeople()
+    @objc private func saveTextAsPeople() {
+        presenter.savePeople(email: "", number: "")
         if presenter.update {
             navigationController?.popViewController(animated: true)
         }
         else {
             let rjvc = ReadPeopleViewController()
-            rjvc.PeopleID = presenter.PeopleID
+            rjvc.peopleID = presenter.peopleID
             navigationController?.pushViewController(rjvc, animated: true)
             textView.text = ""
         }

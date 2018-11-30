@@ -9,11 +9,11 @@ protocol WritePeoplePresenterProtocol: PresenterProtocol {
     var update: Bool { get set }
     
     /// The id of the People being written or updated
-    var PeopleID: Int { get set }
+    var peopleID: Int { get set }
     
     /// Creates a People using the text and writes to the database.
     ///
-    func savePeople(name: String?, email: String?, number: String?)
+    func savePeople(email: String?, number: String?)
     
     /// Sets the id of this presenter to the given id
     ///
@@ -23,12 +23,11 @@ protocol WritePeoplePresenterProtocol: PresenterProtocol {
 }
 
 class WritePeoplePresenter: WritePeoplePresenterProtocol {
-    
     var text: String = ""
     var update: Bool = false
     var email: String = ""
     var number: String = ""
-    var PeopleID: Int = Int.random(in: 0...1000000)
+    var peopleID: Int = Int.random(in: 0...1000000)
     
     var view: WritePeopleViewProtocol?
     
@@ -36,43 +35,28 @@ class WritePeoplePresenter: WritePeoplePresenterProtocol {
         self.view = view
     }
     
-    func savePeople(lat: Double? = nil, lng: Double? = nil) {
+    func savePeople(email: String?, number: String?) {
         if update {
-            guard let updatePeople = People.read(givenID: PeopleID) else {
+            guard let updatePeople = People.read(givenID: peopleID) else {
                 return
             }
             updatePeople.update()
         }
         else {
-            self.PeopleID = People.nextId
-            let People =  People(id: PeopleID,
+            self.peopleID = People.nextId
+            let people =  People(id: peopleID,
                                  name: text,
-                                 createdat: Date().timestamp(),
                                  number: number,
-                                 email: email)
+                                 email: email,
+                                 createdat: Date().timestamp())
             
-            People.write()
-        }
-        
-        createInitiatives(with: self.PeopleID)
-    }
-    
-    private func createInitiatives(with PeopleId: Int) {
-        let initiatives: [Initiative] = text.taggedWords.map { value -> Initiative in
-            return Initiative(name: value, parent: nil)
-        }
-        
-        initiatives.forEach { initiative in
-            initiative.write()
-            
-            let bridge = PeopleInitiative(PeopleId: PeopleId, initiativeTag: initiative.name)
-            bridge.write()
+            people.write()
         }
     }
     
     /// This method sets the id of the given People.
     func setPeopleID(givenID: Int) {
-        self.PeopleID = givenID
-        self.text = People.read(givenID: givenID)?.data ?? ""
+        self.peopleID = givenID
+        self.text = People.read(givenID: givenID)?.name ?? ""
     }
 }
