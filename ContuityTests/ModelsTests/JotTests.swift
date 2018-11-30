@@ -85,6 +85,6 @@ class JotTests: XCTestCase {
 
     func testNextId() {
         // TODO: May fail until we can systematically refresh tables in tests
-        XCTAssertEqual(Jot.nextId, 237848)
+        XCTAssertEqual(Jot.nextId, 1)
     }
 }

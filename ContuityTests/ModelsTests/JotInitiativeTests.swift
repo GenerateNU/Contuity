@@ -18,7 +18,7 @@ class JotInitiativeTests: XCTestCase {
     
     override func tearDown() {
         // Delete tables here
-        let tableName = "jotInitiative"
+        let tableName = "jotinitiative"
         try? DatabaseManager.shared.conn?.execute("DELETE FROM " + tableName)
     }
     
@@ -37,6 +37,6 @@ class JotInitiativeTests: XCTestCase {
         let statement = try! DatabaseManager.shared.conn?.prepare("SELECT * FROM jotinitiative")
         XCTAssertNotNil(statement)
         XCTAssertEqual(statement?.columnCount, 2)
-        XCTAssertEqual(statement?.columnNames, ["jotId", "initiativeId"])
+        XCTAssertEqual(statement?.columnNames, ["jotid", "initiativeid"])
     }
 }
