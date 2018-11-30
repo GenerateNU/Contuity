@@ -22,9 +22,12 @@ class ReadJotPresenter: ReadJotPresenterProtocol {
     }
     /// this method returns the text at the given id.
     func getText(jotID: Int) -> String {
-        guard let readJot = Jot.read(givenID: jotID) else {
+        do {
+            let readJot = try Jot.read(givenID: jotID)
+            return readJot.data
+        }
+        catch {
             return "ERROR: could not retrieve jot."
         }
-        return readJot.data
     }
 }

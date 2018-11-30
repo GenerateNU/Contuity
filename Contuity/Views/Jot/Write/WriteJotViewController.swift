@@ -38,10 +38,9 @@ class WriteJotViewController: UIViewController {
     /// A jot with new initiatives attached.
     @objc private func processTextToSave() {
         let hasNewInitiatives = presenter.update
-            ? Set((Jot.read(givenID: presenter.jotID)?.data ?? "").taggedWords)
+            ? Set(((try? Jot.read(givenID: presenter.jotID).data) ?? "").taggedWords)
                 .isSubset(of: presenter.text.taggedWords)
             : presenter.text.taggedWords.count > 0
-
         if hasNewInitiatives {
             showNewInitiativesAlert()
         } else {

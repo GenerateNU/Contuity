@@ -35,7 +35,7 @@ extension Jot: Equatable {
 }
 
 extension Jot: DatabaseProtocol {
-    
+
     static func createTable() throws {
         let table = Table("jot")
         let id = Expression<Int>("id")
@@ -45,7 +45,7 @@ extension Jot: DatabaseProtocol {
         let modifiedAt = Expression<String>("modifiedAt")
         let latitude = Expression<Double>("latitude")
         let longitude = Expression<Double>("longitude")
-
+ 
         do {
             try DatabaseManager.shared.conn?.run(
                 table.create { t in
@@ -63,6 +63,7 @@ extension Jot: DatabaseProtocol {
             throw DatabaseError.insertionFailed
         }
     }
+
     // This function writes a new jot to the database.
     func write() {
         let insert = "INSERT INTO jot (id, data, queue, createdAt, modifiedAt, latitude, longitude)"
@@ -86,7 +87,7 @@ extension Jot: DatabaseProtocol {
         let longMessage = "longitude = \(longitude ?? 0)"
         let setMessage = "\(dataMessage), \(queueMessage), \(createdMessage), \(modifiedMessage), \(latMessage), \(longMessage)"
         let update = "UPDATE jot SET \(setMessage) WHERE id = \(id)"
-        
+
         guard let conn = DatabaseManager.shared.conn,
             let statement = try? conn.prepare(update) else {
                 return
@@ -97,69 +98,104 @@ extension Jot: DatabaseProtocol {
 
 extension Jot {
     // This function returns the jot with the given id if one exists.
-    static func read(givenID: Int) -> Jot? {
+    static func read(givenID: Int) throws -> Jot {
         guard let conn = DatabaseManager.shared.conn
             else {
-                print("conn")
-                return nil
+                throw DatabaseError.selectFailed
         }
         do {
             for row in try conn.prepare("SELECT * FROM jot WHERE id = \(givenID)") {
-                guard let optionalID: Int64 = row[0] as? Int64,
-                    let newData = row[1] as? String else {
-                        break
-                }
-                let id = Int(optionalID)
-                let row2 = row[2]
-                var newQueue = false
-                switch row2 {
-                case let row2 as Int64:
-                    if row2 == 1 {
-                        newQueue = true
-                    }
-                default:
-                    break
-                }
-                var newCreatedAt = ""
-                let row3 = row[3]
-                switch row3 {
-                case let row3 as String:
-                    newCreatedAt = String(row3)
-                default:
-                    break
-                }
-                guard let newModifiedAt = row[4] as? String? else {
-                    break
-                }
-                var newLat: Double?
-                let row5 = row[5]
-                switch row5 {
-                case let row5 as Double:
-                    newLat = Double(row5)
-                default:
-                    break
-                }
-                var newLong: Double?
-                let row6 = row[6]
-                switch row6 {
-                case let row6 as Double:
-                    newLong = Double(row6)
-                default:
-                    break
-                }
-                return Jot(id: id,
-                           data: newData,
-                           queue: newQueue,
-                           createdAt: newCreatedAt,
-                           modifiedAt: newModifiedAt,
-                           latitude: newLat,
-                           longitude: newLong)
+                return try parseRow(row: row)
             }
         }
         catch {
-            return nil
+            throw DatabaseError.selectFailed
         }
-        return nil
+        throw DatabaseError.selectFailed
+    }
+    
+    /// Parses a single row from the database into a Jot
+    ///
+    /// - Parameter row: a row from the database
+    /// - Returns: a Jot
+    /// - Throws: DatabaseError.selectFailed if the database SELECT failed
+    private static func parseRow(row: Statement.Element) throws -> Jot {
+        guard let optionalID: Int64 = row[0] as? Int64,
+            let newData = row[1] as? String
+            else {
+                throw DatabaseError.selectFailed
+        }
+        let id = Int(optionalID)
+        let row2 = row[2]
+        var newQueue = false
+        switch row2 {
+        case let row2 as Int64:
+            if row2 == 1 {
+                newQueue = true
+            }
+        default:
+            break
+        }
+        var newCreatedAt = ""
+        let row3 = row[3]
+        switch row3 {
+        case let row3 as String:
+            newCreatedAt = String(row3)
+        default:
+            throw DatabaseError.selectFailed
+        }
+        guard let newModifiedAt = row[4] as? String? else{
+            throw DatabaseError.selectFailed
+        }
+        var newLat: Double?
+        let row5 = row[5]
+        switch row5 {
+        case let row5 as Double:
+            newLat = Double(row5)
+        default:
+            throw DatabaseError.selectFailed
+        }
+        var newLong: Double?
+        let row6 = row[6]
+        switch row6 {
+        case let row6 as Double:
+            newLong = Double(row6)
+        default:
+            throw DatabaseError.selectFailed
+        }
+        return Jot(id: id,
+                   data: newData,
+                   queue: newQueue,
+                   createdAt: newCreatedAt,
+                   modifiedAt: newModifiedAt,
+                   latitude: newLat,
+                   longitude: newLong)
+    }
+    /// Returns a set of Jots from the database
+    /// de
+    /// - Parameter queue: if queue is true only get jots where queue = true, otherwise get all jots
+    /// - Returns: an array of Jots
+    /// - Throws: DatabaseError.selectFailed if SELECT operation on database failed
+    static func getJots(queue: Bool) throws -> [Jot] {
+        var jots: [Jot] = []
+        guard let conn = DatabaseManager.shared.conn
+            else {
+                throw DatabaseError.selectFailed
+        }
+        do {
+            var select = "SELECT * FROM jot"
+            if queue {
+                select += "where queue = true"
+            }
+            for row in try conn.prepare(select) {
+                let jot = try parseRow(row: row)
+                jots.append(jot)
+            }
+        }
+        catch {
+            throw DatabaseError.selectFailed
+        }
+        return jots
     }
 
     static var nextId: Int {

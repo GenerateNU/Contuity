@@ -43,6 +43,13 @@
 		784F65BC21643A160007D564 /* FollowUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F65BB21643A160007D564 /* FollowUp.swift */; };
 		784F65BE21643AB80007D564 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F65BD21643AB80007D564 /* Reminder.swift */; };
 		784F65C021643AC70007D564 /* Initiative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F65BF21643AC70007D564 /* Initiative.swift */; };
+		92AF53F421A8AAFF00794B28 /* ExplorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AF53F321A8AAFF00794B28 /* ExplorePresenter.swift */; };
+		92AF53F721A8AB8300794B28 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AF53F521A8AB8300794B28 /* ExploreViewController.swift */; };
+		92AF53F821A8AB8300794B28 /* ExploreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AF53F621A8AB8300794B28 /* ExploreViewController.xib */; };
+		92AF53FC21AB340700794B28 /* JotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AF53FA21AB340700794B28 /* JotTableViewCell.swift */; };
+		92AF53FD21AB340700794B28 /* JotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AF53FB21AB340700794B28 /* JotTableViewCell.xib */; };
+		92AF540121AB359600794B28 /* ExplorePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AF540021AB359600794B28 /* ExplorePresenterTests.swift */; };
+		92AF540321AB496300794B28 /* ExploreViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AF540221AB496300794B28 /* ExploreViewControllerTests.swift */; };
 		9A1BCCA82180D90400CF7FD0 /* ReadJotViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BCCA72180D90400CF7FD0 /* ReadJotViewControllerTests.swift */; };
 		9A1BCCAA2180D91400CF7FD0 /* ReadJotPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BCCA92180D91400CF7FD0 /* ReadJotPresenterTests.swift */; };
 		9A3C43062178DEF10019A271 /* ReadJotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3C43052178DEF10019A271 /* ReadJotViewController.xib */; };
@@ -110,6 +117,13 @@
 		784F65BB21643A160007D564 /* FollowUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUp.swift; sourceTree = "<group>"; };
 		784F65BD21643AB80007D564 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		784F65BF21643AC70007D564 /* Initiative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initiative.swift; sourceTree = "<group>"; };
+		92AF53F321A8AAFF00794B28 /* ExplorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresenter.swift; sourceTree = "<group>"; };
+		92AF53F521A8AB8300794B28 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		92AF53F621A8AB8300794B28 /* ExploreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreViewController.xib; sourceTree = "<group>"; };
+		92AF53FA21AB340700794B28 /* JotTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotTableViewCell.swift; sourceTree = "<group>"; };
+		92AF53FB21AB340700794B28 /* JotTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JotTableViewCell.xib; sourceTree = "<group>"; };
+		92AF540021AB359600794B28 /* ExplorePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresenterTests.swift; sourceTree = "<group>"; };
+		92AF540221AB496300794B28 /* ExploreViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewControllerTests.swift; sourceTree = "<group>"; };
 		9A1BCCA72180D90400CF7FD0 /* ReadJotViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJotViewControllerTests.swift; sourceTree = "<group>"; };
 		9A1BCCA92180D91400CF7FD0 /* ReadJotPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJotPresenterTests.swift; sourceTree = "<group>"; };
 		9A3C43052178DEF10019A271 /* ReadJotViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReadJotViewController.xib; sourceTree = "<group>"; };
@@ -165,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				9AC3572921AF608C000F174C /* Attributes */,
+				92AF53F221A8AABA00794B28 /* Explore */,
 				35D8FBE02166ECEF00D3EF19 /* Protocols */,
 				35D8FBEA216ED02500D3EF19 /* Jot */,
 			);
@@ -193,6 +208,7 @@
 		35D8FC04216F8D6200D3EF19 /* ViewsTests */ = {
 			isa = PBXGroup;
 			children = (
+				92AF53FE21AB356100794B28 /* Explore */,
 				35D8FC05216F8D6900D3EF19 /* Jot */,
 				35D8FC07216F8D7800D3EF19 /* Protocols */,
 			);
@@ -372,6 +388,35 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		92AF53F221A8AABA00794B28 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				92AF53F921A8ABD600794B28 /* JotTableViewCell */,
+				92AF53F321A8AAFF00794B28 /* ExplorePresenter.swift */,
+				92AF53F521A8AB8300794B28 /* ExploreViewController.swift */,
+				92AF53F621A8AB8300794B28 /* ExploreViewController.xib */,
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
+		92AF53F921A8ABD600794B28 /* JotTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				92AF53FA21AB340700794B28 /* JotTableViewCell.swift */,
+				92AF53FB21AB340700794B28 /* JotTableViewCell.xib */,
+			);
+			path = JotTableViewCell;
+			sourceTree = "<group>";
+		};
+		92AF53FE21AB356100794B28 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				92AF540021AB359600794B28 /* ExplorePresenterTests.swift */,
+				92AF540221AB496300794B28 /* ExploreViewControllerTests.swift */,
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
 		9A1BCCA62180D8CF00CF7FD0 /* Read */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,7 +554,9 @@
 				35D8FC132172503800D3EF19 /* LaunchScreen.storyboard in Resources */,
 				35E183BC215C63D40055BB01 /* Assets.xcassets in Resources */,
 				35D8FBE92166ED6300D3EF19 /* WriteJotViewController.xib in Resources */,
+				92AF53FD21AB340700794B28 /* JotTableViewCell.xib in Resources */,
 				9A3C43062178DEF10019A271 /* ReadJotViewController.xib in Resources */,
+				92AF53F821A8AB8300794B28 /* ExploreViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,6 +685,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92AF53F421A8AAFF00794B28 /* ExplorePresenter.swift in Sources */,
 				9A4FE94A2178D3CC00AA691A /* ReadJotViewController.swift in Sources */,
 				9A4FE9482178D2AE00AA691A /* ReadJotPresenter.swift in Sources */,
 				35D8FC01216F8C4E00D3EF19 /* Prettify.swift in Sources */,
@@ -655,12 +703,14 @@
 				784F65B4216438880007D564 /* People.swift in Sources */,
 				780242C32166CB6200642FFD /* initialize.swift in Sources */,
 				35D8FC34218B95E200D3EF19 /* StringExtension.swift in Sources */,
+				92AF53FC21AB340700794B28 /* JotTableViewCell.swift in Sources */,
 				35D8FC2221765AA900D3EF19 /* DatabaseManager.swift in Sources */,
 				784F65B2216435E00007D564 /* Jot.swift in Sources */,
 				35D8FC1E21725D6300D3EF19 /* DateExtension.swift in Sources */,
 				784F65B8216439680007D564 /* Event.swift in Sources */,
 				35D8FC2E2187845100D3EF19 /* JotInitiativeBridge.swift in Sources */,
 				35F22368219CB37100F17616 /* UIViewControllerExtension.swift in Sources */,
+				92AF53F721A8AB8300794B28 /* ExploreViewController.swift in Sources */,
 				784F65C021643AC70007D564 /* Initiative.swift in Sources */,
 				35D8FC2021765A7100D3EF19 /* DatabaseProtocol.swift in Sources */,
 				784F65BE21643AB80007D564 /* Reminder.swift in Sources */,
@@ -673,12 +723,14 @@
 			files = (
 				35D8FC0E2170139700D3EF19 /* WriteJotViewControllerTests.swift in Sources */,
 				35D8FC302187879400D3EF19 /* JotInitiativeTests.swift in Sources */,
+				92AF540321AB496300794B28 /* ExploreViewControllerTests.swift in Sources */,
 				35D8FC292177FE7700D3EF19 /* JotTests.swift in Sources */,
 				35D8FC0C2170132400D3EF19 /* PresenterProtocolTests.swift in Sources */,
 				35D8FC10217013BC00D3EF19 /* WriteJotPresenterTests.swift in Sources */,
 				9AC3572821AF0073000F174C /* FollowUpTests.swift in Sources */,
 				35D8FC36218B9F6600D3EF19 /* StringExtensionTests.swift in Sources */,
 				9A1BCCAA2180D91400CF7FD0 /* ReadJotPresenterTests.swift in Sources */,
+				92AF540121AB359600794B28 /* ExplorePresenterTests.swift in Sources */,
 				9A1BCCA82180D90400CF7FD0 /* ReadJotViewControllerTests.swift in Sources */,
 				35D8FC2C217803C800D3EF19 /* DatabaseManagerTests.swift in Sources */,
 				35D8FC262177FCB000D3EF19 /* DateExtensionTests.swift in Sources */,
