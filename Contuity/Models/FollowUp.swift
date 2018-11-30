@@ -131,3 +131,16 @@ extension FollowUp {
         return result
     }
 }
+
+extension FollowUp {
+    static var nextId: Int {
+        let followupTable = Table("followup")
+        let id = Expression<Int>("id")
+        
+        guard let conn = DatabaseManager.shared.conn else {
+            return 0
+        }
+        
+        return 1 + ((try? conn.scalar(followupTable.select(id.max)) ?? 0) ?? 0)
+    }
+}

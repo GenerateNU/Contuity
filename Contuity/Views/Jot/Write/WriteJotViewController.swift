@@ -20,7 +20,8 @@ class WriteJotViewController: UIViewController {
 
     @IBOutlet private (set) var textView: UITextView!
     @IBOutlet private (set) var saveButton: UIButton!
-
+    @IBOutlet private (set) var addAttributeButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,6 +35,12 @@ class WriteJotViewController: UIViewController {
         saveButton.addTarget(self, action: #selector(processTextToSave), for: .touchUpInside)
     }
 
+    @IBAction func addAttributeButtonTapped(_ sender: Any) {
+        let followUpVC: FollowUpViewController = FollowUpViewController()
+        navigationController?.pushViewController(followUpVC, animated: true)
+        presenter.followupDates.append(followUpVC.getDate())
+    }
+    
     /// When the save button is tapped, this is triggered to notify the user they are about to save
     /// A jot with new initiatives attached.
     @objc private func processTextToSave() {

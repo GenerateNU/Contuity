@@ -172,10 +172,8 @@
 		35A3126621B0BA0D00B83BF6 /* FollowUp */ = {
 			isa = PBXGroup;
 			children = (
-				9AC3572C21AF6390000F174C /* FollowUpViewController.swift */,
-				9AC3572D21AF6390000F174C /* FollowUpViewController.xib */,
-				35A3126721B0BA3900B83BF6 /* FollowupTableViewCell.swift */,
-				35A3126821B0BA3900B83BF6 /* FollowupTableViewCell.xib */,
+				9AC7F4B121B0D442003F4B71 /* Read */,
+				9AC7F4B021B0D410003F4B71 /* Write */,
 			);
 			path = FollowUp;
 			sourceTree = "<group>";
@@ -464,6 +462,24 @@
 				35A3126621B0BA0D00B83BF6 /* FollowUp */,
 			);
 			path = Attributes;
+			sourceTree = "<group>";
+		};
+		9AC7F4B021B0D410003F4B71 /* Write */ = {
+			isa = PBXGroup;
+			children = (
+				9AC3572C21AF6390000F174C /* FollowUpViewController.swift */,
+				9AC3572D21AF6390000F174C /* FollowUpViewController.xib */,
+			);
+			path = Write;
+			sourceTree = "<group>";
+		};
+		9AC7F4B121B0D442003F4B71 /* Read */ = {
+			isa = PBXGroup;
+			children = (
+				35A3126721B0BA3900B83BF6 /* FollowupTableViewCell.swift */,
+				35A3126821B0BA3900B83BF6 /* FollowupTableViewCell.xib */,
+			);
+			path = Read;
 			sourceTree = "<group>";
 		};
 		FB0265FDFBA69E1084C21057 /* Pods */ = {

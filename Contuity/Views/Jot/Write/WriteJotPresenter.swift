@@ -21,7 +21,7 @@ protocol WriteJotPresenterProtocol: PresenterProtocol {
     
     /// A list which contains all the followups attached to this jot.
     /// TODO: list of attributes?
-    var followups: Array<FollowUp> { get set }
+    var followupDates: [Date] { get set }
 
     /// Creates a Jot using the text and writes to the database.
     ///
@@ -41,7 +41,7 @@ class WriteJotPresenter: WriteJotPresenterProtocol {
     var text: String = ""
     var update: Bool = false
     var jotID: Int = Int.random(in: 0...1000000)
-    var followups: [FollowUp] = []
+    var followupDates: [Date] = []
 
     var view: WriteJotViewProtocol?
 
@@ -71,7 +71,17 @@ class WriteJotPresenter: WriteJotPresenterProtocol {
             jot.write()
         }
 
+        createFollowups(with: self.jotID)
         createInitiatives(with: self.jotID)
+    }
+    
+    private func createFollowups(with jotId: Int) {
+        for date in followupDates {
+            let followup = FollowUp(id: FollowUp.nextId,
+                                    jotid: self.jotID,
+                                    datetime: date.timestamp())
+            followup.write()
+        }
     }
 
     private func createInitiatives(with jotId: Int) {
