@@ -34,9 +34,13 @@ class ExploreViewControllerTests: XCTestCase {
     }
     
     override func tearDown() {
+        super.tearDown()
+        
         sut = nil
         
-        super.tearDown()
+        // Delete tables here
+        let tableName = "jot"
+        try? DatabaseManager.shared.conn?.execute("DELETE FROM " + tableName)
     }
     
     func testViewDidLoad() {
