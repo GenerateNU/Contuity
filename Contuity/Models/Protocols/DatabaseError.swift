@@ -16,4 +16,5 @@
 enum DatabaseError: Error {
     case constraintFailed
     case insertionFailed
+    case selectFailed
 }
