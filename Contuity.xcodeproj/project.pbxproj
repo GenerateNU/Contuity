@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35A3126921B0BA3900B83BF6 /* FollowupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A3126721B0BA3900B83BF6 /* FollowupTableViewCell.swift */; };
+		35A3126A21B0BA3900B83BF6 /* FollowupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35A3126821B0BA3900B83BF6 /* FollowupTableViewCell.xib */; };
 		35D8FBE22166ED0100D3EF19 /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FBE12166ED0100D3EF19 /* ViewProtocol.swift */; };
 		35D8FBE42166ED2100D3EF19 /* PresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FBE32166ED2100D3EF19 /* PresenterProtocol.swift */; };
 		35D8FBE82166ED6300D3EF19 /* WriteJotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8FBE62166ED6300D3EF19 /* WriteJotViewController.swift */; };
@@ -74,6 +76,8 @@
 
 /* Begin PBXFileReference section */
 		3214E7D73B974F6FB1AA59E5 /* Pods-ContuityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContuityTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ContuityTests/Pods-ContuityTests.debug.xcconfig"; sourceTree = "<group>"; };
+		35A3126721B0BA3900B83BF6 /* FollowupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowupTableViewCell.swift; sourceTree = "<group>"; };
+		35A3126821B0BA3900B83BF6 /* FollowupTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowupTableViewCell.xib; sourceTree = "<group>"; };
 		35D8FBE12166ED0100D3EF19 /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
 		35D8FBE32166ED2100D3EF19 /* PresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterProtocol.swift; sourceTree = "<group>"; };
 		35D8FBE62166ED6300D3EF19 /* WriteJotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteJotViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +167,17 @@
 				627B4B3AD67A38D07635376F /* Pods_ContuityTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		35A3126621B0BA0D00B83BF6 /* FollowUp */ = {
+			isa = PBXGroup;
+			children = (
+				9AC3572C21AF6390000F174C /* FollowUpViewController.swift */,
+				9AC3572D21AF6390000F174C /* FollowUpViewController.xib */,
+				35A3126721B0BA3900B83BF6 /* FollowupTableViewCell.swift */,
+				35A3126821B0BA3900B83BF6 /* FollowupTableViewCell.xib */,
+			);
+			path = FollowUp;
 			sourceTree = "<group>";
 		};
 		35D8FBE02166ECEF00D3EF19 /* Protocols */ = {
@@ -446,8 +461,7 @@
 		9AC3572921AF608C000F174C /* Attributes */ = {
 			isa = PBXGroup;
 			children = (
-				9AC3572C21AF6390000F174C /* FollowUpViewController.swift */,
-				9AC3572D21AF6390000F174C /* FollowUpViewController.xib */,
+				35A3126621B0BA0D00B83BF6 /* FollowUp */,
 			);
 			path = Attributes;
 			sourceTree = "<group>";
@@ -555,6 +569,7 @@
 				35E183BC215C63D40055BB01 /* Assets.xcassets in Resources */,
 				35D8FBE92166ED6300D3EF19 /* WriteJotViewController.xib in Resources */,
 				92AF53FD21AB340700794B28 /* JotTableViewCell.xib in Resources */,
+				35A3126A21B0BA3900B83BF6 /* FollowupTableViewCell.xib in Resources */,
 				9A3C43062178DEF10019A271 /* ReadJotViewController.xib in Resources */,
 				92AF53F821A8AB8300794B28 /* ExploreViewController.xib in Resources */,
 			);
@@ -692,6 +707,7 @@
 				35D8FBE22166ED0100D3EF19 /* ViewProtocol.swift in Sources */,
 				35D8FBED216ED04C00D3EF19 /* WriteJotPresenter.swift in Sources */,
 				35D8FC18217255DA00D3EF19 /* DatabaseError.swift in Sources */,
+				35A3126921B0BA3900B83BF6 /* FollowupTableViewCell.swift in Sources */,
 				35E183B1215C63D30055BB01 /* AppDelegate.swift in Sources */,
 				35D8FBE82166ED6300D3EF19 /* WriteJotViewController.swift in Sources */,
 				35D8FBE42166ED2100D3EF19 /* PresenterProtocol.swift in Sources */,
