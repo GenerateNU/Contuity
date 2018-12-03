@@ -74,42 +74,31 @@ extension FollowUp: DatabaseProtocol {
 extension FollowUp {
     /// TODO: throws not nil
     static func read(givenID: Int) -> FollowUp? {
-        guard let conn = DatabaseManager.shared.conn else {
+        let result = retrieve(statement: "SELECT * FROM followup WHERE id = \(givenID)")
+        if result.isEmpty {
             return nil
         }
-        do {
-            for row in try conn.prepare("SELECT * FROM followup WHERE id = \(givenID)") {
-                guard let optionalID: Int64 = row[0] as? Int64,
-                        let optionalJotID: Int64  = row[1] as? Int64 else {
-                                return nil
-                }
-                let curID = Int(optionalID)
-                let curJotID = Int(optionalJotID)
-                var curDatetime = ""
-                let row2 = row[2]
-                switch row2 {
-                case let row2 as String:
-                    curDatetime = String(row2)
-                default:
-                    break
-                }
-                return FollowUp(id: curID, jotid: curJotID, datetime: curDatetime)
-            }
+        else {
+            return result[0]
         }
-        catch {
-            return nil
-        }
-        return nil
     }
     
     static func readAll(givenJotID: Int) -> [FollowUp] {
+        return retrieve(statement: "SELECT * FROM followup WHERE jotid = \(givenJotID)")
+    }
+    
+    static func getAll() -> [FollowUp] {
+        return retrieve(statement: "SELECT * FROM followup")
+    }
+    
+    static func retrieve(statement: String) -> [FollowUp]{
         var result: [FollowUp] = []
         guard let conn = DatabaseManager.shared.conn
             else {
                 return result
         }
         do {
-            for row in try conn.prepare("SELECT * FROM followup WHERE jotid = \(givenJotID)") {
+            for row in try conn.prepare(statement) {
                 guard let optionalID: Int64 = row[0] as? Int64,
                     let optionalJotID: Int64  = row[1] as? Int64,
                     let curDatetime = row[2] as? String else {

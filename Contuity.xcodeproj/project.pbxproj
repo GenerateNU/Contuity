@@ -57,6 +57,9 @@
 		9A3C43062178DEF10019A271 /* ReadJotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3C43052178DEF10019A271 /* ReadJotViewController.xib */; };
 		9A4FE9482178D2AE00AA691A /* ReadJotPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4FE9472178D2AE00AA691A /* ReadJotPresenter.swift */; };
 		9A4FE94A2178D3CC00AA691A /* ReadJotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4FE9492178D3CC00AA691A /* ReadJotViewController.swift */; };
+		9A8EE46521B494690037AF28 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8EE46321B494690037AF28 /* TodayViewController.swift */; };
+		9A8EE46621B494690037AF28 /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A8EE46421B494690037AF28 /* TodayViewController.xib */; };
+		9A8EE46821B494780037AF28 /* TodayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8EE46721B494780037AF28 /* TodayPresenter.swift */; };
 		9AC3572821AF0073000F174C /* FollowUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC3572721AF0073000F174C /* FollowUpTests.swift */; };
 		9AC3572E21AF6390000F174C /* FollowUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC3572C21AF6390000F174C /* FollowUpViewController.swift */; };
 		9AC3572F21AF6390000F174C /* FollowUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AC3572D21AF6390000F174C /* FollowUpViewController.xib */; };
@@ -133,6 +136,9 @@
 		9A3C43052178DEF10019A271 /* ReadJotViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReadJotViewController.xib; sourceTree = "<group>"; };
 		9A4FE9472178D2AE00AA691A /* ReadJotPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJotPresenter.swift; sourceTree = "<group>"; };
 		9A4FE9492178D3CC00AA691A /* ReadJotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJotViewController.swift; sourceTree = "<group>"; };
+		9A8EE46321B494690037AF28 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		9A8EE46421B494690037AF28 /* TodayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodayViewController.xib; sourceTree = "<group>"; };
+		9A8EE46721B494780037AF28 /* TodayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPresenter.swift; sourceTree = "<group>"; };
 		9AC3572721AF0073000F174C /* FollowUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUpTests.swift; sourceTree = "<group>"; };
 		9AC3572C21AF6390000F174C /* FollowUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUpViewController.swift; sourceTree = "<group>"; };
 		9AC3572D21AF6390000F174C /* FollowUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowUpViewController.xib; sourceTree = "<group>"; };
@@ -191,6 +197,7 @@
 		35D8FBE52166ED4E00D3EF19 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9A8EE46221B4943B0037AF28 /* Today */,
 				9AC3572921AF608C000F174C /* Attributes */,
 				92AF53F221A8AABA00794B28 /* Explore */,
 				35D8FBE02166ECEF00D3EF19 /* Protocols */,
@@ -456,6 +463,16 @@
 			path = Read;
 			sourceTree = "<group>";
 		};
+		9A8EE46221B4943B0037AF28 /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				9A8EE46721B494780037AF28 /* TodayPresenter.swift */,
+				9A8EE46321B494690037AF28 /* TodayViewController.swift */,
+				9A8EE46421B494690037AF28 /* TodayViewController.xib */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
 		9AC3572921AF608C000F174C /* Attributes */ = {
 			isa = PBXGroup;
 			children = (
@@ -582,6 +599,7 @@
 			files = (
 				9AC3572F21AF6390000F174C /* FollowUpViewController.xib in Resources */,
 				35D8FC132172503800D3EF19 /* LaunchScreen.storyboard in Resources */,
+				9A8EE46621B494690037AF28 /* TodayViewController.xib in Resources */,
 				35E183BC215C63D40055BB01 /* Assets.xcassets in Resources */,
 				35D8FBE92166ED6300D3EF19 /* WriteJotViewController.xib in Resources */,
 				92AF53FD21AB340700794B28 /* JotTableViewCell.xib in Resources */,
@@ -722,7 +740,9 @@
 				35D8FC01216F8C4E00D3EF19 /* Prettify.swift in Sources */,
 				35D8FBE22166ED0100D3EF19 /* ViewProtocol.swift in Sources */,
 				35D8FBED216ED04C00D3EF19 /* WriteJotPresenter.swift in Sources */,
+				9A8EE46521B494690037AF28 /* TodayViewController.swift in Sources */,
 				35D8FC18217255DA00D3EF19 /* DatabaseError.swift in Sources */,
+				9A8EE46821B494780037AF28 /* TodayPresenter.swift in Sources */,
 				35A3126921B0BA3900B83BF6 /* FollowupTableViewCell.swift in Sources */,
 				35E183B1215C63D30055BB01 /* AppDelegate.swift in Sources */,
 				35D8FBE82166ED6300D3EF19 /* WriteJotViewController.swift in Sources */,

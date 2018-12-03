@@ -22,7 +22,6 @@ class ExplorePresenterTests: XCTestCase {
     }
     
     func testGetJots() throws {
-        var jots: [Jot] = []
         let jot1 = Jot(id: 2, data: "", queue: false, createdAt: "now", modifiedAt: "now", latitude: 0, longitude: 0)
         let jot2 = Jot(id: 1, data: "", queue: false, createdAt: "now", modifiedAt: "now", latitude: 0, longitude: 0)
         

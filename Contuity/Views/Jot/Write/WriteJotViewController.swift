@@ -21,10 +21,18 @@ class WriteJotViewController: UIViewController {
     @IBOutlet private (set) var textView: UITextView!
     @IBOutlet private (set) var saveButton: UIButton!
     @IBOutlet private (set) var addAttributeButton: UIButton!
+    private var followUpVCs: [FollowUpViewController] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        
         textView.delegate = self
 
         presenter.attachView(self)
@@ -35,10 +43,21 @@ class WriteJotViewController: UIViewController {
         saveButton.addTarget(self, action: #selector(processTextToSave), for: .touchUpInside)
     }
 
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+        if gesture.direction == UISwipeGestureRecognizer.Direction.right {
+            print("Swipe Right")
+            navigationController?.pushViewController(ExploreViewController(), animated: false)
+        }
+        else if gesture.direction == UISwipeGestureRecognizer.Direction.left {
+            print("Swipe Left")
+            navigationController?.pushViewController(TodayViewController(), animated: true)
+        }
+    }
+    
     @IBAction func addAttributeButtonTapped(_ sender: Any) {
         let followUpVC: FollowUpViewController = FollowUpViewController()
         navigationController?.pushViewController(followUpVC, animated: true)
-        presenter.followupDates.append(followUpVC.getDate())
+        followUpVCs.append(followUpVC)
     }
     
     /// When the save button is tapped, this is triggered to notify the user they are about to save
@@ -72,6 +91,10 @@ class WriteJotViewController: UIViewController {
 
     /// Saves text to the database using the presenter
     private func saveTextAsJot() {
+        /// make all the followups that have had dates entered
+        for followUpVC in followUpVCs {
+            presenter.followupDates.append(followUpVC.getDate())
+        }
         presenter.saveJot()
         if presenter.update {
             navigationController?.popViewController(animated: true)
@@ -80,8 +103,14 @@ class WriteJotViewController: UIViewController {
             let rjvc = ReadJotViewController()
             rjvc.jotID = presenter.jotID
             navigationController?.pushViewController(rjvc, animated: true)
-            textView.text = ""
         }
+        self.reset()
+    }
+    
+    private func reset() {
+        followUpVCs = []
+        textView.text = ""
+        presenter = WriteJotPresenter()
     }
 }
 

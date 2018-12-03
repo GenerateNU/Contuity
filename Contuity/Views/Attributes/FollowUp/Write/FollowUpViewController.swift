@@ -15,11 +15,11 @@ class FollowUpViewController: UIViewController {
     
     @IBAction func enterButtonTapped(_ sender: Any) {
         date = datePicker.date
+        print(datePicker.date)
         navigationController?.popViewController(animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 

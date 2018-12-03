@@ -88,6 +88,23 @@ class FollowupTests: XCTestCase {
         let expected = [followup1, followup3]
         XCTAssertEqual(FollowUp.readAll(givenJotID: 6), expected)
     }
+
+    func testGetAll() {
+        let followup1: FollowUp = FollowUp(id: 11,
+                                           jotid: 6,
+                                           datetime: "04-20-6969 10:55:30")
+        let followup2: FollowUp = FollowUp(id: 12,
+                                           jotid: 14,
+                                           datetime: "04-20-6969 10:55:30")
+        let followup3: FollowUp = FollowUp(id: 122,
+                                           jotid: 6,
+                                           datetime: "04-20-6969 10:55:30")
+        followup1.write()
+        followup2.write()
+        followup3.write()
+        let expected = [followup1, followup2, followup3]
+        XCTAssertEqual(FollowUp.getAll(), expected)
+    }
     
     // This is a test for the update function in the class Jot
     func testUpdate() {
