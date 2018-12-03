@@ -83,15 +83,18 @@ extension FollowUp {
         }
     }
     
+    /// This method returns a list of followups with the given jotid.
     static func readAll(givenJotID: Int) -> [FollowUp] {
         return retrieve(statement: "SELECT * FROM followup WHERE jotid = \(givenJotID)")
     }
     
+    /// This method returns a list of all followups that exist in the data base.
     static func getAll() -> [FollowUp] {
         return retrieve(statement: "SELECT * FROM followup")
     }
     
-    static func retrieve(statement: String) -> [FollowUp]{
+    /// Helper function for retrieving a list of followups given a statement.
+    private static func retrieve(statement: String) -> [FollowUp]{
         var result: [FollowUp] = []
         guard let conn = DatabaseManager.shared.conn
             else {
@@ -122,6 +125,7 @@ extension FollowUp {
 }
 
 extension FollowUp {
+    /// returns the next followup id
     static var nextId: Int {
         let followupTable = Table("followup")
         let id = Expression<Int>("id")

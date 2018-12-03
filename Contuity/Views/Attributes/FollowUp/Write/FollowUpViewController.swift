@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// this class represents a FollowUpViewController which allows the user to enter a date.
 class FollowUpViewController: UIViewController {
     @IBOutlet weak var enterButton: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -20,7 +21,6 @@ class FollowUpViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
     // returns the date of this FollowUpViewController

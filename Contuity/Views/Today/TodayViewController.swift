@@ -8,12 +8,12 @@
 
 import UIKit
 
-// View Protocol for the Explore View
+// View Protocol for the Today View
 protocol TodayViewProtocol: class {
     
 }
 
-// View Controller for the Explore View
+// View Controller for the Today View
 class TodayViewController: UITableViewController {
     private (set) var presenter = TodayPresenter()
     
