@@ -10,7 +10,17 @@ import XCTest
 @testable import Contuity
 
 class InitiativeTests: XCTestCase {
-
+    
+    override func setUp() {
+        // Create tables
+    }
+    
+    override func tearDown() {
+        // Delete tables here
+        let tableName = "initiative"
+        try? DatabaseManager.shared.conn?.execute("DELETE FROM " + tableName)
+    }
+    
     func testEquatable() {
         let init1 = Initiative(name: "hello", parent: "NEIN")
         let init2 = Initiative(name: "hello", parent: "JA")
