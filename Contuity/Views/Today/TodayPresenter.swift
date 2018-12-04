@@ -10,25 +10,18 @@ import Foundation
 
 protocol TodayPresenterProtocol: PresenterProtocol {
     /// The followups that need to be displayed
-    var followups: [FollowUp] { get set }
-    func chronologizeFollowups()
+    var followups: [FollowUp] { get }
 }
 
 class TodayPresenter: TodayPresenterProtocol {
-    var followups: [FollowUp] = FollowUp.getAll()
+    var followups: [FollowUp] {
+        return FollowUp.getAll().sorted {
+            $0.datetime > $1.datetime
+        }
+    }
     weak var view: TodayViewProtocol?
-    
+
     func attachView(_ view: TodayViewProtocol?) {
         self.view = view
-    }
-    
-    /// orders the followups in chronological order so they can be displayed.
-    func  chronologizeFollowups() {
-        var ordered: [FollowUp] {
-            return followups.sorted {
-                $0.datetime > $1.datetime
-            }
-        }
-        followups = ordered
     }
 }
