@@ -10,12 +10,12 @@ import Foundation
 
 protocol TodayPresenterProtocol: PresenterProtocol {
     /// The followups that need to be displayed
-    var followups: [FollowUp] { get }
+    var followups: [FollowUp] { get set }
     func chronologizeFollowups()
 }
 
 class TodayPresenter: TodayPresenterProtocol {
-    var followups: [FollowUp] { return FollowUp.getAll() }
+    var followups: [FollowUp] = FollowUp.getAll()
     weak var view: TodayViewProtocol?
     
     func attachView(_ view: TodayViewProtocol?) {
@@ -24,26 +24,11 @@ class TodayPresenter: TodayPresenterProtocol {
     
     /// orders the followups in chronological order so they can be displayed.
     func  chronologizeFollowups() {
-        var orderedFollowups: [FollowUp] = []
-        for followup in followups {
-            guard let date = Date.date(from: followup.datetime) else {
-                continue
-            }
-            orderedFollowups.insert(followup, at: TodayPresenter.findPosition(date: date,
-                                                                              currentFollowups: orderedFollowups))
-        }
-    }
-    
-    /// Helper for the method chronologizeFollowups
-    private static func findPosition(date: Date, currentFollowups: [FollowUp]) -> Int {
-        for index in 0...currentFollowups.count {
-            guard let secondDate = Date.date(from: currentFollowups[index].datetime) else {
-                continue
-            }
-            if date.compare(secondDate) == .orderedAscending {
-                return index
+        var ordered: [FollowUp] {
+            return followups.sorted {
+                $0.datetime > $1.datetime
             }
         }
-        return 0
+        followups = ordered
     }
 }

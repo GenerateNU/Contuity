@@ -9,9 +9,7 @@
 import UIKit
 
 // View Protocol for the Today View
-protocol TodayViewProtocol: class {
-    
-}
+protocol TodayViewProtocol: class {}
 
 // View Controller for the Today View
 class TodayViewController: UITableViewController {

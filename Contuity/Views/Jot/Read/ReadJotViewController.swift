@@ -44,15 +44,13 @@ extension ReadJotViewController: Prettify {
         readJotTextView.isHidden = false
         readJotTextView.isEditable = false
         readJotTextView.font = .systemFont(ofSize: 22)
+        attributes.text = ""
         let followups = FollowUp.readAll(givenJotID: jotID)
         if !followups.isEmpty {
             attributes.text = "Follow Up times:"
-            for followup in followups {
-                attributes.text += "\n " + followup.datetime
-            }
         }
-        else {
-            attributes.text = ""
+        followups.forEach {
+            attributes.text += "\n" + $0.datetime
         }
     }
 }

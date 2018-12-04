@@ -50,12 +50,10 @@ class WriteJotViewController: UIViewController {
     /// A right swipe navigates to the Explore page.
     /// A left swipe navigates to the Today page.
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
-        if gesture.direction == UISwipeGestureRecognizer.Direction.right {
-            print("Swipe Right")
+        if gesture.direction == .right {
             navigationController?.pushViewController(ExploreViewController(), animated: false)
         }
-        else if gesture.direction == UISwipeGestureRecognizer.Direction.left {
-            print("Swipe Left")
+        else if gesture.direction == .left {
             navigationController?.pushViewController(TodayViewController(), animated: true)
         }
     }
