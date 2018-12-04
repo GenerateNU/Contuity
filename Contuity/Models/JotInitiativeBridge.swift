@@ -16,7 +16,7 @@ struct JotInitiative {
 
 private extension JotInitiative {
     var insert: String {
-        return "INSERT INTO jot-initiative (jotId, initiativeId)"
+        return "INSERT INTO jotinitiative (jotid, initiativeid)"
     }
 
     var values: String {
@@ -32,15 +32,15 @@ extension JotInitiative: Equatable {
 
 extension JotInitiative: DatabaseProtocol {
     static func createTable() throws {
-        let table = Table("jotInitiative")
-        let jot = Expression<Int>("jotId")
-        let initiative = Expression<String>("initiativeId")
+        let table = Table("jotinitiative")
+        let jot = Expression<Int>("jotid")
+        let initiative = Expression<String>("initiativeid")
 
         do {
             try DatabaseManager.shared.conn?.run(
                 table.create { t in
                     t.column(jot, primaryKey: true)
-                    t.column(initiative, primaryKey: true)
+                    t.column(initiative)
             })
         } catch let Result.error(_, code, _) where code == SQLITE_CONSTRAINT {
             throw DatabaseError.constraintFailed

@@ -196,4 +196,15 @@ extension Jot {
         }
         return jots
     }
+
+    static var nextId: Int {
+        let jotTable = Table("jot")
+        let id = Expression<Int>("id")
+
+        guard let conn = DatabaseManager.shared.conn else {
+            return 0
+        }
+
+        return 1 + ((try? conn.scalar(jotTable.select(id.max)) ?? 0) ?? 0)
+    }
 }

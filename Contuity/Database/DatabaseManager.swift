@@ -35,6 +35,7 @@ class DatabaseManager {
         try? Jot.createTable()
         try? Initiative.createTable()
         try? JotInitiative.createTable()
+        try? FollowUp.createTable()
     }
 }
 

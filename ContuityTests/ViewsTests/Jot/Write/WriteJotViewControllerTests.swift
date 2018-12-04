@@ -24,6 +24,10 @@ class WriteJotViewControllerTests: XCTestCase {
     override func tearDown() {
         sut = nil
 
+        // Delete tables here
+        let tableName = "jot"
+        try? DatabaseManager.shared.conn?.execute("DELETE FROM " + tableName)
+        
         super.tearDown()
     }
 

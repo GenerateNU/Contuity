@@ -13,10 +13,12 @@ class ReadJotViewController: UIViewController {
     var jotID: Int = 1 // TODO: this needs to be set to the given jotID in a constructor
     var presenter: ReadJotPresenter = ReadJotPresenter()
     
+    
     /// MARK - properties
     @IBOutlet private (set) var readJotTextView: UITextView!
     @IBOutlet private (set) var backButton: UIButton!
     @IBOutlet private (set) var editButton: UIButton!
+    @IBOutlet private (set) var attributes: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.attachView(self)
@@ -42,5 +44,13 @@ extension ReadJotViewController: Prettify {
         readJotTextView.isHidden = false
         readJotTextView.isEditable = false
         readJotTextView.font = .systemFont(ofSize: 22)
+        attributes.text = ""
+        let followups = FollowUp.readAll(givenJotID: jotID)
+        if !followups.isEmpty {
+            attributes.text = "Follow Up times:"
+        }
+        followups.forEach {
+            attributes.text += "\n" + $0.datetime
+        }
     }
 }
