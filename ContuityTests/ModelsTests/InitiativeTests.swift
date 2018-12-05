@@ -44,8 +44,26 @@ class InitiativeTests: XCTestCase {
         let init2 = Initiative(name: "bye", parent: nil)
         init1.write()
         init2.write()
-        let initiatives = [init1, init2]
+        let initiatives = [init1, Initiative(name: "bye", parent: "NULL")]
         
-        XCTAssertEqual(try Initiative.getInitiatives(), initiatives)
+        XCTAssertEqual(Initiative.initiatives, initiatives)
+    }
+    
+    func testEditDistance() {
+        let init1 = Initiative(name: "beast", parent: "")
+        let init2 = Initiative(name: "sitting", parent: "")
+        
+        XCTAssertEqual(init1.editDistance(givenName: "pert"), 3)
+        XCTAssertEqual(init2.editDistance(givenName: "smitten"), 3)
+    }
+    
+    func testSimilarity() {
+        let init1 = Initiative(name: "beast", parent: "")
+        let init3 = Initiative(name: "pert", parent: "")
+        let init2 = Initiative(name: "sitting", parent: "")
+        let init4 = Initiative(name: "sittin", parent: "")
+        
+        XCTAssertEqual(init1.similarInitiative(givenInitiative: init3), false)
+        XCTAssertEqual(init2.similarInitiative(givenInitiative: init4), true)
     }
 }

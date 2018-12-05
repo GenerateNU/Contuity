@@ -113,7 +113,7 @@ extension Jot {
         }
         throw DatabaseError.selectFailed
     }
-    
+
     /// Parses a single row from the database into a Jot
     ///
     /// - Parameter row: a row from the database

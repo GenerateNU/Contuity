@@ -75,7 +75,7 @@ extension JotInitiative {
                 return []
         }
         do {
-            for row in try conn.prepare("SELECT * FROM jot-initiative WHERE intiative = \(initiative)") {
+            for row in try conn.prepare("SELECT * FROM jotinitiative WHERE initiativeid = \(initiative)") {
                 guard let optionalID: Int64 = row[0] as? Int64 else {
                     break
                 }
