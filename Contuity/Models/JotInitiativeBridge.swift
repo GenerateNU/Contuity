@@ -20,7 +20,7 @@ private extension JotInitiative {
     }
 
     var values: String {
-        return "VALUES (\(jotId), \"\(initiativeTag)\")"
+        return "VALUES (\"\(jotId)\", \"\(initiativeTag)\")"
     }
 }
 
@@ -75,12 +75,17 @@ extension JotInitiative {
                 return []
         }
         do {
-            for row in try conn.prepare("SELECT * FROM jotinitiative WHERE initiativeid = \(initiative)") {
-                guard let optionalID: Int64 = row[0] as? Int64 else {
+            for row in try conn.prepare("SELECT * FROM jotinitiative") {
+                guard let id: Int64 = row[0] as? Int64 else {
                     break
                 }
-                let jot = try Jot.read(givenID: Int(optionalID))
-                jots.append(jot)
+                guard let initiativeTag: String = row[1] as? String else {
+                    break
+                }
+                if initiative == initiativeTag {
+                    let jot = try Jot.read(givenID: Int(id))
+                    jots.append(jot)
+                }
             }
             return jots
         }

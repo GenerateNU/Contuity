@@ -67,8 +67,11 @@ extension Initiative {
         guard let name = row[0] as? String else {
             throw DatabaseError.selectFailed
         }
-        guard let parent = row[1] as? String? else {
+        guard var parent = row[1] as? String? else {
             throw DatabaseError.selectFailed
+        }
+        if parent == Optional("NULL") {
+            parent = nil
         }
         return Initiative(name: name, parent: parent)
     }
