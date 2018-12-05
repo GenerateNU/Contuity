@@ -6,13 +6,14 @@
 //  Copyright © 2018 Generate. All rights reserved.
 //
 import UIKit
+import BTNavigationDropdownMenu
 
 // View Protocol for the Explore View
 protocol ExploreViewProtocol: class {}
 
 // View Controller for the Explore View
 class ExploreViewController: UITableViewController {
-    var jots: [Jot] = []
+    var displayedJots: [Jot] = []
 
     private (set) var presenter = ExplorePresenter()
 
@@ -20,6 +21,23 @@ class ExploreViewController: UITableViewController {
         super.viewDidLoad()
         presenter.attachView(self)
         prettify()
+
+        displayedJots = presenter.jots
+        var  items: [String] = ["All"]
+
+        try? items += Initiative.initiatives.map { $0.name }
+        let menuView = BTNavigationDropdownMenu(title: BTTitle.index(0), items: items)
+        menuView.arrowTintColor = UIColor.black
+        self.navigationItem.titleView = menuView
+        menuView.didSelectItemAtIndexHandler = {(indexPath: Int) -> Void in
+            if indexPath == 0 {
+                self.displayedJots = self.presenter.jots
+            } else {
+                let initiative = items[indexPath]
+                self.displayedJots = self.presenter.filter(initiative: initiative)
+            }
+        }
+
         let nib = UINib(nibName: "JotTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "JotTableViewCell")
     }
@@ -29,12 +47,12 @@ class ExploreViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.jots.count
+        return displayedJots.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "JotTableViewCell"
-        let jot = presenter.jots[indexPath.row]
+        let jot = displayedJots[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? JotTableViewCell else {
             return UITableViewCell()
         }

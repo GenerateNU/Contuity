@@ -172,7 +172,6 @@ extension Jot {
                    longitude: newLong)
     }
     /// Returns a set of Jots from the database
-    /// de
     /// - Parameter queue: if queue is true only get jots where queue = true, otherwise get all jots
     /// - Returns: an array of Jots
     /// - Throws: DatabaseError.selectFailed if SELECT operation on database failed
