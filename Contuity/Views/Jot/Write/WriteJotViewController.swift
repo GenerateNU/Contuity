@@ -24,7 +24,7 @@ class WriteJotViewController: UIViewController {
     /// This varible keeps track of the FollowUpViewControllers created by this WriteJotViewController.
     /// When a jot is written, the followups are also stored to the database.
     private var followUpVCs: [FollowUpViewController] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,7 +35,7 @@ class WriteJotViewController: UIViewController {
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
         swipeLeft.direction = .left
         self.view.addGestureRecognizer(swipeLeft)
-        
+
         textView.delegate = self
 
         presenter.attachView(self)
@@ -107,7 +107,7 @@ class WriteJotViewController: UIViewController {
         }
         self.reset()
     }
-    
+
     /// reset this object to a blank slate.
     private func reset() {
         followUpVCs = []
