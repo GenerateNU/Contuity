@@ -35,6 +35,7 @@ class ExploreViewController: UITableViewController {
             } else {
                 let initiative = items[indexPath]
                 self.displayedJots = self.presenter.filter(initiative: initiative)
+                self.tableView.reloadData()
             }
         }
 
@@ -59,7 +60,7 @@ class ExploreViewController: UITableViewController {
         cell.textLabel?.text = jot.data
         return cell
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let rjvc = ReadJotViewController()
         rjvc.jotID = presenter.jots[indexPath.row].id
