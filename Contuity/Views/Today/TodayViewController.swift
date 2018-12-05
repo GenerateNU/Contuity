@@ -21,6 +21,8 @@ class TodayViewController: UITableViewController {
         prettify()
         let nib = UINib(nibName: "FollowupTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "FollowupTableViewCell")
+        
+        navigationItem.title = "Today"
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

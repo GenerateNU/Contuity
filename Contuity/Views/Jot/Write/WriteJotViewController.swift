@@ -94,7 +94,7 @@ class WriteJotViewController: UIViewController {
 
         presentInMainThread(confirmNewInitiativesAlert, isAnimated: true)
     }
-
+    
     /// Saves text to the database using the presenter
     private func saveTextAsJot() {
         /// make all the followups that have had dates entered
@@ -104,11 +104,6 @@ class WriteJotViewController: UIViewController {
         presenter.saveJot()
         if presenter.update {
             navigationController?.popViewController(animated: true)
-        }
-        else {
-            let rjvc = ReadJotViewController()
-            rjvc.jotID = presenter.jotID
-            navigationController?.pushViewController(rjvc, animated: true)
         }
         self.reset()
     }
