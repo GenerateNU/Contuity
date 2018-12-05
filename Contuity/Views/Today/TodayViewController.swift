@@ -14,25 +14,25 @@ protocol TodayViewProtocol: class {}
 // View Controller for the Today View
 class TodayViewController: UITableViewController {
     private (set) var presenter = TodayPresenter()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.attachView(self)
         prettify()
         let nib = UINib(nibName: "FollowupTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "FollowupTableViewCell")
-        
+
         navigationItem.title = "Today"
     }
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.followups.count
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "FollowupTableViewCell"
         let followup = presenter.followups[indexPath.row]

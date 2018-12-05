@@ -9,7 +9,7 @@
 import Foundation
 
 class Reminder {
-    
+
     var id: Int
     var jotid: Int
     var type: String?

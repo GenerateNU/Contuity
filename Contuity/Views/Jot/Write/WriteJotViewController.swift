@@ -49,7 +49,7 @@ class WriteJotViewController: UIViewController {
     /// This function handles a given gesture.
     /// A right swipe navigates to the Explore page.
     /// A left swipe navigates to the Today page.
-    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) {
         if gesture.direction == .right {
             navigationController?.pushViewController(ExploreViewController(), animated: false)
         }
@@ -57,7 +57,7 @@ class WriteJotViewController: UIViewController {
             navigationController?.pushViewController(TodayViewController(), animated: true)
         }
     }
-    
+
     /// This function
     /// The followUpVCs field of this object is updated with the new followUpVC which has a date.
     @IBAction func addAttributeButtonTapped(_ sender: Any) {
@@ -65,15 +65,15 @@ class WriteJotViewController: UIViewController {
         navigationController?.pushViewController(followUpVC, animated: true)
         followUpVCs.append(followUpVC)
     }
-    
+
     /// When the save button is tapped, this is triggered to notify the user they are about to save
     /// A jot with new initiatives attached.
     @objc private func processTextToSave() {
-        let hasNewInitiatives = presenter.update
-            ? Set(((try? Jot.read(givenID: presenter.jotID).data) ?? "").taggedWords)
-                .isSubset(of: presenter.text.taggedWords)
-            : presenter.text.taggedWords.count > 0
-        if hasNewInitiatives {
+        let existingInitiatives = Initiative.initiatives.map { (initiative) -> String in
+            return initiative.name
+        }
+
+        if !Set(existingInitiatives).isSuperset(of: presenter.text.taggedWords) {
             showNewInitiativesAlert()
         } else {
             saveTextAsJot()
@@ -94,7 +94,7 @@ class WriteJotViewController: UIViewController {
 
         presentInMainThread(confirmNewInitiativesAlert, isAnimated: true)
     }
-    
+
     /// Saves text to the database using the presenter
     private func saveTextAsJot() {
         /// make all the followups that have had dates entered

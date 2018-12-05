@@ -45,7 +45,7 @@ extension Jot: DatabaseProtocol {
         let modifiedAt = Expression<String>("modifiedAt")
         let latitude = Expression<Double>("latitude")
         let longitude = Expression<Double>("longitude")
- 
+
         do {
             try DatabaseManager.shared.conn?.run(
                 table.create { t in

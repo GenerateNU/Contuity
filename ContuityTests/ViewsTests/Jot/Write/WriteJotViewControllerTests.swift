@@ -82,6 +82,21 @@ class WriteJotViewControllerTests: XCTestCase {
         XCTAssertEqual(alertController?.actions.last?.title, "No")
         XCTAssertEqual(alertController?.actions.count, 2)
     }
+
+    func testWriteWithExistingInitiativesDoesNotTriggerAlert() {
+        Initiative(name: "xd", parent: nil).write()
+
+        let testWindow = UIWindow()
+        testWindow.rootViewController = sut
+        testWindow.makeKeyAndVisible()
+
+        sut.presenter.text = "disney #xd"
+        sut.presenter.update = false
+        sut.saveButton.sendActions(for: .touchUpInside)
+
+        let alertController = sut.presentedViewController as? UIAlertController
+        XCTAssertNil(alertController)
+    }
 }
 
 private extension WriteJotViewControllerTests {

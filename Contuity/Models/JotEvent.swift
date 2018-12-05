@@ -9,10 +9,10 @@
 import Foundation
 
 class JotEvent {
-    
+
     var jotid: Int
     var eventid: Int
-    
+
     init(jotid: Int, eventid: Int){
         self.jotid = jotid
         self.eventid = eventid

@@ -36,7 +36,6 @@
 		35E183BC215C63D40055BB01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E183BB215C63D40055BB01 /* Assets.xcassets */; };
 		35F22368219CB37100F17616 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F22367219CB37100F17616 /* UIViewControllerExtension.swift */; };
 		35F2236A219CB3AB00F17616 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F22369219CB3AB00F17616 /* DispatchQueueExtension.swift */; };
-		780242C32166CB6200642FFD /* initialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780242C22166CB6200642FFD /* initialize.swift */; };
 		784F65B2216435E00007D564 /* Jot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F65B1216435E00007D564 /* Jot.swift */; };
 		784F65B4216438880007D564 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F65B3216438880007D564 /* People.swift */; };
 		784F65B62164391B0007D564 /* JotPeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F65B52164391B0007D564 /* JotPeople.swift */; };
@@ -115,7 +114,6 @@
 		461BB23A02736D9776FCF1B4 /* Pods-Contuity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contuity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Contuity/Pods-Contuity.debug.xcconfig"; sourceTree = "<group>"; };
 		5DD2C59243C50D5E441307C4 /* Pods-Contuity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contuity.release.xcconfig"; path = "Pods/Target Support Files/Pods-Contuity/Pods-Contuity.release.xcconfig"; sourceTree = "<group>"; };
 		627B4B3AD67A38D07635376F /* Pods_ContuityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ContuityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		780242C22166CB6200642FFD /* initialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = initialize.swift; sourceTree = "<group>"; };
 		784F65B1216435E00007D564 /* Jot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jot.swift; sourceTree = "<group>"; };
 		784F65B3216438880007D564 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		784F65B52164391B0007D564 /* JotPeople.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotPeople.swift; sourceTree = "<group>"; };
@@ -385,7 +383,6 @@
 		780242C12166CB3900642FFD /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				780242C22166CB6200642FFD /* initialize.swift */,
 				35D8FC2121765AA900D3EF19 /* DatabaseManager.swift */,
 			);
 			path = Database;
@@ -757,7 +754,6 @@
 				9AC3572E21AF6390000F174C /* FollowUpViewController.swift in Sources */,
 				35F2236A219CB3AB00F17616 /* DispatchQueueExtension.swift in Sources */,
 				784F65B4216438880007D564 /* People.swift in Sources */,
-				780242C32166CB6200642FFD /* initialize.swift in Sources */,
 				35D8FC34218B95E200D3EF19 /* StringExtension.swift in Sources */,
 				92AF53FC21AB340700794B28 /* JotTableViewCell.swift in Sources */,
 				35D8FC2221765AA900D3EF19 /* DatabaseManager.swift in Sources */,

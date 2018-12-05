@@ -7,9 +7,9 @@
 //
 import UIKit
 class JotTableViewCell: UITableViewCell {
-    
+
     @IBOutlet private (set) var jotText: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }

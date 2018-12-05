@@ -13,7 +13,7 @@ class FollowUpViewController: UIViewController {
     @IBOutlet weak var enterButton: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
     var date: Date = Date()
-    
+
     @IBAction func enterButtonTapped(_ sender: Any) {
         date = datePicker.date
         print(datePicker.date)

@@ -135,7 +135,7 @@ extension Initiative {
             return false
         }
     }
-    
+
     /// Returns the most similar initiative in the given list to this initiative with respect to edit distance
     /// of names.
     func mostSimilarInitiative(givenInitiatives: [Initiative]) -> Initiative? {

@@ -30,7 +30,7 @@ extension FollowUp: DatabaseProtocol {
         let id = Expression<Int>("id")
         let jotid = Expression<Int>("jotid")
         let datetime = Expression<String>("datetime")
-        
+
         do {
             try DatabaseManager.shared.conn?.run(
                 table.create { t in
@@ -72,7 +72,6 @@ extension FollowUp: DatabaseProtocol {
 }
 
 extension FollowUp {
-    /// TODO: throws not nil
     static func read(givenID: Int) -> FollowUp? {
         let result = retrieve(statement: "SELECT * FROM followup WHERE id = \(givenID)")
         if result.isEmpty {
@@ -82,17 +81,17 @@ extension FollowUp {
             return result[0]
         }
     }
-    
+
     /// This method returns a list of followups with the given jotid.
     static func readAll(givenJotID: Int) -> [FollowUp] {
         return retrieve(statement: "SELECT * FROM followup WHERE jotid = \(givenJotID)")
     }
-    
+
     /// This method returns a list of all followups that exist in the data base.
     static func getAll() -> [FollowUp] {
         return retrieve(statement: "SELECT * FROM followup")
     }
-    
+
     /// Helper function for retrieving a list of followups given a statement.
     private static func retrieve(statement: String) -> [FollowUp]{
         var result: [FollowUp] = []
@@ -127,11 +126,11 @@ extension FollowUp {
     static var nextId: Int {
         let followupTable = Table("followup")
         let id = Expression<Int>("id")
-        
+
         guard let conn = DatabaseManager.shared.conn else {
             return 0
         }
-        
+
         return 1 + ((try? conn.scalar(followupTable.select(id.max)) ?? 0) ?? 0)
     }
 }
