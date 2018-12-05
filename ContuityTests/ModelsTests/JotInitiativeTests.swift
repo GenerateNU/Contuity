@@ -56,7 +56,7 @@ class JotInitiativeTests: XCTestCase {
         let ayyy = [jot, jot1]
         let asdf = [jot2]
         
-        XCTAssertEqual(try JotInitiative.getJots(initiative: "ayyy"), ayyy)
-        XCTAssertEqual(try JotInitiative.getJots(initiative: "asdf"), asdf)
+        XCTAssertEqual(JotInitiative.getJots(initiative: "ayyy"), ayyy)
+        XCTAssertEqual(JotInitiative.getJots(initiative: "asdf"), asdf)
     }
 }

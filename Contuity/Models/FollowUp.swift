@@ -116,8 +116,6 @@ extension FollowUp {
             }
         }
         catch {
-            // TODO: throw selectionfailure
-            // this means we have a partial list
             return result
         }
         return result

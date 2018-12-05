@@ -16,7 +16,7 @@ struct Initiative {
 
 private extension Initiative {
     var insert: String {
-        return "INSERT INTO initative (name, parent)"
+        return "INSERT INTO initiative (name, parent)"
     }
 
     var values: String {
@@ -31,10 +31,9 @@ extension Initiative: Equatable {
 }
 
 extension Initiative: DatabaseProtocol {
-
     static func createTable() throws {
         let table = Table("initiative")
-        let name = Expression<Int>("name")
+        let name = Expression<String>("name")
         let parent = Expression<String>("parent")
 
         do {
@@ -57,14 +56,13 @@ extension Initiative: DatabaseProtocol {
         }
         _ = try? statement.run()
     }
-    
+
     func update() {
         /// TODO: implement update method for Initiative
     }
 }
 
 extension Initiative {
-
     private static func parseRow(row: Statement.Element) throws -> Initiative {
         guard let name = row[0] as? String else {
             throw DatabaseError.selectFailed
@@ -82,13 +80,61 @@ extension Initiative {
                 return []
         }
         do {
-            for row in try conn.prepare("SELECT * FROM jot-initiative") {
+            for row in try conn.prepare("SELECT * FROM initiative") {
                 try initiatives.append(parseRow(row: row))
             }
             return initiatives
         }
         catch {
             return []
+        }
+    }
+}
+
+/// This extension contains functionality pertaining to initiative name similarity.
+extension Initiative {
+    /// This function calculates the edit distance between the name of this initiative and the given name.
+    func editDistance(givenName: String) -> Int {
+        /// initializing 2x2 matrix where each string is an axis
+        var matrix: [[Int]] = [[0]]
+        for index in 0...name.count {
+            matrix.append([index + 1])
+        }
+        for index in 0...givenName.count {
+            matrix[0].append(index + 1)
+        }
+        let a = "-" + name
+        let b = "-" + givenName
+        for i in 1...a.count {
+            for _ in 1...b.count {
+                matrix[i].append(0)
+            }
+        }
+        /// build the matrix
+        for i in 1...a.count {
+            for j in 1...b.count{
+                if a[i] == b[j] {
+                    matrix[i][j] = min(1 + matrix[i-1][j], 1 + matrix[i][j-1], matrix[i-1][j-1])
+                }
+                else {
+                    matrix[i][j] = 1 + min(matrix[i-1][j], matrix[i][j-1], matrix[i-1][j-1])
+                }
+            }
+        }
+        return matrix[a.count][b.count]
+    }
+
+    /// This function uses some similarityHeuristic, which is a threshold for an acceptable amount of error
+    /// at which point a name is called similar, to decide if two initiatives have similar names.
+    func similarInitiative(givenInitiative: Initiative ) -> Bool {
+        let similarityHeuristic = 0.25
+        let editDist = self.editDistance(givenName: givenInitiative.name)
+        print(Double(editDist) / Double(name.count))
+        if Double(editDist) / Double(name.count) < similarityHeuristic {
+            return true
+        }
+        else {
+            return false
         }
     }
 }

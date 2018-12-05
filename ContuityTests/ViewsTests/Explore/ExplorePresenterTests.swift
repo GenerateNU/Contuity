@@ -22,8 +22,8 @@ class ExplorePresenterTests: XCTestCase {
     }
     
     func testGetJots() throws {
-        let jot1 = Jot(id: 2, data: "", queue: false, createdAt: "now", modifiedAt: "now", latitude: 0, longitude: 0)
-        let jot2 = Jot(id: 1, data: "", queue: false, createdAt: "now", modifiedAt: "now", latitude: 0, longitude: 0)
+        let jot1 = Jot(id: 2, data: "", queue: true, createdAt: "now", modifiedAt: "now", latitude: 0, longitude: 0)
+        let jot2 = Jot(id: 1, data: "", queue: true, createdAt: "now", modifiedAt: "now", latitude: 0, longitude: 0)
         
         jot1.write()
         jot2.write()

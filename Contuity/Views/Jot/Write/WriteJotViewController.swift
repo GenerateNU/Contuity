@@ -24,7 +24,7 @@ class WriteJotViewController: UIViewController {
     /// This varible keeps track of the FollowUpViewControllers created by this WriteJotViewController.
     /// When a jot is written, the followups are also stored to the database.
     private var followUpVCs: [FollowUpViewController] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,7 +35,7 @@ class WriteJotViewController: UIViewController {
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
         swipeLeft.direction = .left
         self.view.addGestureRecognizer(swipeLeft)
-        
+
         textView.delegate = self
 
         presenter.attachView(self)
@@ -79,6 +79,26 @@ class WriteJotViewController: UIViewController {
             saveTextAsJot()
         }
     }
+    
+    /// Checks the database for an existing intiative and presents an alert if the new initiative's name is similar
+    /// to an existing initiative.
+//    private func checkForSimilarExistingInitiative() -> Bool {
+//        for initiative in (try (try? Jot.read(givenID: presenter.jotID).data ?? "")?.taggedWords ?? []) {
+//            let minEditDist = initiative
+//        }
+//        let confirmSimilarInitiativeAlert = UIAlertController(
+//            title: "Similar initiative exists",
+//            message: "Did you mean to use this similar initiative?",
+//            preferredStyle: .alert)
+//        confirmSimilarInitiativeAlert.addAction(UIAlertAction(title: "Yes", style: .default) { _ in
+//            return false
+//        })
+//        confirmSimilarInitiativeAlert.addAction(UIAlertAction(title: "No", style: .cancel){ _ in
+//            return true
+//        })
+//
+//        presentInMainThread(confirmSimilarInitiativeAlert, isAnimated: true)
+//    }
 
     /// Present an alert to indicate new initiatives have been added to this Jot. If the user taps Yes button,
     /// they acknowledge this and the save is processed. Tapping the no button is a simple cancel routine.
@@ -88,6 +108,7 @@ class WriteJotViewController: UIViewController {
             message: "Are you sure would like to add new initiatives?",
             preferredStyle: .alert)
         confirmNewInitiativesAlert.addAction(UIAlertAction(title: "Yes", style: .default) { _ in
+//            if !self.checkForSimilarExistingInitiative() { self.saveTextAsJot() }
             self.saveTextAsJot()
         })
         confirmNewInitiativesAlert.addAction(UIAlertAction(title: "No", style: .cancel))
@@ -112,7 +133,7 @@ class WriteJotViewController: UIViewController {
         }
         self.reset()
     }
-    
+
     /// reset this object to a blank slate.
     private func reset() {
         followUpVCs = []
