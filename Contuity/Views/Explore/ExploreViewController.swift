@@ -35,6 +35,7 @@ class ExploreViewController: UITableViewController {
             } else {
                 let initiative = items[indexPath]
                 self.displayedJots = self.presenter.filter(initiative: initiative)
+                self.tableView.reloadData()
             }
         }
 
