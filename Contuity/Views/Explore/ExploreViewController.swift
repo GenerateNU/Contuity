@@ -59,6 +59,12 @@ class ExploreViewController: UITableViewController {
         cell.textLabel?.text = jot.data
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let rjvc = ReadJotViewController()
+        rjvc.jotID = presenter.jots[indexPath.row].id
+        navigationController?.pushViewController(rjvc, animated: true)
+    }
 }
 
 extension ExploreViewController: ExploreViewProtocol {}
