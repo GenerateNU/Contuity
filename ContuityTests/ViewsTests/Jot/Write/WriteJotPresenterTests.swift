@@ -23,9 +23,10 @@ class WriteJotPresenterTests: XCTestCase {
         sut = nil
 
         // Delete tables here
-        let tableName = "jot"
+        var tableName = "jot"
         try? DatabaseManager.shared.conn?.execute("DELETE FROM " + tableName)
-        
+        tableName = "initiative"
+        try? DatabaseManager.shared.conn?.execute("DELETE FROM " + tableName)
         super.tearDown()
     }
 
