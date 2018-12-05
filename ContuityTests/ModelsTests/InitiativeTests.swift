@@ -44,7 +44,7 @@ class InitiativeTests: XCTestCase {
         let init2 = Initiative(name: "bye", parent: nil)
         init1.write()
         init2.write()
-        let initiatives = [init1, init2]
+        let initiatives = [init1, Initiative(name: "bye", parent: "NULL")]
         
         XCTAssertEqual(Initiative.initiatives, initiatives)
     }

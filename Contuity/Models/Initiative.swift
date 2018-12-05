@@ -20,7 +20,7 @@ private extension Initiative {
     }
 
     var values: String {
-        return "VALUES (\(name), \"\(parent ?? "NULL")\")"
+        return "VALUES (\"\(name)\", \"\(parent ?? "NULL")\")"
     }
 }
 
@@ -75,9 +75,8 @@ extension Initiative {
 
     static var initiatives: [Initiative] {
         var initiatives: [Initiative] = []
-        guard let conn = DatabaseManager.shared.conn
-            else {
-                return []
+        guard let conn = DatabaseManager.shared.conn else {
+            return initiatives
         }
         do {
             for row in try conn.prepare("SELECT * FROM initiative") {
@@ -86,7 +85,7 @@ extension Initiative {
             return initiatives
         }
         catch {
-            return []
+            return initiatives
         }
     }
 }
@@ -129,12 +128,19 @@ extension Initiative {
     func similarInitiative(givenInitiative: Initiative ) -> Bool {
         let similarityHeuristic = 0.25
         let editDist = self.editDistance(givenName: givenInitiative.name)
-        print(Double(editDist) / Double(name.count))
         if Double(editDist) / Double(name.count) < similarityHeuristic {
             return true
         }
         else {
             return false
+        }
+    }
+    
+    /// Returns the most similar initiative in the given list to this initiative with respect to edit distance
+    /// of names.
+    func mostSimilarInitiative(givenInitiatives: [Initiative]) -> Initiative? {
+        return givenInitiatives.min {
+            $0.editDistance(givenName: name) < $1.editDistance(givenName: name)
         }
     }
 }
