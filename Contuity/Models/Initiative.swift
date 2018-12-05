@@ -57,7 +57,7 @@ extension Initiative: DatabaseProtocol {
         }
         _ = try? statement.run()
     }
-    
+
     func update() {
         /// TODO: implement update method for Initiative
     }

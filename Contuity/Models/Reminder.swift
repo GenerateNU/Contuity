@@ -9,11 +9,11 @@
 import Foundation
 
 class Reminder {
-    
+
     var id: Int
     var jotid: Int
     var type: String?
-    
+
     init(id: Int, jotid: Int, type: String?){
         self.id = id
         self.jotid = jotid

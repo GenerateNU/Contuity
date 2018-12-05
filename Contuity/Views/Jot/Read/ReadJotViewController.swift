@@ -10,10 +10,9 @@ import Foundation
 import UIKit
 
 class ReadJotViewController: UIViewController {
-    var jotID: Int = 1 // TODO: this needs to be set to the given jotID in a constructor
+    var jotID: Int = 1
     var presenter: ReadJotPresenter = ReadJotPresenter()
-    
-    
+
     /// MARK - properties
     @IBOutlet private (set) var readJotTextView: UITextView!
     @IBOutlet private (set) var backButton: UIButton!

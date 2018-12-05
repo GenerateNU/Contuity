@@ -46,6 +46,6 @@ class InitiativeTests: XCTestCase {
         init2.write()
         let initiatives = [init1, init2]
         
-        XCTAssertEqual(try Initiative.getInitiatives(), initiatives)
+        XCTAssertEqual(Initiative.initiatives, initiatives)
     }
 }

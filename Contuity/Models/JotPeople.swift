@@ -9,10 +9,10 @@
 import Foundation
 
 class JotPeople {
-    
+
     var jotid: Int
     var peopleid: Int
-    
+
     init(jotid: Int, peopleid: Int){
         self.jotid = jotid
         self.peopleid = peopleid
