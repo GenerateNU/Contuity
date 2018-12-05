@@ -51,7 +51,8 @@ class WriteJotPresenter: WriteJotPresenterProtocol {
     func saveJot(lat: Double? = nil, lng: Double? = nil) {
         if update {
             do {
-                let updateJot = try Jot.read(givenID: self.jotID)
+                var updateJot = try Jot.read(givenID: self.jotID)
+                updateJot.data = text
                 updateJot.update()
             }
             catch {
